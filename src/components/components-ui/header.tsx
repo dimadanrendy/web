@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
 import * as React from "react";
+import { usePathname } from "next/navigation";
 
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { Menu, Package2, Search } from "lucide-react";
-import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
 
 import {
@@ -26,6 +26,14 @@ import {
   CommandItem,
   CommandList,
 } from "../ui/command";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -83,6 +91,8 @@ export default function PageHeader() {
     e.preventDefault();
     setOpen((open) => !open);
   };
+
+  const pathname = usePathname();
   return (
     <header className="sticky top-0 flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6 z-10">
       <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center md:gap-5 md:text-sm lg:gap-6">
@@ -121,28 +131,28 @@ export default function PageHeader() {
                   <ListItem
                     href="/sejarah-bakeuda-pangkalpinang"
                     title="Sejarah">
-                    Sejarah Bakeuda Kota Pangkalpinang
+                    Sejarah Bakeuda Kota Pangkal Pinang
                   </ListItem>
                   <ListItem href="/visi-dan-misi" title="Visi Misi">
-                    Visi dan Misi Kota Pangkalpinang
+                    Visi dan Misi Kota Pangkal Pinang
                   </ListItem>
                   <ListItem
-                    href="/docs/primitives/typography"
+                    href="/tugas-fungsi-bakeuda-pangkalpinang"
                     title="Tugas dan Fungsi">
-                    Tugas dan Fungsi Bakeuda Kota Pangkalpinang
+                    Tugas dan Fungsi Bakeuda Kota Pangkal Pinang
                   </ListItem>
                   <ListItem
                     href="/struktur-organisasi-bakeuda-pangkalpinang"
                     title="Struktur Organisasi">
-                    Struktur Organisasi Bakeuda Kota Pangkalpinang
+                    Struktur Organisasi Bakeuda Kota Pangkal Pinang
                   </ListItem>
                   <ListItem
                     href="/maklumat-bakeuda-pangkalpinang"
                     title="Maklumat">
-                    Maklumat Bakeuda Kota Pangkalpinang
+                    Maklumat Bakeuda Kota Pangkal Pinang
                   </ListItem>
                   <ListItem href="/motto-bakeuda-pangkalpinang" title="Motto">
-                    Motto Bakeuda Kota Pangkalpinang
+                    Motto Bakeuda Kota Pangkal Pinang
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
@@ -218,27 +228,83 @@ export default function PageHeader() {
               <span className="sr-only">Acme Inc</span>
             </Link>
             <Link
+              href="/home"
+              className={`${
+                pathname === "/home"
+                  ? ""
+                  : "text-muted-foreground hover:text-foreground"
+              }`}>
+              Home
+            </Link>
+
+            <div className="mr-0">
+              <DropdownMenu>
+                <DropdownMenuTrigger className="text-muted-foreground hover:text-foreground">
+                  Profile
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-72 px-10 border-none shadow-none">
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <Link href="/sejarah-bakeuda-pangkalpinang" className="">
+                      Sejarah Bakeuda Pangkal Pinang
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link
+                      href="/tugas-fungsi-bakeuda-pangkalpinang"
+                      className="">
+                      Tugas dan Fungsi Bakeuda Pangkal Pinang
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/maklumat-bakeuda-pangkalpinang" className="">
+                      Maklumat Bakeuda Pangkal Pinang
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/visi-dan-misi" className="">
+                      Visi Misi Pangkal Pinang
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/visi-dan-misi" className="">
+                      Struktur Organisasi Bakeuda Pangkal Pinang
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link href="/motto-bakeuda-pangkalpinang" className="">
+                      Motto Bakeuda Pangkal Pinang
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+            <Link
               href="#"
-              className="text-muted-foreground hover:text-foreground">
-              Dashboard
+              className={`${
+                pathname === "/publikasi"
+                  ? ""
+                  : "text-muted-foreground hover:text-foreground"
+              }`}>
+              Publikasi
             </Link>
             <Link
               href="#"
-              className="text-muted-foreground hover:text-foreground">
-              Orders
+              className={`${
+                pathname === "/regulasi"
+                  ? ""
+                  : "text-muted-foreground hover:text-foreground"
+              }`}>
+              Regulasi
             </Link>
             <Link
               href="#"
-              className="text-muted-foreground hover:text-foreground">
-              Products
-            </Link>
-            <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground">
-              Customers
-            </Link>
-            <Link href="#" className="hover:text-foreground">
-              Settings
+              className={`${
+                pathname === "/layanan"
+                  ? ""
+                  : "text-muted-foreground hover:text-foreground"
+              }`}>
+              Layanan
             </Link>
           </nav>
         </SheetContent>

@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Bakeuda Pangkalpinang",
-  description: "Badan Keuangan Daerah Kota Pangkalpinang",
+  description: "Badan Keuangan Daerah Kota Pangkal Pinang",
 };
 
 export default function RootLayout({

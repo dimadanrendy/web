@@ -5,8 +5,8 @@ import PageTopInformation from "@/components/components-ui/top-information";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home - Bakeuda Pangkalpinang",
-  description: "Badan Keuangan Daerah Kota Pangkalpinang",
+  title: "Home - Bakeuda Pangkal Pinang",
+  description: "Badan Keuangan Daerah Kota Pangkal Pinang",
   icons: {
     icon: "/images/Lambang_Kota_Pangkalpinang.png",
   },

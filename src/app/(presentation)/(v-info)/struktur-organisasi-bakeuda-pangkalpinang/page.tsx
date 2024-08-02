@@ -1,5 +1,8 @@
 import React from "react";
 
+export const metadata = {
+  title: "Struktur Organisasi - Bakeuda Pangkal Pinang",
+};
 export default function PageStrukturOrganisasi() {
   return (
     <section className="w-full mb-12 px-3 max-w-full mx-auto  bg-opacity-10 shadow-2xl drop-shadow-2xl shadow-slate-300 rounded-3xl">
@@ -7,7 +10,7 @@ export default function PageStrukturOrganisasi() {
         <div className="lg:flex-none lg:w-4/6 relative">
           <section className="py-2">
             <h1 className="text-2xl font-bold text-secondary-foreground pb-4">
-              Struktur Organisasi Bakeuda Kota Pangkalpinang
+              Struktur Organisasi Bakeuda Kota Pangkal Pinang
             </h1>
             <div className="h-15 bg-rose-500 aspect-video py-4"></div>
 

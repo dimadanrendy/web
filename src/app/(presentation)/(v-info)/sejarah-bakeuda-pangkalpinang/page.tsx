@@ -1,12 +1,8 @@
-import PageCarousel from "@/components/components-hero-ui/carousel";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Image from "next/image";
 import React from "react";
+
+export const metadata = {
+  title: "Sejarah - Bakeuda Kota Pangkal Pinang",
+};
 
 export default function PageProfile() {
   return (
@@ -142,7 +138,7 @@ export default function PageProfile() {
           <div className="lg:flex-none lg:w-4/6 relative">
             <section className="py-2">
               <h1 className="text-2xl font-bold text-secondary-foreground pb-4">
-                Sejarah Bakeuda Kota Pangkalpinang
+                Sejarah Bakeuda Kota Pangkal Pinang
               </h1>
               <div className="h-15 bg-rose-500 aspect-video py-4"></div>
 
