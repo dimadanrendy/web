@@ -160,52 +160,149 @@ export default function PageHeader() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>Publikasi</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                  {components.map((component) => (
-                    <ListItem
-                      key={component.title}
-                      title={component.title}
-                      href={component.href}>
-                      {component.description}
-                    </ListItem>
-                  ))}
+                <ul className="grid gap-3 p-6 md:w-[800px] lg:w-[900px] md:grid-cols-3 ">
+                  <ListItem
+                    href="/sejarah-bakeuda-pangkalpinang"
+                    title="Perwako">
+                    Peraturan Wali Kota Pangkal Pinang
+                  </ListItem>
+                  <ListItem href="/visi-dan-misi" title="Perda">
+                    Peraturan Daerah Kota Pangkal Pinang
+                  </ListItem>
+                  <ListItem
+                    href="/tugas-fungsi-bakeuda-pangkalpinang"
+                    title="SK">
+                    Surat Keputusan
+                  </ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Regulasi</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Berita</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                  {components.map((component) => (
-                    <ListItem
-                      key={component.title}
-                      title={component.title}
-                      href={component.href}>
-                      {component.description}
-                    </ListItem>
-                  ))}
+                <ul className="grid gap-3 p-6 md:w-[800px] lg:w-[900px] md:grid-cols-3 ">
+                  <li className="row-span-3 ">
+                    <NavigationMenuLink asChild>
+                      <Image
+                        className="object-cover"
+                        src="/images/foto.jpg"
+                        alt="Next.js"
+                        width={600}
+                        height={400}
+                      />
+                    </NavigationMenuLink>
+                    <span className="text-sm p-1 line-clamp-2">
+                      Judul berita yang akan disampaikan as Lorem ipsum dolor
+                      sit amet consectetur adipisicing elit. Explicabo, nam.
+                    </span>
+                  </li>
+                  <li className="row-span-3 ">
+                    <NavigationMenuLink asChild>
+                      <Image
+                        className="object-cover"
+                        src="/images/foto.jpg"
+                        alt="Next.js"
+                        width={600}
+                        height={400}
+                      />
+                    </NavigationMenuLink>
+                    <span className="text-sm p-1 line-clamp-2">
+                      Judul berita yang akan disampaikan as Lorem ipsum dolor
+                      sit amet consectetur adipisicing elit. Explicabo, nam.
+                    </span>
+                  </li>
+                  <li className="row-span-3 ">
+                    <NavigationMenuLink asChild>
+                      <Image
+                        className="object-cover"
+                        src="/images/foto.jpg"
+                        alt="Next.js"
+                        width={600}
+                        height={400}
+                      />
+                    </NavigationMenuLink>
+                    <span className="text-sm p-1 line-clamp-2">
+                      Judul berita yang akan disampaikan as Lorem ipsum dolor
+                      sit amet consectetur adipisicing elit. Explicabo, nam.
+                    </span>
+                  </li>
+                  <li className="row-span-3">
+                    <NavigationMenuLink asChild>
+                      <Image
+                        className="object-cover"
+                        src="/images/foto.jpg"
+                        alt="Next.js"
+                        width={600}
+                        height={400}
+                      />
+                    </NavigationMenuLink>
+                    <span className="text-sm p-1 line-clamp-2">
+                      Judul berita yang akan disampaikan as Lorem ipsum dolor
+                      sit amet consectetur adipisicing elit. Explicabo, nam.
+                    </span>
+                  </li>
+                  <li className="row-span-3">
+                    <NavigationMenuLink asChild>
+                      <Image
+                        className="object-cover"
+                        src="/images/foto.jpg"
+                        alt="Next.js"
+                        width={600}
+                        height={400}
+                      />
+                    </NavigationMenuLink>
+                    <span className="text-sm p-1 line-clamp-2">
+                      Judul berita yang akan disampaikan as Lorem ipsum dolor
+                      sit amet consectetur adipisicing elit. Explicabo, nam.
+                    </span>
+                  </li>
+                  <li className="row-span-3">
+                    <NavigationMenuLink asChild>
+                      <Image
+                        className="object-cover"
+                        src="/images/foto.jpg"
+                        alt="Next.js"
+                        width={600}
+                        height={400}
+                      />
+                    </NavigationMenuLink>
+                    <span className="text-sm p-1 line-clamp-2">
+                      Judul berita yang akan disampaikan as Lorem ipsum dolor
+                      sit amet consectetur adipisicing elit. Explicabo, nam.
+                    </span>
+                  </li>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavigationMenuTrigger>Layanan</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                  {components.map((component) => (
-                    <ListItem
-                      key={component.title}
-                      title={component.title}
-                      href={component.href}>
-                      {component.description}
-                    </ListItem>
-                  ))}
+                <ul className="grid gap-3 p-6 md:w-[800px] lg:w-[900px] md:grid-cols-3 ">
+                  <ListItem
+                    href="/sejarah-bakeuda-pangkalpinang"
+                    title="Cek PBB">
+                    Yuk Cek PBB kalian di Kota Pangkal Pinang secara Online
+                  </ListItem>
+                  <ListItem href="/visi-dan-misi" title="Pajak Online">
+                    Realisasi Pajak Daerah Kota Pangkal Pinang
+                  </ListItem>
+                  <ListItem
+                    href="/tugas-fungsi-bakeuda-pangkalpinang"
+                    title="E-Serang">
+                    Elektonik Persediaan Barang
+                  </ListItem>
+                  <ListItem
+                    href="/tugas-fungsi-bakeuda-pangkalpinang"
+                    title="Loket Pelayanan">
+                    Yuk Cari Tau Loket Pelayanan Pajak Daerah
+                  </ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <Link href="/docs" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Documentation
+                  LAPOR
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
