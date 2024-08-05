@@ -4,6 +4,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import React from "react";
 
+export const metadata = {
+  title: "Home - Bakeuda Pangkal Pinang",
+};
+
+
 export default function HomePage() {
   return (
     <>
