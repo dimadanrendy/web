@@ -359,7 +359,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="p-2 flex justify-center items-center ">
-                  <h1 className="flex justify-center items-center p-2 w-full lg:w-2/3 xl:full  text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
+                  <h1 className="flex justify-center items-center p-2 w-full lg:w-2/3 xl:w-full  text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
                     Sekilas Info Selengkapnya .....
                   </h1>
                 </div>
