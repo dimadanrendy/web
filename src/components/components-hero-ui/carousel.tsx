@@ -11,6 +11,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import Image from "next/image";
+import Link from "next/link";
+import { fotoBakeuda } from "@/lib/image";
 
 export default function PageCarousel() {
   const plugin = React.useRef(
@@ -26,18 +28,18 @@ export default function PageCarousel() {
       <CarouselContent>
         {Array.from({ length: 2 }).map((_, index) => (
           <CarouselItem key={index}>
-            <div className="">
+            <Link href={"/"}>
               <Card>
                 <CardContent className="flex bg-slate-500 aspect-[21/9] items-center justify-center">
                   <Image
-                    src="/images/foto.jpg"
+                    src={fotoBakeuda}
                     alt="placeholder"
                     quality={100}
                     fill
                   />
                 </CardContent>
               </Card>
-            </div>
+            </Link>
           </CarouselItem>
         ))}
       </CarouselContent>

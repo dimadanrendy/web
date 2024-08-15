@@ -7,9 +7,6 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Home - Bakeuda Pangkal Pinang",
   description: "Badan Keuangan Daerah Kota Pangkal Pinang",
-  icons: {
-    icon: "/images/Lambang_Kota_Pangkalpinang.png",
-  },
 };
 
 export default function RootLayout({

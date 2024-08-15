@@ -1,3 +1,4 @@
+import FotoPemimpin from "@/components/components-ui/foto-pemimpin";
 import React from "react";
 
 export const metadata = {
@@ -7,132 +8,7 @@ export const metadata = {
 export default function PageProfile() {
   return (
     <>
-      {/* <section className="py-4">
-        <div className="w-full max-w-7xl mx-auto">
-          <div className="lg:flex gap-4">
-            <div className="lg:w-5/6 ">
-              <h1 className="text-3xl pb-8 font-extrabold text-slate-600">
-                Sejarah Bakeuda Kota Pangkalpinang
-              </h1>
-              <div className="text-justify">
-                <p className="indent-8">
-                  Dengan terbitnya Undang-Undang Nomor 22 Tahun 1999 tentang
-                  Pemerintah Daerah, maka dimulai era otonomi daerah untuk
-                  Pemerintah Kabupaten dan Kota. Pemerintah Kota Pangkalpinang
-                  melakukan restrukturisasi semua perangkat-perangkat (instansi)
-                  daerah untuk disesuaikan dengan Undang-Undang Nomor 22 Tahun
-                  1999 tersebut. Termasuk perangkat daerah yang menangani bidang
-                  keuangan daerah.Sesuai amanat Peraturan Daerah (Perda) Kota
-                  Pangkalpinag Nomor 17 Tahun 2000 tentang Pembentukan dan
-                  Susunan Organisasi Perangkat-Perangkat Pemerintah Kota
-                  Panfkalpinang, maka Dinas Pendapatan Daerah (Dispenda)
-                  Pemerintah Kotamadya Daerah Tingkat II Pangklpinang
-                  digabungkan dengan Bagian Keuangan Sekretariat Pemerintah
-                  Kotamadya Daerah Tingkat II Pangkalpinang dengan nama Badan
-                  Keuangan Daearah (Bakuda) Pemerintah Kota Pangkalpinang.
-                  Organisasi Bakuda ini dipimpin oleh seorang Kepala Badan
-                  dengan eselon II/b, yang dibantu oleh seorang Bagian Tata
-                  Usaha Badan dengan tiga orang Kepala Bidang yang masing-masing
-                  dengan eselon III/a. bidang-bidang tersebut adalah
-                </p>
-                <p className="indent-8">
-                  Dengan terbitnya Undang-Undang Nomor 22 Tahun 1999 tentang
-                  Pemerintah Daerah, maka dimulai era otonomi daerah untuk
-                  Pemerintah Kabupaten dan Kota. Pemerintah Kota Pangkalpinang
-                  melakukan restrukturisasi semua perangkat-perangkat (instansi)
-                  daerah untuk disesuaikan dengan Undang-Undang Nomor 22 Tahun
-                  1999 tersebut. Termasuk perangkat daerah yang menangani bidang
-                  keuangan daerah.Sesuai amanat Peraturan Daerah (Perda) Kota
-                  Pangkalpinag Nomor 17 Tahun 2000 tentang Pembentukan dan
-                  Susunan Organisasi Perangkat-Perangkat Pemerintah Kota
-                  Panfkalpinang, maka Dinas Pendapatan Daerah (Dispenda)
-                  Pemerintah Kotamadya Daerah Tingkat II Pangklpinang
-                  digabungkan dengan Bagian Keuangan Sekretariat Pemerintah
-                  Kotamadya Daerah Tingkat II Pangkalpinang dengan nama Badan
-                  Keuangan Daearah (Bakuda) Pemerintah Kota Pangkalpinang.
-                  Organisasi Bakuda ini dipimpin oleh seorang Kepala Badan
-                  dengan eselon II/b, yang dibantu oleh seorang Bagian Tata
-                  Usaha Badan dengan tiga orang Kepala Bidang yang masing-masing
-                  dengan eselon III/a. bidang-bidang tersebut adalah
-                </p>
-                <p className="indent-8">
-                  Dengan terbitnya Undang-Undang Nomor 22 Tahun 1999 tentang
-                  Pemerintah Daerah, maka dimulai era otonomi daerah untuk
-                  Pemerintah Kabupaten dan Kota. Pemerintah Kota Pangkalpinang
-                  melakukan restrukturisasi semua perangkat-perangkat (instansi)
-                  daerah untuk disesuaikan dengan Undang-Undang Nomor 22 Tahun
-                  1999 tersebut. Termasuk perangkat daerah yang menangani bidang
-                  keuangan daerah.Sesuai amanat Peraturan Daerah (Perda) Kota
-                  Pangkalpinag Nomor 17 Tahun 2000 tentang Pembentukan dan
-                  Susunan Organisasi Perangkat-Perangkat Pemerintah Kota
-                  Panfkalpinang, maka Dinas Pendapatan Daerah (Dispenda)
-                  Pemerintah Kotamadya Daerah Tingkat II Pangklpinang
-                  digabungkan dengan Bagian Keuangan Sekretariat Pemerintah
-                  Kotamadya Daerah Tingkat II Pangkalpinang dengan nama Badan
-                  Keuangan Daearah (Bakuda) Pemerintah Kota Pangkalpinang.
-                  Organisasi Bakuda ini dipimpin oleh seorang Kepala Badan
-                  dengan eselon II/b, yang dibantu oleh seorang Bagian Tata
-                  Usaha Badan dengan tiga orang Kepala Bidang yang masing-masing
-                  dengan eselon III/a. bidang-bidang tersebut adalah
-                </p>
-                <p className="indent-8">
-                  Dengan terbitnya Undang-Undang Nomor 22 Tahun 1999 tentang
-                  Pemerintah Daerah, maka dimulai era otonomi daerah untuk
-                  Pemerintah Kabupaten dan Kota. Pemerintah Kota Pangkalpinang
-                  melakukan restrukturisasi semua perangkat-perangkat (instansi)
-                  daerah untuk disesuaikan dengan Undang-Undang Nomor 22 Tahun
-                  1999 tersebut. Termasuk perangkat daerah yang menangani bidang
-                  keuangan daerah.Sesuai amanat Peraturan Daerah (Perda) Kota
-                  Pangkalpinag Nomor 17 Tahun 2000 tentang Pembentukan dan
-                  Susunan Organisasi Perangkat-Perangkat Pemerintah Kota
-                  Panfkalpinang, maka Dinas Pendapatan Daerah (Dispenda)
-                  Pemerintah Kotamadya Daerah Tingkat II Pangklpinang
-                  digabungkan dengan Bagian Keuangan Sekretariat Pemerintah
-                  Kotamadya Daerah Tingkat II Pangkalpinang dengan nama Badan
-                  Keuangan Daearah (Bakuda) Pemerintah Kota Pangkalpinang.
-                  Organisasi Bakuda ini dipimpin oleh seorang Kepala Badan
-                  dengan eselon II/b, yang dibantu oleh seorang Bagian Tata
-                  Usaha Badan dengan tiga orang Kepala Bidang yang masing-masing
-                  dengan eselon III/a. bidang-bidang tersebut adalah
-                </p>
-              </div>
-            </div>
-            <div className="w-3/12">
-              <div className="overflow-x-scroll bg-gray-200 px-16 lg:px-0">
-                <div className=" bg-blue-500">
-                  <div className="grid grid-cols-3 gap-2 lg:w-[1024px] lg:h-[400px] w-[1200px] h-[300px]">
-                    <div>
-                      <Image
-                        className="w-full h-full"
-                        src="/images/foto-diri.jpeg"
-                        alt="logo"
-                        width={600}
-                        height={400}
-                      />
-                    </div>
-                    <div>
-                      <Image
-                        src="/images/foto.jpg"
-                        alt="logo"
-                        width={800}
-                        height={800}
-                      />
-                    </div>
-                    <div>
-                      <Image
-                        src="/images/logo-full.png"
-                        alt="logo"
-                        width={800}
-                        height={800}
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> */}
+
       <section className="w-full mb-12 px-3 max-w-full mx-auto  bg-opacity-10 shadow-2xl drop-shadow-2xl shadow-slate-300 rounded-3xl">
         <div className="lg:flex lg:gap-2 p-2">
           <div className="lg:flex-none lg:w-4/6 relative">
@@ -173,34 +49,7 @@ export default function PageProfile() {
             </section>
           </div>
           <div className="py-2 px-2 lg:flex-none lg:w-2/6">
-            <div className="top-24 z-30 -ml-2  w-full shrink-0 sticky block">
-              <div className="content-wrap ">
-                <div className="px-2">
-                  <h1 className="text-2xl font-bold text-secondary-foreground ">
-                    PIMPINAN
-                  </h1>
-                  <div className="py-2 overflow-y-scroll h-90 w-full">
-                    <div className="w-[800px] flex gap-2 justify-start">
-                      <div className="h-18 bg-slate-500 aspect-[9/16] rounded-lg w-[250px]"></div>
-                      <div className="h-18 bg-slate-500 aspect-[9/16] rounded-lg w-[250px]"></div>
-                      <div className="h-18 bg-slate-500 aspect-[9/16] rounded-lg w-[250px]"></div>
-                    </div>
-                  </div>
-                </div>
-                <div className="px-2">
-                  <h1 className="text-2xl font-bold text-secondary-foreground flex justify-center mb-4">
-                    BANNER INFORMASI
-                  </h1>
-                  <div className="flex gap-2 justify-center flex-col items-center">
-                    <div className="h-15 bg-slate-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72"></div>
-                    <div className="h-15 bg-rose-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72 "></div>
-                    <div className="h-15 bg-blue-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72"></div>
-                    <div className="h-15 bg-rose-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72"></div>
-                    <div className="h-15 bg-green-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72 "></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <FotoPemimpin />
           </div>
         </div>
       </section>

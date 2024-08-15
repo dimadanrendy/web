@@ -1,3 +1,4 @@
+import FotoPemimpin from "@/components/components-ui/foto-pemimpin";
 import React from "react";
 
 export const metadata = {
@@ -44,34 +45,7 @@ export default function PageStrukturOrganisasi() {
           </section>
         </div>
         <div className="py-2 px-2 lg:flex-none lg:w-2/6">
-          <div className="top-24 z-30 -ml-2  w-full shrink-0 sticky block">
-            <div className="content-wrap ">
-              <div className="px-2">
-                <h1 className="text-2xl font-bold text-secondary-foreground ">
-                  PIMPINAN
-                </h1>
-                <div className="py-2 overflow-y-scroll h-90 w-full">
-                  <div className="w-[800px] flex gap-2 justify-start">
-                    <div className="h-18 bg-slate-500 aspect-[9/16] rounded-lg w-[250px]"></div>
-                    <div className="h-18 bg-slate-500 aspect-[9/16] rounded-lg w-[250px]"></div>
-                    <div className="h-18 bg-slate-500 aspect-[9/16] rounded-lg w-[250px]"></div>
-                  </div>
-                </div>
-              </div>
-              <div className="px-2">
-                <h1 className="text-2xl font-bold text-secondary-foreground flex justify-center mb-4">
-                  BANNER INFORMASI
-                </h1>
-                <div className="flex gap-2 justify-center flex-col items-center">
-                  <div className="h-15 bg-slate-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72"></div>
-                  <div className="h-15 bg-rose-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72 "></div>
-                  <div className="h-15 bg-blue-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72"></div>
-                  <div className="h-15 bg-rose-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72"></div>
-                  <div className="h-15 bg-green-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72 "></div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <FotoPemimpin />
         </div>
       </div>
     </section>

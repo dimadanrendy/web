@@ -2,7 +2,9 @@ import PageCarousel from "@/components/components-hero-ui/carousel";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import { logoFacebook } from "@/lib/image";
 
 export const metadata = {
   title: "Home - Bakeuda Pangkal Pinang",
@@ -14,31 +16,47 @@ export default function HomePage() {
     <>
       <PageCarousel />
       <section className="w-full">
-        <div className="mt-2 grid grid-cols-3 lg:grid-cols-4 gap-2 max-w-7xl mx-auto px-2">
-          <div className="h-15 bg-rose-500 aspect-video lg:max-w-[300px] rounded-md flex justify-center items-center">
-            cek Pbb
-          </div>
-          <div className="h-15 bg-rose-500 aspect-video lg:max-w-[300px] rounded-md flex justify-center items-center">
-            Pajak Online
-          </div>
-          <div className="h-15 bg-rose-500 aspect-video lg:max-w-[300px] rounded-md flex justify-center items-center">
-            Persediaan
-          </div>
-          <div className="h-15 bg-rose-500 aspect-video lg:max-w-[300px] rounded-md flex justify-center items-center">
-            Tatat Cara Laporan Pajak
-          </div>
-          <div className="h-15 bg-rose-500 aspect-video lg:max-w-[300px] rounded-md flex justify-center items-center">
-            Loket Pelayanan
-          </div>
-          <div className="h-15 bg-rose-500 aspect-video lg:max-w-[300px] rounded-md flex justify-center items-center">
-            Inforasi
-          </div>
-          <div className="h-15 bg-rose-500 aspect-video lg:max-w-[300px] rounded-md flex justify-center items-center">
-            Lapor
-          </div>
-          <div className="h-15 bg-rose-500 aspect-video lg:max-w-[300px] rounded-md flex justify-center items-center">
-            Cek
-          </div>
+        <div className="mt-2 grid grid-cols-3 lg:grid-cols-4 gap-2 max-w-7xl mx-auto translate-x-[6px]">
+          <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
+            <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
+              cek Pbb
+            </div>
+          </Link>
+          <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
+            <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
+              Pajak Online
+            </div>
+          </Link>
+          <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
+            <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
+              Persediaan
+            </div>
+          </Link>
+          <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
+            <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
+              Tatat Cara Laporan Pajak
+            </div>
+          </Link>
+          <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
+            <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
+              Loket Pelayanan
+            </div>
+          </Link>
+          <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
+            <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
+              Inforasi
+            </div>
+          </Link>
+          <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
+            <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
+              Lapor
+            </div>
+          </Link>
+          <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
+            <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
+              Presensi
+            </div>
+          </Link>
         </div>
       </section>
 
@@ -327,6 +345,11 @@ export default function HomePage() {
                       Berita Foto Selengkapnya .....
                     </h1>
                   </div>
+                  <div className="p-2 flex justify-center items-center ">
+                    <h1 className="flex justify-center items-center p-2 w-full text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
+                      Semua Berita Foto .....
+                    </h1>
+                  </div>
                 </section>
               </TabsContent>
               <TabsContent value="video">
@@ -389,15 +412,40 @@ export default function HomePage() {
             </h1>
             <Tabs defaultValue="foto">
               <TabsList className="w-full ">
-                <TabsTrigger value="foto">Facebook</TabsTrigger>
+                <TabsTrigger value="facebook">Facebook</TabsTrigger>
                 <TabsTrigger value="video">Instagram</TabsTrigger>
-                <TabsTrigger value="siaran">TikTok</TabsTrigger>
+                <TabsTrigger value="tiktok">TikTok</TabsTrigger>
+                <TabsTrigger value="youtube">Youtube</TabsTrigger>
               </TabsList>
               <div className="flex items-evenly w-full">
-                <TabsContent value="foto" className="">
+                <TabsContent value="facebook">
                   <div className="flex flex-wrap gap-2 justify-center items-center">
                     <Image
-                      src="/images/logo-facebook.png"
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
+                    <Image
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
+                    <Image
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
+                    <Image
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
+                    <Image
+                      src={logoFacebook}
                       alt="facebook"
                       width={200}
                       height={200}
@@ -405,17 +453,76 @@ export default function HomePage() {
                   </div>
                 </TabsContent>
                 <TabsContent value="video">
-                  <div className="bg-slate-100 shadow-2xl shadow-slate-300 rounded-3xl">
-                    <div className=" aspect-square rounded-md px-20">
-                      <div className="h-15 bg-blue-500 max-w-64 h-72 rounded-md"></div>
-                    </div>
+                  <div className="flex flex-wrap gap-2 justify-center items-center">
+                    <Image
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
+                    <Image
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
+                    <Image
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
+                    <Image
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
+                    <Image
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
                   </div>
                 </TabsContent>
-                <TabsContent value="siaran">
-                  <div className="bg-slate-100 shadow-2xl shadow-slate-300 rounded-3xl">
-                    <div className=" aspect-square rounded-md px-20">
-                      <div className="h-15 bg-blue-500 max-w-64 h-72 rounded-md"></div>
-                    </div>
+                <TabsContent value="tiktok">
+                  <div className="flex flex-wrap gap-2 justify-center items-center">
+                    <Image
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
+                    <Image
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
+                    <Image
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
+                    <Image
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
+                    <Image
+                      src={logoFacebook}
+                      alt="facebook"
+                      width={200}
+                      height={200}
+                    />
+                  </div>
+                </TabsContent>
+                <TabsContent value="youtube">
+                  <div className="flex flex-wrap gap-2 justify-center items-center">
+                    <iframe src='https://1680faa8be0a466c95dae86cf1b44187.elf.site' width='100%' height='400' frameborder='0'></iframe>
                   </div>
                 </TabsContent>
               </div>
@@ -451,6 +558,7 @@ export default function HomePage() {
           <div className="h-15 bg-rose-500 aspect-video lg:max-w-[300px] rounded-md"></div>
         </div>
       </section>
+
     </>
   );
 }

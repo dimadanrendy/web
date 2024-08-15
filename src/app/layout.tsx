@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Bakeuda Pangkalpinang",
   description: "Badan Keuangan Daerah Kota Pangkal Pinang",
+  icons: {
+    icon: "/images/Lambang_Kota_Pangkalpinang.png",
+  },
 };
 
 export default function RootLayout({

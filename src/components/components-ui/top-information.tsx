@@ -1,3 +1,4 @@
+import { logoFacebook, logoInstagram, logoTiktok, logoYoutube } from "@/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -10,7 +11,7 @@ export default function PageTopInformation() {
         className="hover:cursor-pointer hover:animate-pulse">
         <div className="flex gap-1">
           <Image
-            src="/images/logo-facebook-color.png"
+            src={logoFacebook}
             alt="logo"
             width={20}
             height={20}
@@ -26,15 +27,12 @@ export default function PageTopInformation() {
         className="hover:cursor-pointer hover:animate-pulse">
         <div className="flex gap-1">
           <Image
-            src="/images/logo-instagram-color.png"
+            src={logoInstagram}
             alt="logo"
             width={20}
             height={20}
             quality={100}
           />
-          <p className="text-xs font-bold self-center text-slate-600">
-            <span className="text-[10px] font-bold">@bakeudapgk</span>
-          </p>
         </div>
       </Link>
       <Link
@@ -42,15 +40,13 @@ export default function PageTopInformation() {
         className="hover:cursor-pointer hover:animate-pulse">
         <div className="flex gap-1">
           <Image
-            src="/images/logo-tiktok.png"
+            src={logoTiktok}
             alt="logo"
             width={20}
             height={20}
             quality={100}
           />
-          <p className="text-xs font-bold self-center text-slate-600">
-            <span className="text-[10px] font-bold">@bakeudapgk</span>
-          </p>
+
         </div>
       </Link>
       <Link
@@ -58,7 +54,7 @@ export default function PageTopInformation() {
         className="hover:cursor-pointer hover:animate-pulse">
         <div className="flex gap-1">
           <Image
-            src="/images/logo-youtube.png"
+            src={logoYoutube}
             alt="logo"
             width={20}
             height={20}

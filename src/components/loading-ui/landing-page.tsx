@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { logoFull } from "@/lib/image";
 
 export default function PageLanding() {
   return (
@@ -8,7 +9,7 @@ export default function PageLanding() {
           <div className="bg-contain bg-no-repeat">
             <Image
               className="animate-pulse w-full self-start mb-2"
-              src="/images/logo-full.png"
+              src={logoFull}
               alt="logo"
               width={300}
               height={300}
