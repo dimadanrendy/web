@@ -522,7 +522,7 @@ export default function HomePage() {
                 </TabsContent>
                 <TabsContent value="youtube">
                   <div className="flex flex-wrap gap-2 justify-center items-center">
-                    <iframe src='https://1680faa8be0a466c95dae86cf1b44187.elf.site' width='100%' height='400' frameborder='0'></iframe>
+
                   </div>
                 </TabsContent>
               </div>
