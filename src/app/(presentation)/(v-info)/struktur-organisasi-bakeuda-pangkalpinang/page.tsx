@@ -2,8 +2,9 @@ import FotoPemimpin from "@/components/components-ui/foto-pemimpin";
 import React from "react";
 
 export const metadata = {
-  title: "Struktur Organisasi - Bakeuda Pangkal Pinang",
-};
+  title: `Struktur Organisasi - ${process.env.NEXT_PUBLIC_TITLE_METADATA}`,
+  description: `${process.env.NEXT_PUBLIC_DESCRIPTION_METADATA}`,
+}
 export default function PageStrukturOrganisasi() {
   return (
     <section className="w-full mb-12 px-3 max-w-full mx-auto  bg-opacity-10 shadow-2xl drop-shadow-2xl shadow-slate-300 rounded-3xl">

@@ -5,8 +5,8 @@ import PageTopInformation from "@/components/components-ui/top-information";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Home - Bakeuda Pangkal Pinang",
-  description: "Badan Keuangan Daerah Kota Pangkal Pinang",
+  title: `Home - ${process.env.NEXT_PUBLIC_TITLE_METADATA}`,
+  description: `${process.env.NEXT_PUBLIC_DESCRIPTION_METADATA}`,
 };
 
 export default function RootLayout({

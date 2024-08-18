@@ -307,48 +307,63 @@ export default function PageHeader() {
                 <DropdownMenuContent className="w-72 px-10 border-none shadow-none">
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <Link href="/sejarah-bakeuda-pangkalpinang" className="">
-                      Sejarah Bakeuda Pangkal Pinang
-                    </Link>
+                    <a href="/sejarah-bakeuda-pangkalpinang"> Sejarah Bakeuda Pangkal Pinang</a>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link
+                    <a
                       href="/tugas-fungsi-bakeuda-pangkalpinang"
                       className="">
                       Tugas dan Fungsi Bakeuda Pangkal Pinang
-                    </Link>
+                    </a>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/maklumat-bakeuda-pangkalpinang" className="">
+                    <a href="/maklumat-bakeuda-pangkalpinang" className="">
                       Maklumat Bakeuda Pangkal Pinang
-                    </Link>
+                    </a>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/visi-dan-misi" className="">
+                    <a href="/visi-dan-misi" className="">
                       Visi Misi Pangkal Pinang
-                    </Link>
+                    </a>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/visi-dan-misi" className="">
+                    <a href="/visi-dan-misi" className="">
                       Struktur Organisasi Bakeuda Pangkal Pinang
-                    </Link>
+                    </a>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Link href="/motto-bakeuda-pangkalpinang" className="">
+                    <a href="/motto-bakeuda-pangkalpinang" className="">
                       Motto Bakeuda Pangkal Pinang
-                    </Link>
+                    </a>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-            <Link
-              href="#"
-              className={`${pathname === "/publikasi"
-                ? ""
-                : "text-muted-foreground hover:text-foreground"
-                }`}>
-              Publikasi
-            </Link>
+            <div className="mr-0">
+              <DropdownMenu>
+                <DropdownMenuTrigger className="text-muted-foreground hover:text-foreground">
+                  Publikasi
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-72 px-10 border-none shadow-none">
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <a href="/perwako-bakeuda-pangkalpinang" className="py-4">Dokumen Perwako</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a
+                      href="/perda-bakeuda-pangkalpinang"
+                      className="py-4">
+                      Dokumen Perda
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="/sk-bakeuda-pangkalpinang" className="py-4">
+                      Dokumen SK
+                    </a>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
             <Link
               href="#"
               className={`${pathname === "/regulasi"

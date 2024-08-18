@@ -16,7 +16,7 @@ export default function HomePage() {
     <>
       <PageCarousel />
       <section className="w-full">
-        <div className="mt-2 grid grid-cols-3 lg:grid-cols-4 gap-2 max-w-7xl mx-auto translate-x-[6px]">
+        <div className="mt-2 grid grid-cols-3 lg:grid-cols-4 gap-2 max-w-7xl mx-auto px-2">
           <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
             <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
               cek Pbb

@@ -2,8 +2,9 @@ import FotoPemimpin from "@/components/components-ui/foto-pemimpin";
 import React from "react";
 
 export const metadata = {
-  title: "Tugas Fungsi - Bakeuda Pangkal Pinang",
-};
+  title: `Tugas Fungsi - ${process.env.NEXT_PUBLIC_TITLE_METADATA}`,
+  description: `${process.env.NEXT_PUBLIC_DESCRIPTION_METADATA}`,
+}
 
 export default function PageTugasFungsi() {
   return (
