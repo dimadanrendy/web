@@ -14,11 +14,11 @@ export default function FotoPemimpin() {
                         <div className="py-2 overflow-y-scroll h-90 w-full">
                             <div className="w-[800px] flex gap-2 justify-start">
                                 <Link href={"https://website.pangkalpinangkota.go.id/profil-penjabat-walikota-pangkalpinang-2/"} target="_blank">
-                                    <div className="h-[310px] bg-slate-200 aspect-[9/16] rounded-lg w-[250px] hover:animate-pulse">
+                                    <div className="h-[310px] bg-slate-200 aspect-[9/16] rounded-lg w-[250px] ">
                                         <Image src={pj} alt="logo" width={2500} height={2500} className='w-full mx-auto' quality={100} placeholder='blur' />
                                         <div className='text-center flex-col bg-white rounded-t-lg'>
                                             <h1 className='text-sm font-sans'>
-                                                pj. Wali Kota Pangkal Pinang
+                                                Pj. Wali Kota Pangkal Pinang
                                             </h1>
                                             <h1 className='text-sm font-sans'>
                                                 Budi Utama, S.STP., M.Si.
@@ -27,7 +27,7 @@ export default function FotoPemimpin() {
                                     </div>
                                 </Link>
                                 <Link href={"https://website.pangkalpinangkota.go.id/sekretaris-daerah/"} target="_blank">
-                                    <div className="h-[310px] bg-slate-200 aspect-[9/16] rounded-lg w-[250px] hover:animate-pulse">
+                                    <div className="h-[310px] bg-slate-200 aspect-[9/16] rounded-lg w-[250px] ">
                                         <Image src={sekda1} alt="logo" width={2500} height={2500} className='w-[97%] mx-auto' quality={100} placeholder='blur' />
                                         <div className='text-center flex-col bg-white rounded-t-lg'>
                                             <h1 className='text-sm font-sans'>
@@ -39,19 +39,17 @@ export default function FotoPemimpin() {
                                         </div>
                                     </div>
                                 </Link>
-                                <Link href={"https://website.pangkalpinangkota.go.id/sekretaris-daerah/"} target="_blank">
-                                    <div className="h-[310px] bg-slate-200 aspect-[9/16] rounded-lg w-[250px] hover:animate-pulse">
-                                        <Image src={kaban} alt="logo" width={2500} height={2500} className='w-[97%] mx-auto' quality={100} placeholder='blur' />
-                                        <div className='text-center flex-col bg-white rounded-t-lg'>
-                                            <h1 className='text-sm font-sans'>
-                                                Kepala Badan Keuangan Daerah
-                                            </h1>
-                                            <h1 className='text-sm font-sans'>
-                                                Muhammad Yasin, S.E., M.M.
-                                            </h1>
-                                        </div>
+                                <div className="h-[310px] bg-slate-200 aspect-[9/16] rounded-lg w-[250px]  hover:cursor-pointer">
+                                    <Image src={kaban} alt="logo" width={200} height={200} className='w-[98%] mx-auto' quality={100} placeholder='blur' />
+                                    <div className='text-center flex-col bg-white rounded-t-lg'>
+                                        <h1 className='text-sm font-sans'>
+                                            Kepala Badan Keuangan Daerah
+                                        </h1>
+                                        <h1 className='text-sm font-sans'>
+                                            Muhammad Yasin, S.E., M.M.
+                                        </h1>
                                     </div>
-                                </Link>
+                                </div>
 
                             </div>
                         </div>
