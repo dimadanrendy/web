@@ -7,11 +7,13 @@ import React from "react";
 import { logoFacebook } from "@/lib/image";
 
 export const metadata = {
-  title: "Home - Bakeuda Pangkal Pinang",
-};
+  title: `Home - ${process.env.NEXT_PUBLIC_TITLE_METADATA}`,
+  description: `${process.env.NEXT_PUBLIC_DESCRIPTION_METADATA}`,
+}
 
 
 export default function HomePage() {
+
   return (
     <>
       <PageCarousel />

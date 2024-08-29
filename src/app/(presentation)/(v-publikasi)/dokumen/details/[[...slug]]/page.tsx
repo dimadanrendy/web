@@ -4,18 +4,12 @@ import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
 
-export const metadata = {
-    title: `Dokumen - ${process.env.NEXT_PUBLIC_TITLE_METADATA}`,
-    description: `${process.env.NEXT_PUBLIC_DESCRIPTION_METADATA}`,
-}
-
 export default function DetailsPerwako({ params }: {
     params: { slug: string[] }
 }) {
 
     const { slug } = params
     if (slug?.length === 2) {
-        // return <div>{slug[0]} {slug[1]}</div>
         return (
             <div className="px-6 xl:max-w-7xl mx-auto">
                 <h1 className="uppercase font-bold text-2xl md:text-3xl py-6">Dokumen {slug[0]} tahun {slug[1]}</h1>
@@ -41,65 +35,8 @@ export default function DetailsPerwako({ params }: {
                         </AlertDialogContent>
                     </AlertDialog>
                 </div>
-                <Link href={"/"} >
-                    <div className="flex flex-col gap-4 pb-4 hover:scale-105">
-                        <div className="w-full h-48 bg-primary rounded-lg">
-                            <div className="grid grid-cols-6 gap-4 h-40 items-center text-slate-100">
-                                <div className="col-start-1 col-end-7 p-2">
-                                    <div>
-                                        <div className="space-y-1">
-                                            <h4 className="text-sm font-medium leading-none">Radix Primitives</h4>
-                                            <p className="text-sm text-muted-foreground">
-                                                An open-source UI component library.
-                                            </p>
-                                        </div>
-                                        <Separator className="my-4" />
-                                        <div className="flex h-5 items-center space-x-4 text-sm">
-                                            <div>Blog</div>
-                                            <Separator orientation="vertical" />
-                                            <div>Docs</div>
-                                            <Separator orientation="vertical" />
-                                            <div>Source</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-start-1 col-end-7 px-2 line-clamp-3">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae sequi in error deserunt ipsa incidunt perferendis quod neque recusandae eius!
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Link>
+
                 <Link href={`${slug[1]}/24`} >
-                    <div className="flex flex-col gap-4 pb-4 hover:scale-105">
-                        <div className="w-full h-48 bg-primary rounded-lg">
-                            <div className="grid grid-cols-6 gap-4 h-40 items-center text-slate-100">
-                                <div className="col-start-1 col-end-7 p-2">
-                                    <div>
-                                        <div className="space-y-1">
-                                            <h4 className="text-sm font-medium leading-none">Radix Primitives</h4>
-                                            <p className="text-sm text-muted-foreground">
-                                                An open-source UI component library.
-                                            </p>
-                                        </div>
-                                        <Separator className="my-4" />
-                                        <div className="flex h-5 items-center space-x-4 text-sm">
-                                            <div>Blog</div>
-                                            <Separator orientation="vertical" />
-                                            <div>Docs</div>
-                                            <Separator orientation="vertical" />
-                                            <div>Source</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-start-1 col-end-7 px-2 line-clamp-3">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae sequi in error deserunt ipsa incidunt perferendis quod neque recusandae eius!
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </Link>
-                <Link href={"/"} >
                     <div className="flex flex-col gap-4 pb-4 hover:scale-105">
                         <div className="w-full h-48 bg-primary rounded-lg">
                             <div className="grid grid-cols-6 gap-4 h-40 items-center text-slate-100">

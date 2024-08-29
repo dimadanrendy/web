@@ -1,13 +1,11 @@
+"use client";
 import PageFooter from "@/components/components-ui/footer";
 import PageFooterInformation from "@/components/components-ui/footer-information";
 import PageHeader from "@/components/components-ui/header";
 import PageTopInformation from "@/components/components-ui/top-information";
 import type { Metadata } from "next";
+import NextNProgress from 'nextjs-progressbar';
 
-export const metadata: Metadata = {
-  title: `Home - ${process.env.NEXT_PUBLIC_TITLE_METADATA}`,
-  description: `${process.env.NEXT_PUBLIC_DESCRIPTION_METADATA}`,
-};
 
 export default function RootLayout({
   children,
@@ -16,6 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <>
+
       <div className="min-h-screen w-full">
         <PageTopInformation />
         <PageHeader />
