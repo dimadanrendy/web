@@ -43,6 +43,7 @@ export interface AuthResponse {
 
 export interface UserProfile {
   id: string; // ID unik untuk pengguna
+  name: string; // Nama lengkap
   username: string; // Nama pengguna
   email: string; // Alamat email pengguna
   firstName?: string; // Nama depan (opsional, jika aplikasi Anda menggunakannya)
