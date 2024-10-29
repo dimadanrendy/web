@@ -11,6 +11,7 @@ type AuthState = {
     username: string;
     image: string;
   } | null;
+  setUser: (user: any | null) => void;
 };
 
 export const useUser = create<AuthState>()(
