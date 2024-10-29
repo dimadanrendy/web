@@ -44,11 +44,8 @@ export default function Header() {
     const [loading, setLoading] = React.useState(false)
     const user = useUser((state) => state.user);
 
-    const handleLogout = async (e) => {
-        e.preventDefault();
-
+    const handleLogout = async () => {
         setLoading(true)
-
         const success = await logout(user.id)
         if (success) {
             setLoading(false)
