@@ -46,7 +46,7 @@ export default function Header() {
 
     const handleLogout = async () => {
         setLoading(true)
-        const success = await logout(user.id)
+        const success = await logout(user!.id)
         if (success) {
             setLoading(false)
             localStorage.removeItem('auth-storage')
