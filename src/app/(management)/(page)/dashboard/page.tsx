@@ -4,10 +4,11 @@ import { verifyToken } from '@/features/management/auth/useVerifyToken';
 import PageLanding from '@/components/loading-ui/landing-page';
 import { logout } from '@/features/management/auth/useLogOutAuth';
 import { useRouter } from 'next/navigation';
+import { UserProfile } from '@/types';
 
 export default function Dashboard() {
     const router = useRouter();
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState < UserProfile | null > (null);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
