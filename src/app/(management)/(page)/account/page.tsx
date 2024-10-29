@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { DataTable } from "../../components/table/DataTable";
 import { Person } from "@/types/index";
+import { ColumnDef } from "@tanstack/react-table";
 import { formatDate } from "@/tools/formatDateNumber";
 import {
   DropdownMenu,
