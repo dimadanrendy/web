@@ -4,7 +4,7 @@ import { logoFull } from "@/lib/image";
 export default function PageLanding() {
   return (
     <>
-      <div className="w-screen h-screen z-50">
+      <div className="flex justify-center items-center fixed top-0 left-0 w-screen h-screen z-50">
         <div className="w-full h-full flex justify-center items-center">
           <div className="bg-contain bg-no-repeat">
             <Image

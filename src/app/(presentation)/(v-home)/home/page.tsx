@@ -69,7 +69,7 @@ export default function HomePage() {
               <TabsList className="w-full sm:gap-10 bg-transparent flex lg:justify-start">
                 <TabsTrigger value="foto">BERITA FOTO</TabsTrigger>
                 <TabsTrigger value="video">BERITA VIDEO</TabsTrigger>
-                <TabsTrigger value="siaran">SIARAN PERS</TabsTrigger>
+                <TabsTrigger value="dokumentasi">DOKUMENTASI KEGIATAN</TabsTrigger>
               </TabsList>
               <TabsContent value="foto">
                 <section className="py-2">
@@ -362,7 +362,7 @@ export default function HomePage() {
                   </h1>
                 </div>
               </TabsContent>
-              <TabsContent value="siaran">
+              <TabsContent value="dokumentasi">
                 <div className="h-15 bg-slate-500 aspect-video"></div>
                 <div className="p-2 flex justify-center items-center ">
                   <h1 className="flex justify-center items-center p-2 w-full lg:w-2/3 xl:w-1/2  text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
