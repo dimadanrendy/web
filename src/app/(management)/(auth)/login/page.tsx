@@ -63,7 +63,7 @@ export default function LoginForm() {
 
     return (
         <div className="flex items-center justify-center min-h-screen">
-            <Form {...form} className="w-full max-w-sm">
+            <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-sm">
                     <Card className="w-full max-w-sm">
                         <CardHeader>
