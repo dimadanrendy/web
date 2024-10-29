@@ -38,7 +38,7 @@ export default function Account() {
   };
 
   // fungsi delete
-  const handleDelete = async (id) => {
+  const handleDelete = async (id: string) => {
     return alert(`Delete ${id}`);
   };
 
