@@ -33,8 +33,6 @@
     "cookies-next": "^4.2.1",
     "embla-carousel-autoplay": "^8.1.7",
     "embla-carousel-react": "^8.1.7",
-    "jose": "^5.9.3",
-    "js-cookie": "^3.0.5",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "lucide-react": "^0.411.0",

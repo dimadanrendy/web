@@ -37,7 +37,7 @@ export default function LoginForm() {
     const router = useRouter();
     const [error, setError] = useState < string | null > (null);
     const [isLoading, setIsLoading] = useState(false);
-    const setUser = useUser((state) => state.setUser);
+    const setUser = useUser();
 
     const form = useForm < LoginSchema > ({
         resolver: zodResolver(loginSchema),
