@@ -53,17 +53,17 @@ export default function Account() {
     {
       accessorKey: "status",
       header: () => "Status",
-      cell: (info) => getStatus(info.getValue()),
+      cell: (info) => getStatus(info.getValue() as boolean),
     },
     {
       accessorKey: "createdAt",
       header: () => "Tanggal Dibuat",
-      cell: (info) => formatDate(info.getValue()),
+      cell: (info) => formatDate(info.getValue() as string),
     },
     {
       accessorKey: "updatedAt",
       header: () => "Terakhir Diubah",
-      cell: (info) => formatDate(info.getValue()),
+      cell: (info) => formatDate(info.getValue() as string),
     },
     {
       id: "actions",
