@@ -11,6 +11,7 @@ import { DataTablePagination } from "./DataTablePagination";
 
 interface DataTableProps {
     data: Person[]; // Data yang diterima oleh tabel
+    columns: ColumnDef<Person>[];
     globalFilter: string;
     setGlobalFilter: (filter: string) => void;
 }
