@@ -82,7 +82,7 @@ export default function LoginForm() {
                                     <FormItem>
                                         <FormLabel>Email/Username</FormLabel>
                                         <FormControl>
-                                            <Input value={field.value || ""} placeholder="admin@gmail.com" {...field} />
+                                            <Input placeholder="admin@gmail.com" {...field} />
                                         </FormControl>
                                         <FormDescription>
                                             This is your public display name.
@@ -100,7 +100,7 @@ export default function LoginForm() {
                                     <FormItem>
                                         <FormLabel>Password</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="**********" value={field.value || ""} type="password" {...field} />
+                                            <Input placeholder="**********" type="password" {...field} />
                                         </FormControl>
                                         <FormDescription>
                                             This is your public display name.
