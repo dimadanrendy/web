@@ -49,8 +49,8 @@ export default function Header() {
 
         setLoading(false);
         if (isLoggedOut) {
-            Cookies.remove('X_ACCESS_TOKEN');
-            Cookies.remove('X_REFRESH_TOKEN');
+            Cookies.remove('X_ACCESS_TOKEN', { path: '/', domain: '.muhammadrendyariawan.site' });
+            Cookies.remove('X_REFRESH_TOKEN', { path: '/', domain: '.muhammadrendyariawan.site' });
             localStorage.removeItem('auth-storage');
             // Gunakan router dari next/navigation untuk redirect
             router.push('/login');
