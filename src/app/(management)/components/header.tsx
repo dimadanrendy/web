@@ -42,20 +42,20 @@ export default function Header() {
     const router = useRouter()
     const [loading, setLoading] = React.useState(false)
 
-    const handleLogout = async () => {
-        setLoading(true);
-        const isLoggedOut = await logout();
+    // const handleLogout = async () => {
+    //     setLoading(true);
+    //     const isLoggedOut = await logout();
 
-        setLoading(false);
-        if (isLoggedOut) {
+    //     setLoading(false);
+    //     if (isLoggedOut) {
 
-            localStorage.removeItem('auth-storage');
-            // Gunakan router dari next/navigation untuk redirect
-            router.push('/login');
-        } else {
-            console.error("Failed to logout");
-        }
-    };
+    //         localStorage.removeItem('auth-storage');
+    //         // Gunakan router dari next/navigation untuk redirect
+    //         router.push('/login');
+    //     } else {
+    //         console.error("Failed to logout");
+    //     }
+    // };
     return (
         <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
             <Sheet>
