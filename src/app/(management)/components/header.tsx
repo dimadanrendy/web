@@ -42,7 +42,8 @@ export default function Header() {
     const router = useRouter()
     const [loading, setLoading] = React.useState(false)
 
-    const handleLogout = async () => {
+    const handleLogout = async (e: React.MouseEvent) => {
+        e.preventDefault()
         setLoading(true)
         const success = await logout()
         if (success) {
