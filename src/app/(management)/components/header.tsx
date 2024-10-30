@@ -37,26 +37,27 @@ import Side from "./side"
 import { useRouter } from 'next/navigation'
 import { logout } from '@/features/management/auth/useLogOutAuth'
 import { redirect } from "next/navigation";
-import Cookies from "js-cookie"
+import cookie from "js-cookie"
 
 export default function Header() {
     const router = useRouter()
     const [loading, setLoading] = React.useState(false)
 
     const handleLogout = async () => {
-        setLoading(true);
-        const isLoggedOut = await logout();
+        cookie.remove('X_ACCESS_TOKEN');
+        // setLoading(true);
+        // const isLoggedOut = await logout();
 
-        setLoading(false);
-        if (isLoggedOut) {
-            Cookies.remove('X_ACCESS_TOKEN', { path: '/', domain: '.muhammadrendyariawan.site' });
-            Cookies.remove('X_REFRESH_TOKEN', { path: '/', domain: '.muhammadrendyariawan.site' });
-            localStorage.removeItem('auth-storage');
-            // Gunakan router dari next/navigation untuk redirect
-            router.push('/login');
-        } else {
-            console.error("Failed to logout");
-        }
+        // setLoading(false);
+        // if (isLoggedOut) {
+        //     Cookies.remove('X_ACCESS_TOKEN', { path: '/', domain: '.muhammadrendyariawan.site' });
+        //     Cookies.remove('X_REFRESH_TOKEN', { path: '/', domain: '.muhammadrendyariawan.site' });
+        //     localStorage.removeItem('auth-storage');
+        //     // Gunakan router dari next/navigation untuk redirect
+        //     router.push('/login');
+        // } else {
+        //     console.error("Failed to logout");
+        // }
     };
     return (
         <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
