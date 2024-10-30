@@ -6,7 +6,7 @@ import { getCroppedImg } from '@/helper/cropImageHelper'; // Pastikan ini adalah
 import Image from 'next/image';
 
 interface ImageCropperProps {
-    onCropComplete: (croppedImage: any) => void; // Tipe prop
+    onCropComplete: (croppedImage: any | Blob) => void; // Tipe prop
 }
 
 const ImageCropperWithShadcnModal: React.FC<ImageCropperProps> = ({ onCropComplete }) => {
@@ -26,7 +26,7 @@ const ImageCropperWithShadcnModal: React.FC<ImageCropperProps> = ({ onCropComple
 
     const showCroppedImage = useCallback(async () => {
         try {
-            const croppedImage = await getCroppedImg(imageSrc, croppedArea);
+            const croppedImage = await getCroppedImg(imageSrc, croppedArea) as Blob;
             const croppedImageUrl = URL.createObjectURL(croppedImage);
             setCroppedImageUrl(croppedImageUrl);
 
