@@ -8,7 +8,7 @@ export const logout = async () => {
   if (!token) {
     return false;
   }
-
+  (await cookies()).delete("X_ACCESS_TOKEN");
   try {
     await axiosInstance.delete(`/auth`, {
       headers: { Authorization: `Bearer ${token}` },
