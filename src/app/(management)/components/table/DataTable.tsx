@@ -8,6 +8,7 @@ import {
     flexRender,
 } from "@tanstack/react-table";
 import { DataTablePagination } from "./DataTablePagination";
+import { Person } from "@/types";
 
 interface DataTableProps {
     data: Person[]; // Data yang diterima oleh tabel
