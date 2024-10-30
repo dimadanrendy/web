@@ -36,7 +36,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Side from "./side"
 import { useRouter } from 'next/navigation'
 import { logout } from '@/features/management/auth/useLogOutAuth'
-import Cookies from 'js-cookie'
+
 
 
 export default function Header() {
