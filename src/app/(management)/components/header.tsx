@@ -44,7 +44,7 @@ export default function Header() {
     const [loading, setLoading] = React.useState(false)
 
     const handleLogout = async () => {
-        cookie.remove('X_ACCESS_TOKEN');
+        cookie.remove('X_ACCESS_TOKEN', { path: '/', domain: '.muhammadrendyariawan.site', httpOnly: true });
         // setLoading(true);
         // const isLoggedOut = await logout();
 
