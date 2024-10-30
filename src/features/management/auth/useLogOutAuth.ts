@@ -15,8 +15,8 @@ export const logout = async () => {
     console.error("Logout error:", error); // Log error jika ada
   } finally {
     // Selalu hapus token meskipun ada error
-    cookies().set("X_ACCESS_TOKEN", "", { expires: new Date(0), path: "/" });
-    cookies().set("X_REFRESH_TOKEN", "", { expires: new Date(0), path: "/" });
+    cookies().set("X_ACCESS_TOKEN", "", { expires: new Date(0) });
+    cookies().set("X_REFRESH_TOKEN", "", { expires: new Date(0) });
   }
 
   return true;
