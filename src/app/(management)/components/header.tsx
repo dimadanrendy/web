@@ -161,7 +161,6 @@ export default function Header() {
                     <DropdownMenuItem>
                         <form
                             action={async () => {
-                                "use server";
                                 await logout();
                                 redirect("/");
                             }}
