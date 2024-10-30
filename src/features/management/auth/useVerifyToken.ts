@@ -21,7 +21,6 @@ export const verifyToken = async () => {
     const response = await axiosInstance.get(`/auth/${id}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    console.log(response.data);
     return response.data;
   } catch (error) {
     const refreshToken = cookies().get("X_REFRESH_TOKEN")?.value ?? "";

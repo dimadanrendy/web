@@ -15,10 +15,8 @@ export default function Dashboard() {
         const checkToken = async () => {
             setIsLoading(true);
             const isValid = await verifyToken();
-            console.log(isValid);
             if (isValid === false || isValid === null || isValid === undefined) {
                 const success = await logout();
-                console.log(success);
                 localStorage.removeItem('auth-storage');
                 router.push('/login');
             } else {
