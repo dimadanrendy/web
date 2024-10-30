@@ -34,24 +34,23 @@ import {
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Side from "./side"
-import { useRouter } from 'next/navigation'
+import { redirect } from 'next/navigation'
 import { logout } from '@/features/management/auth/useLogOutAuth'
 
 
 export default function Header() {
-    const router = useRouter()
     const [loading, setLoading] = React.useState(false)
 
     const handleLogout = async (e: React.MouseEvent) => {
+        'use server'
         e.preventDefault()
         setLoading(true)
-        const success = await logout()
-        if (success) {
-            setLoading(false)
-            localStorage.removeItem('auth-storage')
-            router.refresh()
-            router.push('/login')
-        }
+        await logout()
+
+        setLoading(false)
+        localStorage.removeItem('auth-storage')
+        redirect('/login')
+
     };
     return (
         <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">

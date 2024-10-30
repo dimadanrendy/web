@@ -12,12 +12,12 @@ export const logout = async () => {
     await axiosInstance.delete(`/auth`, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    cookies().delete("X_ACCESS_TOKEN");
-    cookies().delete("X_REFRESH_TOKEN");
+    cookies().set("X_ACCESS_TOKEN", "", { expires: new Date(0) });
+    cookies().set("X_REFRESH_TOKEN", "", { expires: new Date(0) });
     return true;
   } catch (error) {
-    cookies().delete("X_ACCESS_TOKEN");
-    cookies().delete("X_REFRESH_TOKEN");
+    cookies().set("X_ACCESS_TOKEN", "", { expires: new Date(0) });
+    cookies().set("X_REFRESH_TOKEN", "", { expires: new Date(0) });
     return true;
   }
 };
