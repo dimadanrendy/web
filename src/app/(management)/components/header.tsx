@@ -170,14 +170,14 @@ export default function Header() {
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>
-                        <Button
+                        {/* <Button
                             variant="default"
                             color="red"
                             className='w-full'
                             onClick={handleLogout}
                         >
                             Logout
-                        </Button>
+                        </Button> */}
 
                     </DropdownMenuItem>
                 </DropdownMenuContent>
