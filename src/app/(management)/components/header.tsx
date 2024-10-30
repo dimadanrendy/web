@@ -50,7 +50,8 @@ export default function Header() {
 
         setLoading(false);
         if (isLoggedOut) {
-
+            cookie.remove('X-ACCESS-TOKEN');
+            cookie.remove('X-REFRESH-TOKEN');
             localStorage.removeItem('auth-storage');
             // Gunakan router dari next/navigation untuk redirect
             router.push('/login');
