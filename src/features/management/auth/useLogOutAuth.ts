@@ -1,4 +1,3 @@
-"use server";
 import axiosInstance from "@/tools/axiosInstance";
 import { cookies } from "next/headers";
 
