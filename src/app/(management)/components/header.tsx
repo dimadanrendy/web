@@ -42,7 +42,6 @@ export default function Header() {
     const [loading, setLoading] = React.useState(false)
 
     const handleLogout = async (e: React.MouseEvent) => {
-        'use server'
         e.preventDefault()
         setLoading(true)
         await logout()
