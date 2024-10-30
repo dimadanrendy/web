@@ -34,7 +34,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import Side from "./side"
-import { useUser } from "@/store/store"
 import { useRouter } from 'next/navigation'
 import { logout } from '@/features/management/auth/useLogOutAuth'
 
@@ -42,11 +41,10 @@ import { logout } from '@/features/management/auth/useLogOutAuth'
 export default function Header() {
     const router = useRouter()
     const [loading, setLoading] = React.useState(false)
-    const user = useUser((state) => state.user);
 
     const handleLogout = async () => {
         setLoading(true)
-        const success = await logout(user!.id)
+        const success = await logout()
         if (success) {
             setLoading(false)
             localStorage.removeItem('auth-storage')
