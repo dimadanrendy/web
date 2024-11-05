@@ -49,14 +49,15 @@ export default function LoginForm() {
         try {
             const response = await login(data); // Panggil fungsi login
             if (response.status === true) {
-                setIsLoading(false);
                 setUser(response.user);
+                setIsLoading(false);
                 router.push('/dashboard'); // Arahkan user ke halaman lain setelah login sukses
             } else {
                 setIsLoading(false);
                 setError(response);
             }
         } catch (err) {
+            setIsLoading(false);
             setError("Login failed. Please check your credentials.");
         }
     };

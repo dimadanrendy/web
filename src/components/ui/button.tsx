@@ -27,7 +27,7 @@ const buttonVariants = cva(
       },
       text: {
         none: "text-foreground",
-        default: "text-white",
+        default: "text-foreground",
         inverse: "text-foreground",
       },
     },

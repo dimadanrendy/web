@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DataTable } from "../../components/table/DataTable";
 import { Person } from "@/types/index";
 import { ColumnDef } from "@tanstack/react-table";
@@ -12,10 +12,15 @@ import {
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { MoreHorizontal } from "lucide-react";
+import { MoreHorizontal, Plus } from "lucide-react";
 import { getUsers } from "@/features/management/users/useGetUsers";
 import PageLanding from '@/components/loading-ui/landing-page';
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useRouter } from "next/navigation";
+import { logout } from "@/features/management/auth/useLogOutAuth";
+import { verifyToken } from "@/features/management/auth/useVerifyToken";
+import { deleteUsers } from "@/features/management/users/useDeleteUser";
+import { toast } from 'sonner';
 
 const useGetUsers = async () => {
   const res = await getUsers();
@@ -26,7 +31,11 @@ const useGetUsers = async () => {
 }
 
 export default function Account() {
+  const queryClient = useQueryClient();
+  const router = useRouter();
   const [globalFilter, setGlobalFilter] = useState < string > ("");
+  const [isLoadingFetch, setIsLoading] = useState(false);
+  const [errorFetch, setError] = useState < string | null > (null);
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["users"],
@@ -40,7 +49,38 @@ export default function Account() {
 
   // fungsi delete
   const handleDelete = async (id: string) => {
-    return alert(`Delete ${id}`);
+    //konfirmasi dengan modal
+    const confirm = window.confirm("Are you sure you want to delete this user?");
+    if (confirm) {
+      try {
+        const response = await deleteUsers(id);
+        if (response.status === true) {
+          setIsLoading(false);
+          toast.success("User deleted successfully", {
+            position: "top-right",
+            autoClose: 5000,
+            description: response.message
+          })
+          queryClient.invalidateQueries(["users"]);
+        } else {
+          toast.error("Error deleting user", {
+            position: "top-right",
+            autoClose: 5000,
+            description: response
+          });
+          setIsLoading(false);
+          setError(response); // Set error sebagai array
+        }
+      } catch (err) {
+
+        setIsLoading(false);
+        setError(["An unexpected error occurred."]); // Pesan error umum
+      }
+    }
+  };
+
+  const handleEdit = async (id: string) => {
+    router.push(`/account/edit/${id}`);
   };
 
   // Definisi kolom tabel
@@ -81,7 +121,7 @@ export default function Account() {
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem>Edit</DropdownMenuItem>
+            <DropdownMenuItem><Button onClick={() => handleEdit(row.original.id_users)}>Edit</Button></DropdownMenuItem>
             <DropdownMenuItem><Button onClick={() => handleDelete(row.original.id_users)}>Delete</Button></DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -89,8 +129,24 @@ export default function Account() {
     },
   ];
 
+
+
+  useEffect(() => {
+    const checkToken = async () => {
+      const isValid = await verifyToken();
+      if (isValid === false || isValid === null || isValid === undefined) {
+        const success = await logout();
+        localStorage.removeItem('auth-storage');
+        router.push('/login');
+      }
+
+    };
+    checkToken();
+  }, [router]);
+
   if (isLoading) return <PageLanding />;
   if (error) return <div>{error.message}</div>;
+
 
   return (
     <div className="p-4">
@@ -100,6 +156,17 @@ export default function Account() {
           Management User
         </p>
       </div>
+
+      <Button
+        variant="outline"
+        size="icon"
+        className="ml-auto h-8 w-36"
+        onClick={() => {
+          router.push("/account/add");
+        }}
+      >
+        <div className="flex items-center space-x-2"><Plus className="h-4 w-4 mr-2" /> Add Account</div>
+      </Button>
       <div
         className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm" x-chunk="dashboard-02-chunk-1"
       >

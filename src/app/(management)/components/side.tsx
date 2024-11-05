@@ -49,13 +49,15 @@ export default function Side() {
                             <Home className="h-4 w-4" />
                             Dashboard
                         </Link>
-                        <Link
-                            href="/account"
-                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-                        >
-                            <ShoppingCart className="h-4 w-4" />
-                            Account
-                        </Link>
+                        {user?.role === "admin" || user?.role === "superadmin" && (
+                            <Link
+                                href="/account"
+                                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                            >
+                                <ShoppingCart className="h-4 w-4" />
+                                Account
+                            </Link>
+                        )}
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Link
