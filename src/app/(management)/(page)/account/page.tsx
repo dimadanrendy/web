@@ -58,14 +58,12 @@ export default function Account() {
           setIsLoading(false);
           toast.success("User deleted successfully", {
             position: "top-right",
-            autoClose: 5000,
             description: response.message
           })
           queryClient.invalidateQueries(["users"]);
         } else {
           toast.error("Error deleting user", {
             position: "top-right",
-            autoClose: 5000,
             description: response
           });
           setIsLoading(false);
