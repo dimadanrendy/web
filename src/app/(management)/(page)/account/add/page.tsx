@@ -53,7 +53,6 @@ export default function AddAccount() {
 
     const onSubmit = async (data: addAccountSchema) => {
         setIsLoading(true);
-        setError(null);
         try {
             const response = await postUsers(data);
             if (response.status === true) {
