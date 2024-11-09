@@ -209,7 +209,7 @@ export default function AddAccount() {
                                         <Input
                                             type="checkbox"
                                             {...field}
-                                            checked={field.value} // Pastikan nilai boolean sesuai dengan status yang diterima dari kontrol form
+                                            value={field.value ? "true" : "false"}
                                             onChange={(e) => field.onChange(e.target.checked)} // Set nilai sesuai dengan checked
                                         />
                                     </FormControl>
