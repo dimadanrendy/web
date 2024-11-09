@@ -69,10 +69,10 @@ export default function Account() {
           setIsLoading(false);
           setError(response); // Set error sebagai array
         }
-      } catch (err) {
+      } catch (err: any) {
 
         setIsLoading(false);
-        setError(["An unexpected error occurred."]); // Pesan error umum
+        setError(err); // Pesan error umum
       }
     }
   };
