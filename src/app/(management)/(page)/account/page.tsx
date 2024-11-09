@@ -60,7 +60,7 @@ export default function Account() {
             position: "top-right",
             description: response.message
           })
-          queryClient.invalidateQueries(["users"]);
+          queryClient.invalidateQueries({ queryKey: ["users"] });
         } else {
           toast.error("Error deleting user", {
             position: "top-right",
