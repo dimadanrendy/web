@@ -63,10 +63,18 @@ export default function AddAccount() {
                 })
                 router.push('/account');
             } else {
+                toast.error("Failed to add user", {
+                    position: "top-right",
+                    description: response
+                })
                 setIsLoading(false);
-                setError(response.message); // Set error sebagai array
+                setError(response); // Set error sebagai array
             }
         } catch (err: any) {
+            toast.error("Failed to add user", {
+                position: "top-right",
+                description: err
+            })
             setIsLoading(false);
             setError(err); // Pesan error umum
         }
@@ -84,8 +92,6 @@ export default function AddAccount() {
         };
         checkToken();
     }, [router]);
-
-    if (error) return <div>{error}</div>;
     return (
         <div className="">
 
@@ -104,13 +110,6 @@ export default function AddAccount() {
                             <CardDescription>
                                 Tambahkan Akun
                             </CardDescription>
-                            {error && (
-                                <div className="text-red-500 space-y-2">
-                                    {Array.isArray(error) ? error.map((err, index) => (
-                                        <p key={index}>{err}</p>
-                                    )) : <p>{error}</p>}
-                                </div>
-                            )}
                         </CardHeader>
                         <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <FormField

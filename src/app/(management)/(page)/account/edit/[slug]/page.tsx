@@ -55,9 +55,8 @@ export default function EditAccount({ params }: { params: { slug: string } }) {
     const onSubmit = async (data: EditAccountSchema) => {
 
         setIsLoading(true);
-        setError(""); // Reset error
         try {
-            data.id = params?.slug;
+
             const response = await patchUsers(data);
 
             if (response.status === true) {
@@ -96,6 +95,7 @@ export default function EditAccount({ params }: { params: { slug: string } }) {
 
     // Update default values whenever user data changes
     useEffect(() => {
+        user.id = params.slug;
         const { password, confirmPassword, ...restUser } = user;
         form.reset(restUser); // Update the form with the fetched user data
     }, [user, form]);
@@ -185,23 +185,28 @@ export default function EditAccount({ params }: { params: { slug: string } }) {
                                     <FormMessage />
                                 </FormItem>
                             )} />
-                            <FormField control={form.control} name="status" render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Status</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            type="checkbox"
-                                            {...field}
-                                            value={field.value ? "true" : "false"}
-                                            onChange={(e) => field.onChange(e.target.checked)} // Set nilai sesuai dengan checked
-                                        />
-                                    </FormControl>
-                                    <FormDescription>
-                                        Aktifkan jika status akun aktif.
-                                    </FormDescription>
-                                    <FormMessage />
-                                </FormItem>
-                            )} />
+                            <FormField
+                                control={form.control}
+                                name="status"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Status</FormLabel>
+                                        <FormControl>
+                                            <Input
+                                                type="checkbox"
+                                                {...field}
+                                                checked={!!field.value}
+                                                onChange={(e) => field.onChange(e.target.checked)}
+                                            />
+                                        </FormControl>
+                                        <FormDescription>
+                                            Aktifkan jika status akun aktif.
+                                        </FormDescription>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+
                             <FormField control={form.control} name="password" render={({ field }) => (
                                 <FormItem>
                                     <FormLabel>Password</FormLabel>
