@@ -64,7 +64,7 @@ export default function Account() {
         } else {
           toast.error("Error deleting user", {
             position: "top-right",
-            description: response
+            description: response.message
           });
           setIsLoading(false);
           setError(response); // Set error sebagai array
