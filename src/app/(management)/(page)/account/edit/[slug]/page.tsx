@@ -64,7 +64,6 @@ export default function EditAccount({ params }: { params: { slug: string } }) {
                 setIsLoading(false);
                 toast.success("User updated successfully", {
                     position: "top-right",
-                    autoClose: 5000,
                     description: response.message
                 })
                 router.push('/account');
