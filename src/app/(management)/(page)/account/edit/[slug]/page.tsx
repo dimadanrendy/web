@@ -71,7 +71,7 @@ export default function EditAccount({ params }: { params: { slug: string } }) {
                 setIsLoading(false);
                 setError(response.message); // Set error message
             }
-        } catch (err) {
+        } catch (err: any) {
             setIsLoading(false);
             setError(err); // General error message
         }
