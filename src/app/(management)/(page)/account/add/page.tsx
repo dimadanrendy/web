@@ -206,7 +206,7 @@ export default function AddAccount() {
                                 <FormItem>
                                     <FormLabel>Status</FormLabel>
                                     <FormControl>
-                                        <input
+                                        <Input
                                             type="checkbox"
                                             {...field}
                                             checked={field.value} // Pastikan nilai boolean sesuai dengan status yang diterima dari kontrol form
