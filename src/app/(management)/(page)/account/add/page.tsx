@@ -59,7 +59,6 @@ export default function AddAccount() {
                 setIsLoading(false);
                 toast.success("User added successfully", {
                     position: "top-right",
-                    autoClose: 5000,
                     description: response.message
                 })
                 router.push('/account');
