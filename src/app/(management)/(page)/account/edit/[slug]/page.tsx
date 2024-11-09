@@ -56,7 +56,7 @@ export default function EditAccount({ params }: { params: { slug: string } }) {
         setIsLoading(true);
         setError(""); // Reset error
         try {
-            data.id = params.slug;
+            data.id = params?.slug;
             const response = await patchUsers(data);
 
             if (response.status === true) {
