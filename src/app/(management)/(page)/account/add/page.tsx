@@ -68,7 +68,7 @@ export default function AddAccount() {
             }
         } catch (err) {
             setIsLoading(false);
-            setError(["An unexpected error occurred."]); // Pesan error umum
+            setError(err); // Pesan error umum
         }
     };
 
