@@ -85,7 +85,7 @@ export default function AddAccount() {
         checkToken();
     }, [router]);
 
-    if (error) return <div>{error.message}</div>;
+    if (error) return <div>{error}</div>;
     return (
         <div className="">
 
