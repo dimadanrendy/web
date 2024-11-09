@@ -66,7 +66,7 @@ export default function AddAccount() {
                 setIsLoading(false);
                 setError(response.message); // Set error sebagai array
             }
-        } catch (err) {
+        } catch (err: any) {
             setIsLoading(false);
             setError(err); // Pesan error umum
         }
