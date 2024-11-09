@@ -70,7 +70,6 @@ export default function Account() {
           setError(response); // Set error sebagai array
         }
       } catch (err: any) {
-
         setIsLoading(false);
         setError(err); // Pesan error umum
       }
