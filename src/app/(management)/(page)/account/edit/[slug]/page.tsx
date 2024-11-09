@@ -29,6 +29,7 @@ import { logout, verifyToken } from '@/features/management/auth';
 import { getUsersById } from '@/features/management/users/useGetUserById';
 import { toast } from 'sonner';
 const EditAccountSchema = z.object({
+    id: z.string().min(3, { message: 'ID is required' }),
     email: z.string().min(3, { message: 'Email is required' }),
     username: z.string().min(3, { message: 'Username is required' }),
     name: z.string().min(3, { message: 'Name is required' }),
