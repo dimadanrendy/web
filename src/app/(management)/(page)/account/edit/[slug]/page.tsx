@@ -98,7 +98,7 @@ export default function EditAccount({ params }: { params: { slug: string } }) {
         user.id = params.slug;
         const { password, confirmPassword, ...restUser } = user;
         form.reset(restUser); // Update the form with the fetched user data
-    }, [user, form]);
+    }, [params.slug, user, form]);
 
     return (
         <div>
