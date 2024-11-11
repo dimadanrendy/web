@@ -194,7 +194,6 @@ export default function EditAccount({ params }: { params: { slug: string } }) {
                                         <FormControl>
                                             <Input
                                                 type="checkbox"
-                                                {...field}
                                                 checked={!!field.value}
                                                 onChange={(e) => field.onChange(e.target.checked)}
                                             />

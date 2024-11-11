@@ -67,7 +67,7 @@ export default function AddAccount() {
                     position: "top-right",
                     description: response
                 })
-                setIsLoading(false);
+
                 setError(response); // Set error sebagai array
             }
         } catch (err: any) {
@@ -75,8 +75,10 @@ export default function AddAccount() {
                 position: "top-right",
                 description: err
             })
-            setIsLoading(false);
+
             setError(err); // Pesan error umum
+        } finally {
+            setIsLoading(false);
         }
     };
 

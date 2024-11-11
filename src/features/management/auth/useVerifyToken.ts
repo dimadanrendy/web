@@ -23,7 +23,7 @@ export const verifyToken = async () => {
     });
     return response.data;
   } catch (error: any) {
-    if (error.response.data.message === "jwt expired") {
+    if (error.response && error.response.data.message === "jwt expired") {
       try {
         const response = await axiosInstance.patch(
           `/auth`,
