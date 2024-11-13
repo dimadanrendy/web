@@ -70,7 +70,7 @@ export default function LoginForm() {
 
         } finally {
             setIsLoading(false); // Selesai loading
-            recaptchaRef.current.reset();
+            recaptchaRef?.current?.reset();
             setRecaptchaValue(null);
         }
     };

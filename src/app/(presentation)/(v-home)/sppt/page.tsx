@@ -108,7 +108,7 @@ export default function LoginForm() {
             setError("NOP tidak ditemukan");
         } finally {
             setIsLoading(false);
-            recaptchaRef.current.reset();
+            recaptchaRef?.current?.reset();
             setRecaptchaValue(null);
         }
     };
