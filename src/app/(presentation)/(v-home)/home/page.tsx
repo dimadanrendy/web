@@ -18,28 +18,28 @@ export default function HomePage() {
     <>
       <PageCarousel />
       <section className="w-full">
-        <div className="mt-2 grid grid-cols-3 lg:grid-cols-4 gap-2 max-w-7xl mx-auto px-2">
-          <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
+        <div className="mt-2 grid grid-cols-3 lg:grid-cols-4 gap-2 max-w-7xl mx-auto px-2 text-sm">
+          <Link href={"https://cekpbb.pangkalpinangkota.go.id"} target="_blank" className="group">
             <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
-              cek Pbb
+              CEK PBB
             </div>
           </Link>
-          <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
+          <Link href="/sppt" className="group">
+            <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
+              CEK SPPT
+            </div>
+          </Link>
+          <Link href={"https://pajakonline.pangkalpinangkota.go.id"} target="_blank" className="group">
             <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
               Pajak Online
             </div>
           </Link>
-          <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
+          <Link href="/pelayanan" className="group">
             <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
-              Persediaan
+              Informasi Pelayanan
             </div>
           </Link>
-          <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
-            <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
-              Tatat Cara Laporan Pajak
-            </div>
-          </Link>
-          <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
+          {/* <Link href={"https://presensi.pangkalpinangkota.go.id/dashboard"} target="_blank" className="group">
             <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
               Loket Pelayanan
             </div>
@@ -58,7 +58,7 @@ export default function HomePage() {
             <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
               Presensi
             </div>
-          </Link>
+          </Link> */}
         </div>
       </section>
 

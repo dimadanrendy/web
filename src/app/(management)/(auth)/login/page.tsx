@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import {
     Card,
@@ -25,6 +25,7 @@ import {
 } from '@/components/ui/form';
 import { login } from '@/features/management/auth/useLoginAuth';
 import { useUser } from '@/store/store';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const loginSchema = z.object({
     input: z.string().min(3, { message: 'Email is required' }),
@@ -37,6 +38,10 @@ export default function LoginForm() {
     const router = useRouter();
     const [error, setError] = useState < string | null > (null);
     const [isLoading, setIsLoading] = useState(false);
+    const [recaptchaValue, setRecaptchaValue] = useState < string | null > (null);
+
+
+    const recaptchaRef = useRef(null);
     const setUser = useUser((state) => state.setUser);
 
     const form = useForm < LoginSchema > ({
@@ -44,6 +49,10 @@ export default function LoginForm() {
     });
 
     const onSubmit = async (data: LoginSchema) => {
+        if (!recaptchaValue) {
+            setError("Please complete the reCAPTCHA.");
+            return;
+        }
         setIsLoading(true); // Mulai loading
         setError(null); // Reset error state
         try {
@@ -57,9 +66,18 @@ export default function LoginForm() {
                 setError(response);
             }
         } catch (err) {
-            setIsLoading(false);
             setError("Login failed. Please check your credentials.");
+
+        } finally {
+            setIsLoading(false); // Selesai loading
+            recaptchaRef.current.reset();
+            setRecaptchaValue(null);
         }
+    };
+
+    const handleRecaptchaChange = (value: string | null) => {
+        setRecaptchaValue(value);
+        setError(null);
     };
 
     return (
@@ -110,6 +128,13 @@ export default function LoginForm() {
                                     </FormItem>
                                 )}
                             />
+                            <div className="mt-4">
+                                <ReCAPTCHA
+                                    sitekey="6LdVHn0qAAAAAHHeP0Fc2_zFDstjJiEkHjtD36tf"
+                                    ref={recaptchaRef}
+                                    onChange={handleRecaptchaChange}
+                                />
+                            </div>
                         </CardContent>
                         <CardFooter>
                             <Button type="submit" className="w-full" disabled={isLoading}>

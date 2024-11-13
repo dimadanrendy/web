@@ -400,9 +400,9 @@ export default function PageHeader() {
               <CommandList>
                 <CommandEmpty>No results found.</CommandEmpty>
                 <CommandGroup heading="Suggestions">
-                  <CommandItem>Calendar</CommandItem>
-                  <CommandItem>Search Emoji</CommandItem>
-                  <CommandItem>Calculator</CommandItem>
+                  <CommandItem><Link href="/perwako-bakeuda-pangkalpinang">Perwako</Link></CommandItem>
+                  <CommandItem><Link href="/perda-bakeuda-pangkalpinang">Perda</Link></CommandItem>
+                  <CommandItem><Link href="/sk-bakeuda-pangkalpinang">Sk</Link></CommandItem>
                 </CommandGroup>
               </CommandList>
             </CommandDialog>
