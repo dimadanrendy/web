@@ -39,6 +39,7 @@ export default function LoginForm() {
     const [error, setError] = useState < string | null > (null);
     const [isLoading, setIsLoading] = useState(false);
     const [recaptchaValue, setRecaptchaValue] = useState < string | null > (null);
+    const recaptchaRef = useRef < ReCAPTCHA | null > (null); // Define the type for ref
 
 
     const recaptchaRef = useRef(null);
