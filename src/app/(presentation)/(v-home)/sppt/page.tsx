@@ -77,6 +77,10 @@ export default function LoginForm() {
         }
         const nop = data.input;
         setIsLoading(true);
+        if (!nop) {
+            setError("NOP harus diisi.");
+            return;
+        }
         // cek nop apakah mengandung angka
         if (!/^\d+$/.test(nop)) {
             setError("NOP hanya boleh mengandung angka");
