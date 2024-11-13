@@ -41,8 +41,6 @@ export default function LoginForm() {
     const [recaptchaValue, setRecaptchaValue] = useState < string | null > (null);
     const recaptchaRef = useRef < ReCAPTCHA | null > (null); // Define the type for ref
 
-
-    const recaptchaRef = useRef(null);
     const setUser = useUser((state) => state.setUser);
 
     const form = useForm < LoginSchema > ({
