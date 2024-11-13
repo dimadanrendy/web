@@ -129,7 +129,7 @@ export default function LoginForm() {
                             />
                             <div className="mt-4">
                                 <ReCAPTCHA
-                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
                                     ref={recaptchaRef}
                                     onChange={handleRecaptchaChange}
                                 />

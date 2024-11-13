@@ -60,7 +60,7 @@ export default function LoginForm() {
     const [isLoading, setIsLoading] = useState(false);
     const [recaptchaValue, setRecaptchaValue] = useState < string | null > (null);
 
-    const recaptchaRef = useRef(null);
+    const recaptchaRef = useRef < ReCAPTCHA | null > (null); // Define the type for ref
     const setUser = useUser((state) => state.setUser);
 
     const form = useForm < CekSpptSchema > ({
@@ -185,7 +185,7 @@ export default function LoginForm() {
                             />
                             <div className="mt-4">
                                 <ReCAPTCHA
-                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                                    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
                                     ref={recaptchaRef}
                                     onChange={handleRecaptchaChange}
                                 />
