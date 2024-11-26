@@ -6,6 +6,9 @@ import { jwtDecode } from "jwt-decode";
 export const verifyToken = async () => {
   const token = cookies().get("X_ACCESS_TOKEN")?.value ?? "";
   const tokenRefresh = cookies().get("X_REFRESH_TOKEN")?.value ?? "";
+  if (!token || token === "") {
+    return false;
+  }
   const decodedToken = jwtDecode(token);
   const id = (decodedToken as { id: string })?.id || "";
 

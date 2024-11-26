@@ -12,6 +12,9 @@ import {
     Search,
     ShoppingCart,
     Users,
+    MoveDown,
+    CircleChevronDown,
+    Files,
 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import Link from 'next/link'
@@ -54,7 +57,7 @@ export default function Side() {
                                 href="/account"
                                 className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                             >
-                                <ShoppingCart className="h-4 w-4" />
+                                <Users className="h-4 w-4" />
                                 Account
                             </Link>
                         )}
@@ -64,20 +67,21 @@ export default function Side() {
                                     href="#"
                                     className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                                 >
-                                    <Users className="h-4 w-4" />
-                                    Customers
+                                    <Files className="h-4 w-4" />
+                                    Dokumen
+                                    <CircleChevronDown className="h-4 w-4" />
                                 </Link>
                             </DropdownMenuTrigger>
 
                             <DropdownMenuContent>
                                 <DropdownMenuItem asChild>
-                                    <Link href="/customers/list">Customer List</Link>
+                                    <Link href="/peraturan-walikota">Peraturan Wali Kota</Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem asChild>
-                                    <Link href="/customers/add">Add Customer</Link>
+                                    <Link href="/peraturan-daerah">Peraturan Daerah</Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem asChild>
-                                    <Link href="/customers/settings">Customer Settings</Link>
+                                    <Link href="/surat-keputusan">Surat Keputusan</Link>
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>

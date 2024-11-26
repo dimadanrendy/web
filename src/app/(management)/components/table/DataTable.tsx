@@ -44,7 +44,7 @@ export function DataTable({ data, columns, globalFilter, setGlobalFilter }: Data
                     {table.getHeaderGroups().map((headerGroup) => (
                         <tr key={headerGroup.id}>
                             {headerGroup.headers.map((header) => (
-                                <th key={header.id} className="border p-2 text-sm">
+                                <th key={header.id} className="border p-2 text-[10px]">
                                     {flexRender(header.column.columnDef.header, header.getContext())}
                                 </th>
                             ))}
@@ -53,10 +53,21 @@ export function DataTable({ data, columns, globalFilter, setGlobalFilter }: Data
                 </thead>
                 <tbody>
                     {table.getRowModel().rows.map((row) => (
-                        <tr key={row.id}>
+                        <tr key={row.id} className="group hover:bg-gray-100 transition-colors duration-200"
+                        >
                             {row.getVisibleCells().map((cell) => (
-                                <td key={cell.id} className="border p-2 text-center text-xs">
+                                <td key={cell.id} className="border p-2 text-center text-[10px] relative">
                                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                                    {cell.column.id === "judul" && ( // Misalnya hanya untuk kolom 'judul'
+                                        <div className="absolute inset-0 justify-center items-center hidden group-hover:block">
+                                            <div className="bg-gray-700 text-white text-xs p-2 rounded shadow-lg">
+                                                {/* Menampilkan nilai dari kolom 'judul' */}
+                                                <p>
+                                                    {cell.getValue()}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    )}
                                 </td>
                             ))}
                         </tr>

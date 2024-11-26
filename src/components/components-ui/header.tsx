@@ -140,6 +140,11 @@ export default function PageHeader() {
                     title="SK">
                     Surat Keputusan
                   </ListItem>
+                  <ListItem
+                    href="/dokumen-lainnya-bakeuda-pangkalpinang"
+                    title="Dokumen Lainnya">
+                    Dokumen Publikasi Lainnya
+                  </ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -359,6 +364,11 @@ export default function PageHeader() {
                   <DropdownMenuItem>
                     <a href="/sk-bakeuda-pangkalpinang" className="py-4">
                       Dokumen SK
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="/dokumen-lainnya-bakeuda-pangkalpinang" className="py-4">
+                      Dokumen Lain-lain
                     </a>
                   </DropdownMenuItem>
                 </DropdownMenuContent>

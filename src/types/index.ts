@@ -74,6 +74,29 @@ export interface Person {
   updatedAt: string;
 }
 
+export interface IDocuments {
+  id_documents: string;
+  nomor: String;
+  judul: String;
+  tipe_dokumen: String;
+  dokumen: String;
+  bidang: String;
+  singkatan: String;
+  tahun: String;
+  bahasa: String;
+  tempat_penetapan: String;
+  sumber: String;
+  lokasi: String;
+  file: any;
+  published: Boolean;
+  createdAt: string;
+  updatedAt: string;
+  // authorId  String?
+  authorUsername: String;
+  // createdAt DateTime @default(now())
+  // updatedAt DateTime @updatedAt
+}
+
 export interface LoginResponse {
   status_code: number;
   status: boolean;

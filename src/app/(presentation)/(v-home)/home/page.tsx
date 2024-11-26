@@ -6,11 +6,6 @@ import Link from "next/link";
 import React from "react";
 import { logoFacebook } from "@/lib/image";
 
-export const metadata = {
-  title: `Home - ${process.env.NEXT_PUBLIC_TITLE_METADATA}`,
-  description: `${process.env.NEXT_PUBLIC_DESCRIPTION_METADATA}`,
-}
-
 
 export default function HomePage() {
 
@@ -34,7 +29,7 @@ export default function HomePage() {
               Pajak Online
             </div>
           </Link>
-          <Link href="/pelayanan" className="group">
+          <Link href="/informasi-pelayanan" className="group">
             <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
               Informasi Pelayanan
             </div>

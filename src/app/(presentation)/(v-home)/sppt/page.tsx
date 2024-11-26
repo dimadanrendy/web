@@ -100,11 +100,33 @@ export default function LoginForm() {
                 setError(null);
                 const sppt = response.data;
                 if (sppt) {
-                    const pdfWindow = window.open("");
+                    const pdfWindow = window.open("", "_blank");
                     if (pdfWindow) {
-                        pdfWindow.document.write(
-                            `<iframe width='100%' height='100%' src='data:application/pdf;base64,${sppt}'></iframe>`
-                        );
+                        pdfWindow.document.write(`
+                            <!DOCTYPE html>
+                            <html lang="en">
+                            <head>
+                                <title>SPPT PDF Viewer</title>
+                                <style>
+                                    body, html {
+                                        margin: 0;
+                                        padding: 0;
+                                        height: 100%;
+                                        overflow: hidden;
+                                    }
+                                    iframe {
+                                        width: 100%;
+                                        height: 100%;
+                                        border: none;
+                                    }
+                                </style>
+                            </head>
+                            <body>
+                                <iframe src="data:application/pdf;base64,${sppt}" allowfullscreen></iframe>
+                            </body>
+                            </html>
+                        `);
+                        pdfWindow.document.close();
                         return;
                     }
 

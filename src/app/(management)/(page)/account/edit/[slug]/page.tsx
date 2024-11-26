@@ -46,7 +46,7 @@ export default function EditAccount({ params }: { params: { slug: string } }) {
     const router = useRouter();
     const [error, setError] = useState(""); // State for error messages
     const [isLoading, setIsLoading] = useState(false);
-    const [user, setUser] = useState < Partial < EditAccountSchema >> ({}); // Initialize with an empty object
+    const [user, setUser] = useState < Partial < EditAccountSchema >> ({});
 
     const form = useForm < EditAccountSchema > ({
         resolver: zodResolver(EditAccountSchema),
@@ -87,6 +87,13 @@ export default function EditAccount({ params }: { params: { slug: string } }) {
             }
 
             const response = await getUsersById(params.slug);
+            if (response.status === false) {
+                toast.error("User not found", {
+                    position: "top-right",
+                    description: response.message
+                })
+                return;
+            }
             setUser(response.data);
         };
 
@@ -97,7 +104,7 @@ export default function EditAccount({ params }: { params: { slug: string } }) {
     useEffect(() => {
         user.id = params.slug;
         const { password, confirmPassword, ...restUser } = user;
-        form.reset(restUser); // Update the form with the fetched user data
+        form.reset(restUser);
     }, [params.slug, user, form]);
 
     return (
