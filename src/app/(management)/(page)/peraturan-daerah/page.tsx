@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { DataTable } from "../../components/table/DataTable";
-import { Documents } from "@/types/index";
+import { IDocuments } from "@/types/index";
 import { ColumnDef } from "@tanstack/react-table";
 import { formatDate } from "@/tools/formatDateNumber";
 import {
@@ -91,7 +91,7 @@ export default function PerdaPage() {
     };
 
     // Definisi kolom tabel
-    const columns: ColumnDef<Documents>[] = [
+    const columns: ColumnDef<IDocuments>[] = [
         { accessorKey: "nomor", header: () => "Nomor" },
         {
             accessorKey: "judul",
@@ -178,7 +178,7 @@ export default function PerdaPage() {
             <div
                 className="flex flex-1 items-center justify-center rounded-lg border border-dashed shadow-sm" x-chunk="dashboard-02-chunk-1"
             >
-                <DataTable
+                <DataTable<IDocuments>
                     data={data?.data || []}
                     columns={columns}
                     globalFilter={globalFilter}

@@ -1,4 +1,3 @@
-// components/table/DataTable.tsx
 import { useState } from "react";
 import {
     ColumnDef,
@@ -8,16 +7,15 @@ import {
     flexRender,
 } from "@tanstack/react-table";
 import { DataTablePagination } from "./DataTablePagination";
-import { Person } from "@/types";
 
-interface DataTableProps {
-    data: Person[]; // Data yang diterima oleh tabel
-    columns: ColumnDef<Person>[];
+interface DataTableProps<TData> {
+    data: TData[]; // Data yang diterima oleh tabel
+    columns: ColumnDef<TData>[];
     globalFilter: string;
     setGlobalFilter: (filter: string) => void;
 }
 
-export function DataTable({ data, columns, globalFilter, setGlobalFilter }: DataTableProps) {
+export function DataTable<TData>({ data, columns, globalFilter, setGlobalFilter }: DataTableProps<TData>) {
     const table = useReactTable({
         data: data || [],
         columns,
@@ -53,18 +51,14 @@ export function DataTable({ data, columns, globalFilter, setGlobalFilter }: Data
                 </thead>
                 <tbody>
                     {table.getRowModel().rows.map((row) => (
-                        <tr key={row.id} className="group hover:bg-gray-100 transition-colors duration-200"
-                        >
-                            {row.getVisibleCells().map((cell) => (
+                        <tr key={row.id} className="group hover:bg-gray-100 transition-colors duration-200">
+                            {row.getVisibleCells().map((cell: any) => (
                                 <td key={cell.id} className="border p-2 text-center text-[10px] relative">
                                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                    {cell.column.id === "judul" && ( // Misalnya hanya untuk kolom 'judul'
+                                    {cell.column.id === "judul" && (
                                         <div className="absolute inset-0 justify-center items-center hidden group-hover:block">
                                             <div className="bg-gray-700 text-white text-xs p-2 rounded shadow-lg">
-                                                {/* Menampilkan nilai dari kolom 'judul' */}
-                                                <p>
-                                                    {cell.getValue()}
-                                                </p>
+                                                <p>{cell.getValue()}</p>
                                             </div>
                                         </div>
                                     )}

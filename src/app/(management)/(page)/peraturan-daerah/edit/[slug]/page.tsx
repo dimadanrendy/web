@@ -43,7 +43,7 @@ const editDocumentSchema = z.object({
     tempat_penetapan: z.string().min(3, { message: 'Tempat Penetapan is required' }),
     sumber: z.string().min(1, { message: 'Sumber Penetapan is required' }),
     lokasi: z.string().min(3, { message: 'Lokasi Penetapan is required' }),
-    published: z.boolean().default(true).optional(),
+    published: z.boolean().optional(),
     file: z
         .union([z.instanceof(File), z.null(), z.undefined()])
         .refine((file) => !file || file.size <= 10 * 1024 * 1024, {
@@ -57,7 +57,7 @@ export default function EditDocument({ params }: { params: { slug: Number } }) {
     const router = useRouter();
     const [error, setError] = useState(""); // State untuk array error
     const [isLoading, setIsLoading] = useState(false);
-    const [user, setUser] = useState < Partial < EditAccountSchema >> ({});
+    const [user, setUser] = useState < Partial < editDocumentSchema >> ({});
 
     const form = useForm < editDocumentSchema > ({
         resolver: zodResolver(editDocumentSchema),
@@ -82,12 +82,13 @@ export default function EditDocument({ params }: { params: { slug: Number } }) {
             formData.append("tempat_penetapan", data.tempat_penetapan);
             formData.append("sumber", data.sumber);
             formData.append("lokasi", data.lokasi);
-            formData.append("published", data.published);
+            formData.append("published", String(data.published));
+
             // Append file secara khusus
             if (data.file) {
                 formData.append("file", data.file);
             } else {
-                formData.append("file", null);
+                formData.append("file", "");
             }
 
             // Panggil API postUsers dengan formData
@@ -151,7 +152,7 @@ export default function EditDocument({ params }: { params: { slug: Number } }) {
     }, [params.slug, router]);
 
     useEffect(() => {
-        user.id = params.slug;
+        user.id = params.slug.toString();
         const { ...restUser } = user;
         form.reset(restUser);
         form.setValue("file", null);
@@ -398,7 +399,6 @@ export default function EditDocument({ params }: { params: { slug: Number } }) {
                             <FormField
                                 control={form.control}
                                 name="file"
-                                defaultValue=""
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel>Upload Dokumen</FormLabel>

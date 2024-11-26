@@ -26,7 +26,7 @@ export default function NotFound() {
         <p className="text-xl text-gray-600 mb-6">Oops! Page not found.</p>
 
         <p className="text-gray-500 mb-4">
-          The page you are looking for doesn't exist or has been moved.
+          The page you are looking for doesnt exist or has been moved.
         </p>
 
         {/* Button to go home */}

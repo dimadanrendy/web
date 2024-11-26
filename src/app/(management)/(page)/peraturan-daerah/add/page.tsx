@@ -343,7 +343,6 @@ export default function AddDocument() {
                             <FormField
                                 control={form.control}
                                 name="file"
-                                defaultValue=""
                                 render={({ field }) => (
                                     <FormItem>
                                         <FormLabel>Upload Dokumen</FormLabel>
