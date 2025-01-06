@@ -15,6 +15,7 @@ import {
     MoveDown,
     CircleChevronDown,
     Files,
+    Newspaper,
 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import Link from 'next/link'
@@ -83,22 +84,63 @@ export default function Side() {
                                 <DropdownMenuItem asChild>
                                     <Link href="/surat-keputusan">Surat Keputusan</Link>
                                 </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/lainnya">Lainnya</Link>
+                                </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
                         <Link
-                            href="#"
+                            href="/management-berita"
                             className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                         >
-                            <Users className="h-4 w-4" />
-                            Customers
+                            <Newspaper className="h-4 w-4" />
+                            Berita
                         </Link>
-                        <Link
-                            href="#"
-                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
-                        >
-                            <LineChart className="h-4 w-4" />
-                            Analytics
-                        </Link>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Link
+                                    href="#"
+                                    className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                                >
+                                    <Files className="h-4 w-4" />
+                                    Daftar Pegawai
+                                    <CircleChevronDown className="h-4 w-4" />
+                                </Link>
+                            </DropdownMenuTrigger>
+
+                            <DropdownMenuContent>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/daftar-pegawai/all/pejabat-eselon">Daftar Pejabat Eselon</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/daftar-pegawai/all/staf-pns">Daftar Staf PNS</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/daftar-pegawai/all/staf-pppk">Daftar Staf PPPK</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/daftar-pegawai/all/phl-sekretariat">Daftar PHL Bidang Sekretariat</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/daftar-pegawai/all/phl-perbendaharaan">Daftar PHL Bidang Perbendaharaan</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/daftar-pegawai/all/phl-aset">Daftar PHL Bidang Aset</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/daftar-pegawai/all/phl-akuntansi">Daftar PHL Bidang Akuntansi</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/daftar-pegawai/all/phl-anggaran">Daftar PHL Bidang Anggaran</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/daftar-pegawai/all/phl-pendaftaran">Daftar PHL Bidang Pendaftaran</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                    <Link href="/daftar-pegawai/all/phl-penagihan">Daftar PHL Bidang Penagihan</Link>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                     </nav>
                 </div>
                 <div className="mt-auto p-4">

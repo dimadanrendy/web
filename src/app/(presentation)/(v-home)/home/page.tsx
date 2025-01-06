@@ -1,13 +1,69 @@
+"use client";
 import PageCarousel from "@/components/components-hero-ui/carousel";
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { logoFacebook } from "@/lib/image";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { getBeritaByTipe } from "@/features/presentesion/berita/useGetManagementBerita";
+import { Skeleton } from "@/components/ui/skleton";
+import PageCarouselSekilasInfo from "@/components/components-hero-ui/carouselSekilasInfo";
+import PageCarouselSeputarInformasiOne from "@/components/components-hero-ui/carouselSeputarInformasiOne";
+import PageCarouselSeputarInformasiTwo from "@/components/components-hero-ui/carouselSeputarInformasiTwo";
 
+
+type Berita = {
+  id_photos: string;
+  judul: string;
+  tipe: string;
+  deskripsi: string;
+  bidang: string;
+  tanggal: string;
+  file: string;
+  published: string;
+  authorId: string;
+  authorUsername: string;
+  createdAt: string;
+  updatedAt: string;
+  photoUrl: string;
+};
 
 export default function HomePage() {
+  const [pageFoto, setPageFoto] = useState(1); // Halaman untuk foto
+  const [pageSlider, setPageSlider] = useState(1); // Halaman untuk slider
+  const pageSize = 5; // Ukuran halaman yang ditentukan
+
+  const queryClient = useQueryClient();
+
+  const { data: DataBeritaFoto, isLoading: LoadingBeritaFoto } = useQuery({
+    queryKey: ["berita", "berita-foto", pageFoto],
+    queryFn: async () => {
+      return await getBeritaByTipe("berita-foto", pageFoto, pageSize);
+    },
+  });
+
+  const { data: DataBeritaVideo, isLoading: LoadingBeritaVideo } = useQuery({
+    queryKey: ["berita", "video", pageFoto],
+    queryFn: async () => {
+      return await getBeritaByTipe("berita-video", pageFoto, pageSize);
+    },
+  });
+
+  const { data: DataBeritaKegiatan, isLoading: LoadingBeritaKegiatan } = useQuery({
+    queryKey: ["berita", "kegiatan", pageFoto],
+    queryFn: async () => {
+      return await getBeritaByTipe("kegiatan", pageFoto, pageSize);
+    },
+  });
+
+  const { data: DataBeritaBanner, isLoading: LoadingBeritaBanner } = useQuery({
+    queryKey: ["berita", "banner", pageSlider],
+    queryFn: async () => {
+      return await getBeritaByTipe("banner", pageSlider, pageSize);
+    },
+  });
 
   return (
     <>
@@ -29,7 +85,7 @@ export default function HomePage() {
               Pajak Online
             </div>
           </Link>
-          <Link href="/informasi-pelayanan" className="group">
+          <Link href="/informasi-pelayanan" className="group text-center">
             <div className="h-15 bg-primary text-slate-300 aspect-video md:group-hover:animate-bounce lg:max-w-[300px] rounded-md flex justify-center items-center">
               Informasi Pelayanan
             </div>
@@ -64,306 +120,262 @@ export default function HomePage() {
               <TabsList className="w-full sm:gap-10 bg-transparent flex lg:justify-start">
                 <TabsTrigger value="foto">BERITA FOTO</TabsTrigger>
                 <TabsTrigger value="video">BERITA VIDEO</TabsTrigger>
-                <TabsTrigger value="dokumentasi">DOKUMENTASI KEGIATAN</TabsTrigger>
+                <TabsTrigger value="dokumentasi">KEGIATAN</TabsTrigger>
               </TabsList>
               <TabsContent value="foto">
-                <section className="py-2">
-                  <div className="h-15 bg-rose-500 aspect-video py-4"></div>
-                  <div className="flex items-center gap-2 py-4 text-secondary font-semibold">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="size-5">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
-                      />
-                    </svg>
-                    <div className=" ">
-                      <span className="text-[11px] font-mono ">
-                        Kamis, 12 Mei 2022
-                      </span>
-                      <span className="text-[11px] font-mono ml-2">
-                        Kota Pangkalpinang
-                      </span>
+                {LoadingBeritaFoto ? (
+                  <section className="py-2">
+                    <div className="grid grid-cols-1 max-w-7xl mx-auto gap-4">
+                      <Skeleton className="h-15 aspect-video rounded-md" />
+                      <Skeleton className="h-15 aspect-video rounded-md" />
                     </div>
-                  </div>
-                  <h1 className="text-xl font-bold uppercase pb-4">
-                    Judul Artikel Dalam Sebuah Artikel Lorem ipsum dolor sit
-                    amet consectetur, adipisicing elit. Laboriosam pariatur aut
-                    temporibus quibusdam, esse in minus inventore asperiores
-                    saepe earum.
-                  </h1>
-                  <p className="text-justify">
-                    <span className="text-6xl font-bold float-left w-12 uppercase">
-                      L
-                    </span>
-                    orem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facere omnis laudantium, libero eos qui totam recusandae
-                    ullam harum corrupti ea voluptates est quis ipsum enim
-                    dolore. Blanditiis inventore esse cum dignissimos nam quod
-                    ullam! Doloremque repudiandae deserunt esse facilis error
-                    quam doloribus earum laborum, incidunt sint, excepturi
-                    praesentium mollitia natus quia architecto. Quaerat
-                    repudiandae nostrum hic atque dolore voluptatum, quod earum
-                    consequatur officiis cumque quas itaque eius labore possimus
-                    beatae, ratione dignissimos ipsa consequuntur doloribus
-                    velit. Quam quisquam asperiores maiores! Id, pariatur facere
-                    nostrum alias architecto soluta asperiores ad ab dignissimos
-                    ullam quam accusamus sit natus minus quia quaerat excepturi
-                    unde deserunt quo quasi. Asperiores reiciendis veritatis,
-                    eligendi ex sed culpa, perspiciatis atque voluptatem a
-                    repudiandae aspernatur, rerum possimus molestiae dolore.
-                    Nulla eaque suscipit temporibus repellendus veniam tempora,
-                    mollitia reprehenderit est nam vel ratione tempore
-                    architecto aut aliquam impedit molestiae. Modi hic quisquam
-                    mollitia odit necessitatibus architecto dignissimos tenetur
-                    enim, esse numquam. Asperiores neque provident quo ab
-                    voluptatem, distinctio architecto a corporis ea excepturi
-                    fuga quidem rerum qui quasi mollitia hic dolore voluptate
-                    impedit officia cumque soluta vitae? Fugiat doloribus eos
-                    fugit quidem, sed eius illo, placeat est excepturi inventore
-                    voluptates sunt voluptatum, consequuntur architecto vitae
-                    quaerat? Reprehenderit, ut reiciendis?
-                  </p>
-                  <div className="p-2 flex justify-center items-center ">
-                    <h1 className="flex justify-center items-center p-2 w-full lg:w-2/3 xl:w-1/2  text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
-                      Berita Foto Selengkapnya .....
-                    </h1>
-                  </div>
-                </section>
-                <section className="py-2">
-                  <div className="h-15 bg-rose-500 aspect-video py-4"></div>
-                  <div className="flex items-center gap-2 py-4 text-secondary font-semibold">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="size-5">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
-                      />
-                    </svg>
-                    <div className=" ">
-                      <span className="text-[11px] font-mono ">
-                        Kamis, 12 Mei 2022
-                      </span>
-                      <span className="text-[11px] font-mono ml-2">
-                        Kota Pangkalpinang
-                      </span>
-                    </div>
-                  </div>
-                  <h1 className="text-xl font-bold uppercase pb-4">
-                    Judul Artikel Dalam Sebuah Artikel Lorem ipsum dolor sit
-                    amet consectetur, adipisicing elit. Laboriosam pariatur aut
-                    temporibus quibusdam, esse in minus inventore asperiores
-                    saepe earum.
-                  </h1>
-                  <p className="text-justify">
-                    <span className="text-6xl font-bold float-left w-12">
-                      P
-                    </span>
-                    orem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facere omnis laudantium, libero eos qui totam recusandae
-                    ullam harum corrupti ea voluptates est quis ipsum enim
-                    dolore. Blanditiis inventore esse cum dignissimos nam quod
-                    ullam! Doloremque repudiandae deserunt esse facilis error
-                    quam doloribus earum laborum, incidunt sint, excepturi
-                    praesentium mollitia natus quia architecto. Quaerat
-                    repudiandae nostrum hic atque dolore voluptatum, quod earum
-                    consequatur officiis cumque quas itaque eius labore possimus
-                    beatae, ratione dignissimos ipsa consequuntur doloribus
-                    velit. Quam quisquam asperiores maiores! Id, pariatur facere
-                    nostrum alias architecto soluta asperiores ad ab dignissimos
-                    ullam quam accusamus sit natus minus quia quaerat excepturi
-                    unde deserunt quo quasi. Asperiores reiciendis veritatis,
-                    eligendi ex sed culpa, perspiciatis atque voluptatem a
-                    repudiandae aspernatur, rerum possimus molestiae dolore.
-                    Nulla eaque suscipit temporibus repellendus veniam tempora,
-                    mollitia reprehenderit est nam vel ratione tempore
-                    architecto aut aliquam impedit molestiae. Modi hic quisquam
-                    mollitia odit necessitatibus architecto dignissimos tenetur
-                    enim, esse numquam. Asperiores neque provident quo ab
-                    voluptatem, distinctio architecto a corporis ea excepturi
-                    fuga quidem rerum qui quasi mollitia hic dolore voluptate
-                    impedit officia cumque soluta vitae? Fugiat doloribus eos
-                    fugit quidem, sed eius illo, placeat est excepturi inventore
-                    voluptates sunt voluptatum, consequuntur architecto vitae
-                    quaerat? Reprehenderit, ut reiciendis?
-                  </p>
-                  <div className="p-2 flex justify-center items-center ">
-                    <h1 className="flex justify-center items-center p-2 w-full lg:w-2/3 xl:w-1/2  text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
-                      Berita Foto Selengkapnya .....
-                    </h1>
-                  </div>
-                </section>
-                <section className="py-2">
-                  <div className="h-15 bg-rose-500 aspect-video py-4"></div>
-                  <div className="flex items-center gap-2 py-4 text-secondary font-semibold">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="size-5">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
-                      />
-                    </svg>
-                    <div className=" ">
-                      <span className="text-[11px] font-mono ">
-                        Kamis, 12 Mei 2022
-                      </span>
-                      <span className="text-[11px] font-mono ml-2">
-                        Kota Pangkalpinang
-                      </span>
-                    </div>
-                  </div>
-                  <h1 className="text-xl font-bold uppercase pb-4">
-                    Judul Artikel Dalam Sebuah Artikel Lorem ipsum dolor sit
-                    amet consectetur, adipisicing elit. Laboriosam pariatur aut
-                    temporibus quibusdam, esse in minus inventore asperiores
-                    saepe earum.
-                  </h1>
-                  <p className="text-justify">
-                    <span className="text-6xl font-bold float-left w-12">
-                      P
-                    </span>
-                    orem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facere omnis laudantium, libero eos qui totam recusandae
-                    ullam harum corrupti ea voluptates est quis ipsum enim
-                    dolore. Blanditiis inventore esse cum dignissimos nam quod
-                    ullam! Doloremque repudiandae deserunt esse facilis error
-                    quam doloribus earum laborum, incidunt sint, excepturi
-                    praesentium mollitia natus quia architecto. Quaerat
-                    repudiandae nostrum hic atque dolore voluptatum, quod earum
-                    consequatur officiis cumque quas itaque eius labore possimus
-                    beatae, ratione dignissimos ipsa consequuntur doloribus
-                    velit. Quam quisquam asperiores maiores! Id, pariatur facere
-                    nostrum alias architecto soluta asperiores ad ab dignissimos
-                    ullam quam accusamus sit natus minus quia quaerat excepturi
-                    unde deserunt quo quasi. Asperiores reiciendis veritatis,
-                    eligendi ex sed culpa, perspiciatis atque voluptatem a
-                    repudiandae aspernatur, rerum possimus molestiae dolore.
-                    Nulla eaque suscipit temporibus repellendus veniam tempora,
-                    mollitia reprehenderit est nam vel ratione tempore
-                    architecto aut aliquam impedit molestiae. Modi hic quisquam
-                    mollitia odit necessitatibus architecto dignissimos tenetur
-                    enim, esse numquam. Asperiores neque provident quo ab
-                    voluptatem, distinctio architecto a corporis ea excepturi
-                    fuga quidem rerum qui quasi mollitia hic dolore voluptate
-                    impedit officia cumque soluta vitae? Fugiat doloribus eos
-                    fugit quidem, sed eius illo, placeat est excepturi inventore
-                    voluptates sunt voluptatum, consequuntur architecto vitae
-                    quaerat? Reprehenderit, ut reiciendis?
-                  </p>
-                  <div className="p-2 flex justify-center items-center ">
-                    <h1 className="flex justify-center items-center p-2 w-full lg:w-2/3 xl:w-1/2  text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
-                      Berita Foto Selengkapnya .....
-                    </h1>
-                  </div>
-                </section>
-                <section className="py-2">
-                  <div className="h-15 bg-rose-500 aspect-video py-4"></div>
-                  <div className="flex items-center gap-2 py-4 text-secondary font-semibold">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="size-5">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
-                      />
-                    </svg>
-                    <div className=" ">
-                      <span className="text-[11px] font-mono ">
-                        Kamis, 12 Mei 2022
-                      </span>
-                      <span className="text-[11px] font-mono ml-2">
-                        Kota Pangkalpinang
-                      </span>
-                    </div>
-                  </div>
-                  <h1 className="text-xl font-bold uppercase pb-4">
-                    Judul Artikel Dalam Sebuah Artikel Lorem ipsum dolor sit
-                    amet consectetur, adipisicing elit. Laboriosam pariatur aut
-                    temporibus quibusdam, esse in minus inventore asperiores
-                    saepe earum.
-                  </h1>
-                  <p className="text-justify">
-                    <span className="text-6xl font-bold float-left w-12">
-                      P
-                    </span>
-                    orem ipsum dolor sit amet consectetur adipisicing elit.
-                    Facere omnis laudantium, libero eos qui totam recusandae
-                    ullam harum corrupti ea voluptates est quis ipsum enim
-                    dolore. Blanditiis inventore esse cum dignissimos nam quod
-                    ullam! Doloremque repudiandae deserunt esse facilis error
-                    quam doloribus earum laborum, incidunt sint, excepturi
-                    praesentium mollitia natus quia architecto. Quaerat
-                    repudiandae nostrum hic atque dolore voluptatum, quod earum
-                    consequatur officiis cumque quas itaque eius labore possimus
-                    beatae, ratione dignissimos ipsa consequuntur doloribus
-                    velit. Quam quisquam asperiores maiores! Id, pariatur facere
-                    nostrum alias architecto soluta asperiores ad ab dignissimos
-                    ullam quam accusamus sit natus minus quia quaerat excepturi
-                    unde deserunt quo quasi. Asperiores reiciendis veritatis,
-                    eligendi ex sed culpa, perspiciatis atque voluptatem a
-                    repudiandae aspernatur, rerum possimus molestiae dolore.
-                    Nulla eaque suscipit temporibus repellendus veniam tempora,
-                    mollitia reprehenderit est nam vel ratione tempore
-                    architecto aut aliquam impedit molestiae. Modi hic quisquam
-                    mollitia odit necessitatibus architecto dignissimos tenetur
-                    enim, esse numquam. Asperiores neque provident quo ab
-                    voluptatem, distinctio architecto a corporis ea excepturi
-                    fuga quidem rerum qui quasi mollitia hic dolore voluptate
-                    impedit officia cumque soluta vitae? Fugiat doloribus eos
-                    fugit quidem, sed eius illo, placeat est excepturi inventore
-                    voluptates sunt voluptatum, consequuntur architecto vitae
-                    quaerat? Reprehenderit, ut reiciendis?
-                  </p>
-                  <div className="p-2 flex justify-center items-center ">
-                    <h1 className="flex justify-center items-center p-2 w-full lg:w-2/3 xl:w-1/2  text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
-                      Berita Foto Selengkapnya .....
-                    </h1>
-                  </div>
-                  <div className="p-2 flex justify-center items-center ">
-                    <h1 className="flex justify-center items-center p-2 w-full text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
-                      Semua Berita Foto .....
-                    </h1>
-                  </div>
-                </section>
+                  </section>
+                ) : (
+                  <section className="py-2">
+                    {DataBeritaFoto?.data?.length > 0 ? (
+                      DataBeritaFoto.data.map((item: Berita) => {
+                        const firstLetter = item.deskripsi.trim().charAt(0).toUpperCase(); // Huruf pertama besar
+                        const restText = item.deskripsi.trim().slice(1); // Sisa tekst
+                        return (
+                          <div key={item.id_photos}>
+                            <div className="h-15 aspect-video py-4 relative">
+                              <Image
+                                src={item.photoUrl}
+                                alt="Foto"
+                                fill
+                                className="rounded-md object-cover shadow"
+                              />
+                            </div>
+
+                            <div className="flex items-center gap-2 py-4 text-secondary font-semibold">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="size-5"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                />
+                              </svg>
+                              <div className="">
+                                <span className="text-[11px] font-mono ">
+                                  {item.tanggal}
+                                </span>
+                                <span className="text-[11px] font-mono ml-2">
+                                  Kota Pangkalpinang
+                                </span>
+                              </div>
+                            </div>
+                            <h1 className="text-xl font-bold uppercase pb-4">
+                              {item.judul}
+                            </h1>
+                            <p className="text-justify">
+                              <span className="text-6xl font-bold float-left w-12">
+                                {firstLetter}
+                              </span>
+                              <span className="text-justify">
+                                {restText}
+                              </span>
+                            </p>
+                            <Link href={`/berita/${item.id_photos}`}>
+                              <div className="p-2 flex justify-center items-center ">
+                                <h1 className="flex justify-center items-center p-2 w-full lg:w-2/3 xl:w-1/2  text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
+                                  Berita Foto Selengkapnya .....
+                                </h1>
+                              </div>
+                            </Link>
+                            <Link href={`/berita/${item.id_photos}`}>
+                              <div className="p-2 flex justify-center items-center ">
+                                <h1 className="flex justify-center items-center p-2 w-full text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
+                                  Semua Berita Foto .....
+                                </h1>
+                              </div>
+                            </Link>
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div className="text-center text-sm text-gray-500">
+                        Tidak ada data untuk ditampilkan.
+                      </div>
+                    )}
+                  </section>
+                )}
               </TabsContent>
               <TabsContent value="video">
-                <div className="h-15 bg-blue-500 aspect-video"></div>
-                <div className="p-2 flex justify-center items-center ">
-                  <h1 className="flex justify-center items-center p-2 w-full lg:w-2/3 xl:w-1/2  text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
-                    Berita Foto Selengkapnya .....
-                  </h1>
-                </div>
+                {LoadingBeritaVideo ? (
+                  <section className="py-2">
+                    <div className="grid grid-cols-1 max-w-7xl mx-auto gap-4">
+                      <Skeleton className="h-15 aspect-video rounded-md" />
+                      <Skeleton className="h-15 aspect-video rounded-md" />
+                    </div>
+                  </section>
+                ) : (
+                  <section className="py-2">
+                    {DataBeritaVideo?.data?.length > 0 ? (
+                      DataBeritaVideo.data.map((item: Berita) => {
+                        const firstLetter = item.deskripsi.trim().charAt(0).toUpperCase(); // Huruf pertama besar
+                        const restText = item.deskripsi.trim().slice(1); // Sisa tekst
+                        return (
+                          <div key={item.id_photos}>
+                            <div className="h-15 aspect-video py-4 relative">
+                              <Image
+                                src={item.photoUrl}
+                                alt="Foto"
+                                fill
+                                className="rounded-md object-cover shadow"
+                              />
+                            </div>
+
+                            <div className="flex items-center gap-2 py-4 text-secondary font-semibold">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="size-5"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                />
+                              </svg>
+                              <div className="">
+                                <span className="text-[11px] font-mono ">
+                                  {item.tanggal}
+                                </span>
+                                <span className="text-[11px] font-mono ml-2">
+                                  Kota Pangkalpinang
+                                </span>
+                              </div>
+                            </div>
+                            <h1 className="text-xl font-bold uppercase pb-4">
+                              {item.judul}
+                            </h1>
+                            <p className="text-justify">
+                              <span className="text-6xl font-bold float-left w-12">
+                                {firstLetter}
+                              </span>
+                              <span className="text-justify">
+                                {restText}
+                              </span>
+                            </p>
+                            <Link href={`/berita/${item.id_photos}`}>
+                              <div className="p-2 flex justify-center items-center ">
+                                <h1 className="flex justify-center items-center p-2 w-full lg:w-2/3 xl:w-1/2  text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
+                                  Berita Foto Selengkapnya .....
+                                </h1>
+                              </div>
+                            </Link>
+                            <Link href={`/berita/${item.id_photos}`}>
+                              <div className="p-2 flex justify-center items-center ">
+                                <h1 className="flex justify-center items-center p-2 w-full text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
+                                  Semua Berita Foto .....
+                                </h1>
+                              </div>
+                            </Link>
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div className="text-center text-sm text-gray-500">
+                        Tidak ada data untuk ditampilkan.
+                      </div>
+                    )}
+                  </section>
+                )}
               </TabsContent>
               <TabsContent value="dokumentasi">
-                <div className="h-15 bg-slate-500 aspect-video"></div>
-                <div className="p-2 flex justify-center items-center ">
-                  <h1 className="flex justify-center items-center p-2 w-full lg:w-2/3 xl:w-1/2  text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
-                    Berita Foto Selengkapnya .....
-                  </h1>
-                </div>
+                {LoadingBeritaKegiatan ? (
+                  <section className="py-2">
+                    <div className="grid grid-cols-1 max-w-7xl mx-auto gap-4">
+                      <Skeleton className="h-15 aspect-video rounded-md" />
+                      <Skeleton className="h-15 aspect-video rounded-md" />
+                    </div>
+                  </section>
+                ) : (
+                  <section className="py-2">
+                    {DataBeritaKegiatan?.data?.length > 0 ? (
+                      DataBeritaKegiatan.data.map((item: Berita) => {
+                        const firstLetter = item.deskripsi.trim().charAt(0).toUpperCase(); // Huruf pertama besar
+                        const restText = item.deskripsi.trim().slice(1); // Sisa tekst
+                        return (
+                          <div key={item.id_photos}>
+                            <div className="h-15 aspect-video py-4 relative">
+                              <Image
+                                src={item.photoUrl}
+                                alt="Foto"
+                                fill
+                                className="rounded-md object-cover shadow"
+                              />
+                            </div>
+
+                            <div className="flex items-center gap-2 py-4 text-secondary font-semibold">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={1.5}
+                                stroke="currentColor"
+                                className="size-5"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                                />
+                              </svg>
+                              <div className="">
+                                <span className="text-[11px] font-mono ">
+                                  {item.tanggal}
+                                </span>
+                                <span className="text-[11px] font-mono ml-2">
+                                  Kota Pangkalpinang
+                                </span>
+                              </div>
+                            </div>
+                            <h1 className="text-xl font-bold uppercase pb-4">
+                              {item.judul}
+                            </h1>
+                            <p className="text-justify">
+                              <span className="text-6xl font-bold float-left w-12">
+                                {firstLetter}
+                              </span>
+                              <span className="text-justify">
+                                {restText}
+                              </span>
+                            </p>
+                            <Link href={`/berita/${item.id_photos}`}>
+                              <div className="p-2 flex justify-center items-center ">
+                                <h1 className="flex justify-center items-center p-2 w-full lg:w-2/3 xl:w-1/2  text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
+                                  Berita Foto Selengkapnya .....
+                                </h1>
+                              </div>
+                            </Link>
+                            <Link href={`/berita/${item.id_photos}`}>
+                              <div className="p-2 flex justify-center items-center ">
+                                <h1 className="flex justify-center items-center p-2 w-full text-xs text-slate-100  font-bold bg-primary hover:cursor-pointer hover:animate-pulse rounded-lg">
+                                  Semua Berita Foto .....
+                                </h1>
+                              </div>
+                            </Link>
+                          </div>
+                        );
+                      })
+                    ) : (
+                      <div className="text-center text-sm text-gray-500">
+                        Tidak ada data untuk ditampilkan.
+                      </div>
+                    )}
+                  </section>
+                )}
               </TabsContent>
             </Tabs>
           </div>
@@ -375,7 +387,7 @@ export default function HomePage() {
                     SEKILAS INFO
                   </h1>
                   <div className="py-2">
-                    <PageCarousel />
+                    <PageCarouselSekilasInfo />
                   </div>
                 </div>
                 <div className="p-2 flex justify-center items-center ">
@@ -387,13 +399,46 @@ export default function HomePage() {
                   <h1 className="text-2xl font-bold text-secondary-foreground flex justify-center mb-4">
                     BANNER INFORMASI
                   </h1>
-                  <div className="flex gap-2 justify-center flex-col items-center">
-                    <div className="h-15 bg-slate-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72"></div>
+
+                  {LoadingBeritaBanner ? (
+                    <div className="flex gap-2 justify-center flex-col items-center">
+                      <Skeleton className="h-15aspect-[3/4] bg-slate-400 rounded-lg sm:w-3/4 w-72 " />
+                    </div>
+                  ) : (
+                    <section className="py-2">
+                      {DataBeritaBanner?.data?.length > 0 ? (
+                        DataBeritaBanner.data.map((item: Berita) => {
+                          const firstLetter = item.deskripsi.trim().charAt(0).toUpperCase(); // Huruf pertama besar
+                          const restText = item.deskripsi.trim().slice(1); // Sisa tekst
+                          return (
+                            <div key={item.id_photos}>
+                              <div className="flex gap-2 justify-center flex-col items-center">
+                                <div className="h-15  aspect-[3/4] rounded-lg sm:w-3/4 w-72 ">
+                                  <Image
+                                    src={item.photoUrl}
+                                    alt={item.judul}
+                                    width={300}
+                                    height={400}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })
+                      ) : (
+                        <div className="flex gap-2 justify-center flex-col items-center">
+                          <div className="h-15 bg-rose-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72 "></div>
+                        </div>
+                      )}
+                    </section>
+                  )}
+                  {/* <div className="h-15 bg-slate-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72"></div>
                     <div className="h-15 bg-rose-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72 "></div>
                     <div className="h-15 bg-blue-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72"></div>
                     <div className="h-15 bg-rose-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72"></div>
-                    <div className="h-15 bg-green-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72 "></div>
-                  </div>
+                    <div className="h-15 bg-green-500 aspect-[3/4] rounded-lg sm:w-3/4 w-72 "></div> */}
+
                 </div>
               </div>
             </div>
@@ -535,10 +580,10 @@ export default function HomePage() {
           </h1>
           <div className="sm:flex items-centerjustify-center">
             <div className="mb-2 sm:mb-0 sm:w-2/3">
-              <PageCarousel />
+              <PageCarouselSeputarInformasiOne />
             </div>
             <div className="mb-2 sm:mb-0 sm:w-2/3 ">
-              <PageCarousel />
+              <PageCarouselSeputarInformasiTwo />
             </div>
           </div>
         </div>

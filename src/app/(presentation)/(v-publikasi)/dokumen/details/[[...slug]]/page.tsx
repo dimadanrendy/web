@@ -1,14 +1,41 @@
+"use client";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link"
+import { useEffect, useState } from "react";
 
 export default function DetailsPerwako({ params }: {
     params: { slug: string[] }
 }) {
+    const { slug } = params;
 
-    const { slug } = params
+    console.log(slug);
+
+    const [title, setTitle] = useState < string > ("");
+
+    useEffect(() => {
+        if (slug && slug.length > 0) {
+            // Ambil nilai dari slug
+            const jenisDokumen = slug[0]; // Index pertama
+            const tahunDokumen = slug[1]; // Index kedua
+
+            // Contoh kondisi berdasarkan slug
+            if (jenisDokumen === "perwako") {
+                setTitle(`Peraturan Wali Kota`);
+            } else if (jenisDokumen === "perda") {
+                setTitle(`Peraturan Daerah`);
+            } else if (jenisDokumen === "sk") {
+                setTitle(`Surat Keputusan`);
+            } else if (jenisDokumen === "dokumenlainnya") {
+                setTitle(`Dokumen Lainnya`);
+            } else {
+                setTitle("Dokumen Tidak Ditemukan");
+            }
+        }
+    }, [slug])
+
     if (slug?.length === 2) {
         return (
             <div className="px-6 xl:max-w-7xl mx-auto">
@@ -43,18 +70,21 @@ export default function DetailsPerwako({ params }: {
                                 <div className="col-start-1 col-end-7 p-2">
                                     <div>
                                         <div className="space-y-1">
-                                            <h4 className="text-sm font-medium leading-none">Radix Primitives</h4>
+                                            <h4 className="text-sm font-medium leading-none">{title}</h4>
                                             <p className="text-sm text-muted-foreground">
-                                                An open-source UI component library.
+                                                Nomor:
                                             </p>
                                         </div>
                                         <Separator className="my-4" />
                                         <div className="flex h-5 items-center space-x-4 text-sm">
-                                            <div>Blog</div>
+                                            <div>Uplouded : </div>
+                                            <div>Kamis</div>
                                             <Separator orientation="vertical" />
-                                            <div>Docs</div>
+                                            <div>09</div>
                                             <Separator orientation="vertical" />
-                                            <div>Source</div>
+                                            <div>Desember</div>
+                                            <Separator orientation="vertical" />
+                                            <div>2024</div>
                                         </div>
                                     </div>
                                 </div>

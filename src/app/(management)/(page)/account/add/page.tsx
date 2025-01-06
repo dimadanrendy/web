@@ -28,6 +28,7 @@ import { postUsers } from '@/features/management/users/usePostUsers';
 import { logout, verifyToken } from '@/features/management/auth';
 import PageLanding from '@/components/loading-ui/landing-page';
 import { toast } from 'sonner';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 const addAccountSchema = z.object({
     email: z.string().min(3, { message: 'Email is required' }),
@@ -46,6 +47,9 @@ export default function AddAccount() {
     const router = useRouter();
     const [error, setError] = useState(""); // State untuk array error
     const [isLoading, setIsLoading] = useState(false);
+
+    const tipe_role = ["admin", "user"];
+    const tipe_bidang = ["Sekretariat", "Perbendaharaan", "Aset", "Akuntansi", "Anggaran", "Pendaftaran", "Penagihan"];
 
     const form = useForm < addAccountSchema > ({
         resolver: zodResolver(addAccountSchema),
@@ -175,10 +179,24 @@ export default function AddAccount() {
                                     <FormItem>
                                         <FormLabel>Role</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="admin/user" {...field} />
+                                            <Select
+                                                onValueChange={(value) => field.onChange(value)}
+                                                defaultValue={field.value}
+                                            >
+                                                <SelectTrigger className="w-full">
+                                                    <SelectValue placeholder="Pilih role" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    {tipe_role.map((tipe) => (
+                                                        <SelectItem key={tipe} value={String(tipe)}>
+                                                            {tipe}
+                                                        </SelectItem>
+                                                    ))}
+                                                </SelectContent>
+                                            </Select>
                                         </FormControl>
                                         <FormDescription>
-                                            This is your public display name.
+                                            Tipe harap diisi sesuai dokumen
                                         </FormDescription>
                                         <FormMessage />
                                     </FormItem>
@@ -193,10 +211,24 @@ export default function AddAccount() {
                                     <FormItem>
                                         <FormLabel>Bidang</FormLabel>
                                         <FormControl>
-                                            <Input placeholder="bidang" {...field} />
+                                            <Select
+                                                onValueChange={(value) => field.onChange(value)}
+                                                defaultValue={field.value}
+                                            >
+                                                <SelectTrigger className="w-full">
+                                                    <SelectValue placeholder="Pilih bidang" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    {tipe_bidang.map((tipe) => (
+                                                        <SelectItem key={tipe} value={String(tipe)}>
+                                                            {tipe}
+                                                        </SelectItem>
+                                                    ))}
+                                                </SelectContent>
+                                            </Select>
                                         </FormControl>
                                         <FormDescription>
-                                            This is your public display name.
+                                            Diisi sesuai bidang author
                                         </FormDescription>
                                         <FormMessage />
                                     </FormItem>

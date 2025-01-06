@@ -9,6 +9,12 @@ const nextConfig = {
         hostname: "**",
         pathname: "**",
       },
+      {
+        protocol: "http",
+        hostname: "localhost",
+        port: "2000",
+        pathname: "/api/v1/access/file/**",
+      },
     ],
   },
 };

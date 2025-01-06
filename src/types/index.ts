@@ -61,6 +61,21 @@ export interface Data {
   data: Person[];
 }
 
+export interface Pegawai {
+  id_pegawai: string;
+  name: String;
+  jabatan: String;
+  nip: String;
+  golongan: String;
+  pendidikan_terahir: String;
+  email: String;
+  bidang: String;
+  status: String;
+  image: any;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface Person {
   id_users: string;
   email: string;

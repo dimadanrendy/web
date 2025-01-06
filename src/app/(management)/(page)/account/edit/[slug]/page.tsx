@@ -28,6 +28,7 @@ import { patchUsers } from '@/features/management/users/usePatchUser';
 import { logout, verifyToken } from '@/features/management/auth';
 import { getUsersById } from '@/features/management/users/useGetUserById';
 import { toast } from 'sonner';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 const EditAccountSchema = z.object({
     id: z.string().min(3, { message: 'ID is required' }),
     email: z.string().min(3, { message: 'Email is required' }),
@@ -47,6 +48,9 @@ export default function EditAccount({ params }: { params: { slug: string } }) {
     const [error, setError] = useState(""); // State for error messages
     const [isLoading, setIsLoading] = useState(false);
     const [user, setUser] = useState < Partial < EditAccountSchema >> ({});
+
+    const tipe_role = ["admin", "user"];
+    const tipe_bidang = ["Sekretariat", "Perbendaharaan", "Aset", "Akuntansi", "Anggaran", "Pendaftaran", "Penagihan"];
 
     const form = useForm < EditAccountSchema > ({
         resolver: zodResolver(EditAccountSchema),
@@ -168,30 +172,66 @@ export default function EditAccount({ params }: { params: { slug: string } }) {
                                     <FormMessage />
                                 </FormItem>
                             )} />
-                            <FormField control={form.control} name="role" render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Role</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="admin/user" {...field} />
-                                    </FormControl>
-                                    <FormDescription>
-                                        This is your public display name.
-                                    </FormDescription>
-                                    <FormMessage />
-                                </FormItem>
-                            )} />
-                            <FormField control={form.control} name="bidang" render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Bidang</FormLabel>
-                                    <FormControl>
-                                        <Input placeholder="Bidang" {...field} />
-                                    </FormControl>
-                                    <FormDescription>
-                                        This is your public display name.
-                                    </FormDescription>
-                                    <FormMessage />
-                                </FormItem>
-                            )} />
+                            <FormField
+                                control={form.control}
+                                name="role"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Role</FormLabel>
+                                        <FormControl>
+                                            <Select
+                                                onValueChange={(value) => field.onChange(value)}
+                                                value={field.value}
+                                            >
+                                                <SelectTrigger className="w-full">
+                                                    <SelectValue placeholder="Pilih role" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    {tipe_role.map((tipe) => (
+                                                        <SelectItem key={tipe} value={String(tipe)}>
+                                                            {tipe}
+                                                        </SelectItem>
+                                                    ))}
+                                                </SelectContent>
+                                            </Select>
+                                        </FormControl>
+                                        <FormDescription>
+                                            Diisi sesuai role author
+                                        </FormDescription>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
+                            <FormField
+                                control={form.control}
+                                name="bidang"
+                                render={({ field }) => (
+                                    <FormItem>
+                                        <FormLabel>Bidang</FormLabel>
+                                        <FormControl>
+                                            <Select
+                                                onValueChange={(value) => field.onChange(value)}
+                                                value={field.value}
+                                            >
+                                                <SelectTrigger className="w-full">
+                                                    <SelectValue placeholder="Pilih bidang" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    {tipe_bidang.map((tipe) => (
+                                                        <SelectItem key={tipe} value={String(tipe)}>
+                                                            {tipe}
+                                                        </SelectItem>
+                                                    ))}
+                                                </SelectContent>
+                                            </Select>
+                                        </FormControl>
+                                        <FormDescription>
+                                            Diisi sesuai bidang author
+                                        </FormDescription>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
                             <FormField
                                 control={form.control}
                                 name="status"

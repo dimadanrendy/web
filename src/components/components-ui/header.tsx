@@ -73,12 +73,12 @@ export default function PageHeader() {
             <NavigationMenuItem>
               <Link href="/home" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Home
+                  Beranda
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger>Profile</NavigationMenuTrigger>
+              <NavigationMenuTrigger>Tentang Kami</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-6 md:w-[800px] lg:w-[900px] md:grid-cols-3 ">
                   <li className="row-span-3 flex">
@@ -112,14 +112,14 @@ export default function PageHeader() {
                     title="Struktur Organisasi">
                     Struktur Organisasi Bakeuda Kota Pangkal Pinang
                   </ListItem>
-                  <ListItem
+                  {/* <ListItem
                     href="/maklumat-bakeuda-pangkalpinang"
                     title="Maklumat">
                     Maklumat Bakeuda Kota Pangkal Pinang
-                  </ListItem>
-                  <ListItem href="/motto-bakeuda-pangkalpinang" title="Motto">
+                  </ListItem> */}
+                  {/* <ListItem href="/motto-bakeuda-pangkalpinang" title="Motto">
                     Motto Bakeuda Kota Pangkal Pinang
-                  </ListItem>
+                  </ListItem> */}
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -148,7 +148,7 @@ export default function PageHeader() {
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
-            <NavigationMenuItem>
+            {/* <NavigationMenuItem>
               <NavigationMenuTrigger>Berita</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-6 md:w-[800px] lg:w-[900px] md:grid-cols-3 ">
@@ -244,7 +244,7 @@ export default function PageHeader() {
                   </li>
                 </ul>
               </NavigationMenuContent>
-            </NavigationMenuItem>
+            </NavigationMenuItem> */}
             <NavigationMenuItem>
               <NavigationMenuTrigger>Layanan</NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -254,18 +254,18 @@ export default function PageHeader() {
                     title="Cek PBB">
                     Yuk Cek PBB kalian di Kota Pangkal Pinang secara Online
                   </ListItem>
+                  <ListItem
+                    href="/tugas-fungsi-bakeuda-pangkalpinang"
+                    title="Cek SPPT">
+                    Yuk Cek SPPT kalian di Kota Pangkal Pinang secara Online
+                  </ListItem>
                   <ListItem href="/visi-dan-misi" title="Pajak Online">
                     Realisasi Pajak Daerah Kota Pangkal Pinang
                   </ListItem>
                   <ListItem
                     href="/tugas-fungsi-bakeuda-pangkalpinang"
-                    title="E-Serang">
-                    Elektonik Persediaan Barang
-                  </ListItem>
-                  <ListItem
-                    href="/tugas-fungsi-bakeuda-pangkalpinang"
-                    title="Loket Pelayanan">
-                    Yuk Cari Tau Loket Pelayanan Pajak Daerah
+                    title="Loket Pelayanan Pajak Daerah">
+                    Yuk Cari Tau Tentang Pelayanan Pajak Daerah
                   </ListItem>
                 </ul>
               </NavigationMenuContent>
@@ -273,7 +273,7 @@ export default function PageHeader() {
             <NavigationMenuItem>
               <Link href="/docs" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  LAPOR
+                  Informasi Lengkap
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
@@ -284,7 +284,7 @@ export default function PageHeader() {
         <SheetTrigger asChild>
           <Button variant="outline" size="icon" className="shrink-0 md:hidden">
             <Menu className="h-5 w-5" />
-            <span className="sr-only">Toggle navigation menu</span>
+            <span className="sr-only">Bakeuda</span>
           </Button>
         </SheetTrigger>
         <SheetContent side="left">
@@ -292,22 +292,23 @@ export default function PageHeader() {
             <Link
               href="#"
               className="flex items-center gap-2 text-lg font-semibold">
-              <Package2 className="h-6 w-6" />
-              <span className="sr-only">Acme Inc</span>
+              {/* <Package2 className="h-6 w-6" /> */}
+              <Image
+                // className="h-8 lg:h-12 w-auto"
+                src={logoBakeuda}
+                alt="logo"
+                width={400}
+                height={400}
+                quality={100}
+              />
             </Link>
-            <Link
-              href="/home"
-              className={`${pathname === "/home"
-                ? ""
-                : "text-muted-foreground hover:text-foreground"
-                }`}>
-              Home
+            <Link href="/home">
+              Beranda
             </Link>
-
             <div className="mr-0">
               <DropdownMenu>
-                <DropdownMenuTrigger className="text-muted-foreground hover:text-foreground">
-                  Profile
+                <DropdownMenuTrigger className=" ">
+                  Tentang Kami
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-72 px-10 border-none shadow-none">
                   <DropdownMenuSeparator />
@@ -321,11 +322,11 @@ export default function PageHeader() {
                       Tugas dan Fungsi Bakeuda Pangkal Pinang
                     </a>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
+                  {/* <DropdownMenuItem>
                     <a href="/maklumat-bakeuda-pangkalpinang" className="">
                       Maklumat Bakeuda Pangkal Pinang
                     </a>
-                  </DropdownMenuItem>
+                  </DropdownMenuItem> */}
                   <DropdownMenuItem>
                     <a href="/visi-dan-misi" className="">
                       Visi Misi Pangkal Pinang
@@ -336,17 +337,17 @@ export default function PageHeader() {
                       Struktur Organisasi Bakeuda Pangkal Pinang
                     </a>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>
+                  {/* <DropdownMenuItem>
                     <a href="/motto-bakeuda-pangkalpinang" className="">
                       Motto Bakeuda Pangkal Pinang
                     </a>
-                  </DropdownMenuItem>
+                  </DropdownMenuItem> */}
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
             <div className="mr-0">
               <DropdownMenu>
-                <DropdownMenuTrigger className="text-muted-foreground hover:text-foreground">
+                <DropdownMenuTrigger className=" ">
                   Publikasi
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-72 px-10 border-none shadow-none">
@@ -374,21 +375,39 @@ export default function PageHeader() {
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-            <Link
-              href="#"
-              className={`${pathname === "/regulasi"
-                ? ""
-                : "text-muted-foreground hover:text-foreground"
-                }`}>
-              Regulasi
-            </Link>
-            <Link
-              href="#"
-              className={`${pathname === "/layanan"
-                ? ""
-                : "text-muted-foreground hover:text-foreground"
-                }`}>
-              Layanan
+            <div className="mr-0">
+              <DropdownMenu>
+                <DropdownMenuTrigger className="">
+                  Layanan
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-72 px-10 border-none shadow-none">
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <a href="/perwako-bakeuda-pangkalpinang" className="py-4">Dokumen Perwako</a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a
+                      href="/perda-bakeuda-pangkalpinang"
+                      className="py-4">
+                      Cek PBB
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="/sk-bakeuda-pangkalpinang" className="py-4">
+                      Cek SPPT
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="/dokumen-lainnya-bakeuda-pangkalpinang" className="py-4">
+                      Pajak Online
+                    </a>
+                  </DropdownMenuItem>
+
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+            <Link href="/docs">
+              Informasi Lengkap
             </Link>
           </nav>
         </SheetContent>

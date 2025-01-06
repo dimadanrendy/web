@@ -95,6 +95,7 @@ export default function LoginForm() {
 
         try {
             const response = await axiosInstance.get(`/sppt/${nop}`);
+            console.log(response);
 
             if (response.status === 200) {
                 setError(null);
@@ -131,11 +132,11 @@ export default function LoginForm() {
                     }
 
                 } else {
-                    setError("NOP tidak ditemukan");
+                    setError("NOP tidak ditemukan atau SPPT belum cetak masal");
                 }
             }
         } catch (error) {
-            setError("NOP tidak ditemukan");
+            setError("NOP tidak ditemukan atau SPPT belum cetak masal");
         } finally {
             setIsLoading(false);
             recaptchaRef?.current?.reset();

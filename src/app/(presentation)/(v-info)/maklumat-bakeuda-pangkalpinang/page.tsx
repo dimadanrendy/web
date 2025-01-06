@@ -1,5 +1,6 @@
 import FotoPemimpin from "@/components/components-ui/foto-pemimpin";
 import React from "react";
+import { BookText } from "lucide-react";
 
 export const metadata = {
   title: `Maklumat - ${process.env.NEXT_PUBLIC_TITLE_METADATA}`,
@@ -12,9 +13,12 @@ export default function PageMaklumat() {
       <div className="lg:flex lg:gap-2 p-2">
         <div className="lg:flex-none lg:w-4/6 relative">
           <section className="py-2">
-            <h1 className="text-2xl font-bold text-secondary-foreground pb-4">
-              Maklumat Bakeuda Kota Pangkal Pinang
-            </h1>
+            <div className="flex items-center gap-3 border-b border-gray-300 pb-4 mb-6">
+              <h2 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
+                <BookText className="w-6 h-6 text-rose-500" />
+                MAKLUMAT BADAN KEUANGAN DAERAH KOTA PANGKAL PINANG
+              </h2>
+            </div>
             <div className="h-15 bg-rose-500 aspect-video py-4"></div>
 
             <p className="text-justify indent-8 mt-10">

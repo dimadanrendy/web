@@ -84,10 +84,10 @@ export default function PerdaPage() {
     };
 
     const handleEdit = async (id: string) => {
-        router.push(`/peraturan-daerah/edit/${id}`);
+        router.push(`/document/edit/peraturan-daerah/${id}`);
     };
     const handleDetail = async (id: string) => {
-        router.push(`/peraturan-daerah/detail/${id}`);
+        router.push(`/document/detail/peraturan-daerah/${id}`);
     };
 
     // Definisi kolom tabel
@@ -159,7 +159,7 @@ export default function PerdaPage() {
     return (
         <div className="p-4">
             <div className="flex flex-col gap-1 ">
-                <h1 className="text-lg font-semibold md:text-2xl">Dokumen Peraturan Daerah</h1>
+                <h1 className="text-lg font-semibold md:text-2xl">Dokumen Surat Keputusan</h1>
                 <p className="text-sm text-muted-foreground">
                     Management Dokumen
                 </p>
@@ -170,7 +170,7 @@ export default function PerdaPage() {
                 size="icon"
                 className="ml-auto h-8 w-36"
                 onClick={() => {
-                    router.push("/peraturan-daerah/add");
+                    router.push("document/add/peraturan-daerah");
                 }}
             >
                 <div className="flex items-center space-x-2"><Plus className="h-4 w-4 mr-2" /> Add Document</div>

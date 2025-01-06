@@ -13,29 +13,107 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { fotoBakeuda } from "@/lib/image";
+import { useQuery } from "@tanstack/react-query";
+import { getBeritaByTipe } from "@/features/presentesion/berita/useGetManagementBerita";
+import { Skeleton } from "../ui/skleton";
+
+type Berita = {
+  id_photos: string;
+  judul: string;
+  tipe: string;
+  deskripsi: string;
+  bidang: string;
+  tanggal: string;
+  file: string;
+  published: string;
+  authorId: string;
+  authorUsername: string;
+  createdAt: string;
+  updatedAt: string;
+  photoUrl: string;
+};
 
 export default function PageCarousel() {
+  const [pageSlider, setPageSlider] = React.useState(1);
+  const [pageSize, setPageSize] = React.useState(3);
   const plugin = React.useRef(
     Autoplay({ delay: 3000, stopOnMouseEnter: true, stopOnInteraction: false })
   );
 
+  const { data: DataBeritaSlider, isLoading: LoadingBeritaSlider } = useQuery({
+    queryKey: ["berita", "slider", pageSlider],
+    queryFn: async () => {
+      return await getBeritaByTipe("slider", pageSlider, pageSize);
+    },
+  });
+
+  if (LoadingBeritaSlider) {
+    return (
+      <Carousel
+        plugins={[plugin.current]}
+        className="w-full max-w-7xl mx-auto sm:p-2"
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.reset}>
+        <CarouselContent>
+          {/* Skeleton Loading Placeholder */}
+          {Array.from({ length: 3 }).map((_, index) => (
+            <CarouselItem key={index}>
+              <Card>
+                <CardContent className="relative w-full aspect-video">
+                  <Skeleton className="h-full" />
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="left-4" />
+        <CarouselNext className="right-4" />
+      </Carousel>
+    );
+  }
+
+  if (!DataBeritaSlider?.data || DataBeritaSlider?.data?.length === 0) {
+    return (
+      <Carousel
+        plugins={[plugin.current]}
+        className="w-full max-w-7xl mx-auto sm:p-2"
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.reset}>
+        <CarouselContent>
+          {/* Skeleton Loading Placeholder ketika tidak ada data */}
+          {Array.from({ length: 3 }).map((_, index) => (
+            <CarouselItem key={index}>
+              <Card>
+                <CardContent className="relative w-full aspect-video">
+                  <Skeleton className="h-full" />
+                </CardContent>
+              </Card>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="left-4" />
+        <CarouselNext className="right-4" />
+      </Carousel>
+    );
+  }
+
   return (
     <Carousel
       plugins={[plugin.current]}
-      className="w-full max-w-7xl mx-auto sm:p-2 "
+      className="w-full max-w-7xl mx-auto sm:p-2"
       onMouseEnter={plugin.current.stop}
       onMouseLeave={plugin.current.reset}>
       <CarouselContent>
-        {Array.from({ length: 2 }).map((_, index) => (
-          <CarouselItem key={index}>
-            <Link href={"/"}>
+        {DataBeritaSlider?.data?.map((item: Berita) => (
+          <CarouselItem key={item.id_photos}>
+            <Link href={item.photoUrl} target="_blank">
               <Card>
-                <CardContent className="flex bg-slate-500 aspect-[21/9] items-center justify-center">
+                <CardContent className="relative w-full aspect-video">
                   <Image
-                    src={fotoBakeuda}
-                    alt="placeholder"
-                    quality={100}
+                    src={item.photoUrl}
+                    alt={item.file}
                     fill
+                    className="object-cover"
                   />
                 </CardContent>
               </Card>
@@ -43,7 +121,7 @@ export default function PageCarousel() {
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious className="left-4 " />
+      <CarouselPrevious className="left-4" />
       <CarouselNext className="right-4" />
     </Carousel>
   );

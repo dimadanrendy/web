@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import {
+    perwako25,
     perwako24,
     perwako23,
     perwako22,
@@ -21,6 +22,11 @@ export default function PagePerwako() {
     return (
         <section className="w-full py-4">
             <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 max-w-7xl mx-auto">
+                <Link href={"/dokumen/details/perwako/2025"} className="hover:scale-105">
+                    <div className={StyleBox}>
+                        <Image src={perwako25} alt="perwako-2025" fill quality={100} placeholder='blur' />
+                    </div>
+                </Link>
                 <Link href={"/dokumen/details/perwako/2024"} className="hover:scale-105">
                     <div className={StyleBox}>
                         <Image src={perwako24} alt="perwako-2024" fill quality={100} placeholder='blur' />
