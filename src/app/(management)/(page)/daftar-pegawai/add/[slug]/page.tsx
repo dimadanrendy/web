@@ -91,28 +91,24 @@ export default function AddPegawai({ params }: { params: { slug: String } }) {
             // Append file secara khusus
             formData.append("image", data.image);
 
-            console.log(formData);
-
             // Panggil API postUsers dengan formData
             const response = await postPegawai(formData);
 
-            console.log(response);
-
             if (response.status === true) {
+                setIsLoading(false);
+
                 toast.success("Document added successfully", {
                     position: "top-right",
-                    description: response.message,
+                    description: response.message
                 });
+                router.push(`/daftar-pegawai/all/${params.slug}`);
             } else {
-                const errorMsg = response.message || "Failed to add document";
-                toast.error("Failed to add document", { description: errorMsg });
-                setError(errorMsg);
+                toast.error("Failed to add document", { description: response });
+                setError(response); // Set error sebagai array
             }
-
         } catch (err: any) {
-            const errorMessage = err.message || "An unexpected error occurred";
-            toast.error("Failed to add document", { description: errorMessage });
-            setError(errorMessage); // Simpan hanya pesan string
+            toast.error("Failed to add document", { description: err });
+            setError(err); // Pesan error umum
         } finally {
             setIsLoading(false);
         }
