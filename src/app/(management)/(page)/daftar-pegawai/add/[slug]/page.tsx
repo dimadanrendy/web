@@ -91,8 +91,12 @@ export default function AddPegawai({ params }: { params: { slug: String } }) {
             // Append file secara khusus
             formData.append("image", data.image);
 
+            console.log(formData);
+
             // Panggil API postUsers dengan formData
             const response = await postPegawai(formData);
+
+            console.log(response);
 
             if (response.status === true) {
                 toast.success("Document added successfully", {
