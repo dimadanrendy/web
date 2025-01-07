@@ -95,20 +95,20 @@ export default function AddPegawai({ params }: { params: { slug: String } }) {
             const response = await postPegawai(formData);
 
             if (response.status === true) {
-                setIsLoading(false);
-
                 toast.success("Document added successfully", {
                     position: "top-right",
-                    description: response.message
+                    description: response.message,
                 });
-                router.push(`/daftar-pegawai/all/${params.slug}`);
             } else {
-                toast.error("Failed to add document", { description: response });
-                setError(response); // Set error sebagai array
+                const errorMsg = response.message || "Failed to add document";
+                toast.error("Failed to add document", { description: errorMsg });
+                setError(errorMsg);
             }
+
         } catch (err: any) {
-            toast.error("Failed to add document", { description: err });
-            setError(err); // Pesan error umum
+            const errorMessage = err.message || "An unexpected error occurred";
+            toast.error("Failed to add document", { description: errorMessage });
+            setError(errorMessage); // Simpan hanya pesan string
         } finally {
             setIsLoading(false);
         }
