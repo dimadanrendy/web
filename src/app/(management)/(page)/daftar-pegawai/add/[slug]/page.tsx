@@ -94,6 +94,8 @@ export default function AddPegawai({ params }: { params: { slug: String } }) {
             // Panggil API postUsers dengan formData
             const response = await postPegawai(formData);
 
+            console.log(response)
+
             if (response.status === true) {
                 setIsLoading(false);
 
