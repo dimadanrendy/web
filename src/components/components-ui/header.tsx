@@ -263,7 +263,7 @@ export default function PageHeader() {
                     Realisasi Pajak Daerah Kota Pangkal Pinang
                   </ListItem>
                   <ListItem
-                    href="/tugas-fungsi-bakeuda-pangkalpinang"
+                    href="/informasi-pelayanan"
                     title="Loket Pelayanan Pajak Daerah">
                     Yuk Cari Tau Tentang Pelayanan Pajak Daerah
                   </ListItem>
@@ -400,6 +400,11 @@ export default function PageHeader() {
                   <DropdownMenuItem>
                     <a href="/dokumen-lainnya-bakeuda-pangkalpinang" className="py-4">
                       Pajak Online
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="/informasi-pelayanan" className="py-4">
+                      Yuk Cari Tau Tentang Pelayanan Pajak Daerah
                     </a>
                   </DropdownMenuItem>
 
