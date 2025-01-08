@@ -95,7 +95,6 @@ export default function LoginForm() {
 
         try {
             const response = await axiosInstance.get(`/sppt/${nop}`);
-            console.log(response);
 
             if (response.status === 200) {
                 setError(null);

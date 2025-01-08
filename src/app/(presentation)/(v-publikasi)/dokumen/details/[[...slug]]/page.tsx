@@ -11,8 +11,6 @@ export default function DetailsPerwako({ params }: {
 }) {
     const { slug } = params;
 
-    console.log(slug);
-
     const [title, setTitle] = useState < string > ("");
 
     useEffect(() => {
