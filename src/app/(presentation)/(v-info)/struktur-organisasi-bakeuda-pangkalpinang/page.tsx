@@ -298,7 +298,7 @@ export default function PageStrukturOrganisasi() {
                 ) : !DataPegawaiPns || DataPegawaiPns.length === 0 ? (
                   // Data kosong
                   <div className="text-center py-10">
-                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pejabat eselon.</p>
+                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pns.</p>
                   </div>
                 ) : (
                   // Tampilkan data jika tersedia
@@ -365,7 +365,7 @@ export default function PageStrukturOrganisasi() {
                 ) : !DataPegawaiPppk || DataPegawaiPppk.length === 0 ? (
                   // Data kosong
                   <div className="text-center py-10">
-                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pejabat eselon.</p>
+                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pegawai.</p>
                   </div>
                 ) : (
                   // Tampilkan data jika tersedia
@@ -432,7 +432,7 @@ export default function PageStrukturOrganisasi() {
                 ) : !DataPegawaiPhlSekretariat || DataPegawaiPhlSekretariat.length === 0 ? (
                   // Data kosong
                   <div className="text-center py-10">
-                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pejabat eselon.</p>
+                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pegawai.</p>
                   </div>
                 ) : (
                   // Tampilkan data jika tersedia
@@ -499,7 +499,7 @@ export default function PageStrukturOrganisasi() {
                 ) : !DataPegawaiPhlPerbendaharaan || DataPegawaiPhlPerbendaharaan.length === 0 ? (
                   // Data kosong
                   <div className="text-center py-10">
-                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pejabat eselon.</p>
+                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pegawai.</p>
                   </div>
                 ) : (
                   // Tampilkan data jika tersedia
@@ -566,7 +566,7 @@ export default function PageStrukturOrganisasi() {
                 ) : !DataPegawaiPhlAset || DataPegawaiPhlAset.length === 0 ? (
                   // Data kosong
                   <div className="text-center py-10">
-                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pejabat eselon.</p>
+                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pegawai.</p>
                   </div>
                 ) : (
                   // Tampilkan data jika tersedia
@@ -633,7 +633,7 @@ export default function PageStrukturOrganisasi() {
                 ) : !DataPegawaiPhlAkuntansi || DataPegawaiPhlAkuntansi.length === 0 ? (
                   // Data kosong
                   <div className="text-center py-10">
-                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pejabat eselon.</p>
+                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pegawai.</p>
                   </div>
                 ) : (
                   // Tampilkan data jika tersedia
@@ -700,7 +700,7 @@ export default function PageStrukturOrganisasi() {
                 ) : !DataPegawaiPhlAnggaran || DataPegawaiPhlAnggaran.length === 0 ? (
                   // Data kosong
                   <div className="text-center py-10">
-                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pejabat eselon.</p>
+                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pegawai.</p>
                   </div>
                 ) : (
                   // Tampilkan data jika tersedia
@@ -767,7 +767,7 @@ export default function PageStrukturOrganisasi() {
                 ) : !DataPegawaiPhlPendaftaran || DataPegawaiPhlPendaftaran.length === 0 ? (
                   // Data kosong
                   <div className="text-center py-10">
-                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pejabat eselon.</p>
+                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pegawai.</p>
                   </div>
                 ) : (
                   // Tampilkan data jika tersedia
@@ -834,7 +834,7 @@ export default function PageStrukturOrganisasi() {
                 ) : !DataPegawaiPhlPenagihan || DataPegawaiPhlPenagihan.length === 0 ? (
                   // Data kosong
                   <div className="text-center py-10">
-                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pejabat eselon.</p>
+                    <p className="text-gray-500 text-lg font-medium">Tidak ada data pegawai.</p>
                   </div>
                 ) : (
                   // Tampilkan data jika tersedia

@@ -3,7 +3,7 @@ import React from "react";
 import { BookText, Minus, Plus } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import Image from "next/image";
-import { kaban } from "@/lib/image";
+import { kaban, kakuntansi, kanggaran, kaset, kpenagihan, kpendaftaran, kperben, sekban } from "@/lib/image";
 
 export const metadata = {
   title: `Tugas Fungsi - ${process.env.NEXT_PUBLIC_TITLE_METADATA}`,
@@ -35,7 +35,7 @@ export default function PageTugasFungsi() {
                 </CollapsibleTrigger>
                 <CollapsibleContent className="p-4 border-t">
                   <div className="grid grid-cols-1 text-xs md:text-sm text-justify">
-                    {/* Example Pejabat Item */}
+
                     <div className="flex flex-col md:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
                       <Image
                         src={kaban}
@@ -48,79 +48,66 @@ export default function PageTugasFungsi() {
                       <div className="text-left">
                         <h3 className="font-semibold text-lg text-gray-800">Muhammad Yasin, S.E., M.M.</h3>
                         <h3 className="font-semibold text-sm text-gray-800 -mt-1">NIP. 199411162020121001</h3>
-                        <p className="text-gray-500">Jabatan : Analis Perencanaan, Evaluasi dan Pelaporan</p>
-                        <p className="text-gray-500">Pangkat/Gol : Penata Muda/IIIa</p>
-                        <p className="text-gray-500">Pendidikan Terahir : S-1 Akuntansi</p>
+                        <p className="text-gray-500">Jabatan : Kepala Badan Keuangan Daerah</p>
+                        <p className="text-gray-500">Pangkat/Gol : Pembina TK.I/IV.B</p>
                       </div>
                     </div>
                     <p className="py-4 font-extrabold">DASAR HUKUM :</p>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima sequi facere iure ipsam velit voluptate impedit quos tempora voluptatem ut provident repellendus, ullam officia dolore iste fugiat est quasi, temporibus maxime hic natus ab! Rerum, exercitationem nesciunt, suscipit vel ullam voluptates ducimus quibusdam esse, quas sequi temporibus. Quibusdam recusandae natus adipisci doloribus animi vero reiciendis, autem aut asperiores at rem obcaecati minima nulla iure dolorum consequatur molestias laborum eaque dolores, a eum dignissimos. Necessitatibus dignissimos odit consequatur quos ut debitis provident tempora eveniet ipsam ab minus error maxime magnam, delectus repudiandae nobis reprehenderit, corrupti quo quasi vero suscipit eligendi eum! Dignissimos, eligendi ducimus? Explicabo, soluta perspiciatis! Magnam aspernatur incidunt ut vitae fugit similique vero repellendus nam sed, corrupti eos quia id. Rerum quam quaerat soluta aliquid officiis recusandae, ipsa, eum sed adipisci dignissimos consequuntur fugit distinctio enim doloremque obcaecati dolorem! Laudantium ratione illo blanditiis nobis quibusdam animi placeat saepe nisi?
+                      Peraturan Wali Kota Pangkal Pinang Nomor 48 Tahun 2023 Tentang Kedudukan, Susunan Organisasi, Tugas Dan Fungsi Serta Tata Kerja Unsur Penunjang Perangkat Daerah Kota Pangkal Pinang.
                     </p>
                     <p className="py-4 font-extrabold">TUGAS :</p>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ratione dolores excepturi est fuga non dolore tempore voluptatibus asperiores architecto, labore minima obcaecati cum eveniet laudantium beatae placeat eos voluptates suscipit. Consequatur, rerum voluptate accusamus ad dolorem error assumenda eos quaerat debitis provident illum qui fugiat numquam ab exercitationem id ducimus atque? Aut earum hic nihil reprehenderit. Cupiditate aperiam modi architecto aut? Sequi amet mollitia magnam est, accusamus nesciunt praesentium pariatur aperiam expedita nihil doloremque doloribus, sapiente a. Molestias architecto, eos corrupti sapiente debitis impedit? Blanditiis ratione tenetur odio ipsa sequi nemo neque dolor, odit quo harum ullam est temporibus maiores voluptatibus repellendus debitis doloremque repellat quidem. Totam molestias reiciendis obcaecati fuga sunt ipsum nobis esse odit et itaque amet tempora aliquid nesciunt qui quisquam quaerat cupiditate, aspernatur, maxime recusandae consequuntur, voluptates sapiente culpa tenetur! Eaque dolores laboriosam ipsum eveniet delectus accusantium totam saepe, provident quaerat deleniti beatae nostrum omnis.
+                      Melaksanakan perumusan kebijakan teknis, koordinasi, pembinaan dan penyelenggaraan urusan pemerintahan bidang keuangan, pendapatan dan aset daerah berdasarkan asas desentralisasi dan tugas pembantuan.
                     </p>
                     <p className="py-4 font-extrabold">FUNGSI :</p>
                     <div className="px-6">
                       <div className="flex items-start">
                         <span className="font-semibold">1.</span>
                         <p className="text-justify leading-relaxed ml-6">
-                          Meningkatkan kesejahteraan rakyat melalui peningkatan pendapatan per kapita.
+                          Perumusan kebijakan teknis bidang keuangan, pendapatan dan aset daerah;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">2.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Mewujudkan kesejahteraan yang mendukung peningkatan kualitas pelayanan dasar sektor publik dari pendidikan dan kesehatan.
+                          Penetapan rencana strategis Badan Keuangan Daerah untuk mendukung visi dan misi dan kebijakan Wali Kota;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">3.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Mengurangi dampak negatif pembangunan ekonomi seperti kemiskinan, pengangguran, ketimpangan distribusi pendapatan antar golongan dan antar daerah serta masalah pencemaran lingkungan.
+                          Pemberian dukungan atas penyelenggaraan Pemerintahan Kota Pangkal Pinang bidang keuangan daerah;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">4.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Menciptakan aparatur pemerintah jujur, bersih, berwibawa dan berkualitas melalui dukungan fasilitas yang memadai dan penegakan supremasi hukum.
+                          Penetapan rencana kerja Badan Keuangan Daerah menurut skala prioritas dan mendistribusikannya kepada bawahan;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">5.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Menegakkan hukum yang tidak diskriminatif dan tanpa membedakan kedudukan pelaku guna menekan tindakan kejahatan dan aksi illegal.
+                          Pembinaan dan pelaksanaan tugas dibidang keuangan daerah;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">6.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Menjalin kerjasama yang baik antar dinas, antar pemerintah daerah dan antar pemerintah, dewan dan masyarakat guna mencapai masyarakat yang adil, makmur, aman dan damai.
+                          pelaksanaan perencanaan bidang keuangan daerah;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">7.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Mengembangkan sektor perdagangan dan jasa melalui pembangunan sistem informasi dan ketersediaan data yang berkualitas terutama di dalam menghadapi era globalisasi.
+                          Pengkoordinasian dan pelaksanaan keuangan lingkup kota termasuk dukungan dana, sarana dan prasarana Badan Keuangan Daerah; dan
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">8.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Meningkatkan peran para pengusaha melalui peningkatan jiwa kewirausahaan, kesetaraan gender, dan dukungan terhadap wanita pengusaha dalam meningkatkan pertumbuhan dan pemerataan pembangunan ekonomi.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">9.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Menciptakan masyarakat dengan gaya hidup yang religius dan memiliki jiwa serta tubuh yang sehat.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">10.</span>
-                        <p className="text-justify leading-relaxed ml-3">
-                          Menciptakan keharmonisan hidup melalui masyarakat taat hukum yang memiliki komitmen dan integritas tinggi terhadap pembangunan.
+                          Pelaksanaan tugas lain yang diberikan Wali Kota sesuai dengan tugas dan fungsinya.
                         </p>
                       </div>
                     </div>
@@ -133,7 +120,7 @@ export default function PageTugasFungsi() {
               <Collapsible className="group">
                 <CollapsibleTrigger asChild>
                   <div className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-100">
-                    <span className="font-medium">Sekretaris Badan</span>
+                    <span className="font-medium">Sekretaris</span>
                     <div className="ml-auto">
                       <Plus className="group-data-[state=open]:hidden" />
                       <Minus className="hidden group-data-[state=open]:block" />
@@ -142,117 +129,10 @@ export default function PageTugasFungsi() {
                 </CollapsibleTrigger>
                 <CollapsibleContent className="p-4 border-t">
                   <div className="grid grid-cols-1 text-xs md:text-sm text-justify">
-                    {/* Example Pejabat Item */}
-                    <div className="flex flex-col md:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
-                      <Image
-                        src={kaban}
-                        alt="Pejabat"
-                        width={1000}
-                        height={1000}
-                        quality={100}
-                        className="w-64 h-72 rounded-lg object-cover mr-4"
-                      />
-                      <div className="text-left">
-                        <h3 className="font-semibold text-lg text-gray-800">Muhammad Yasin, S.E., M.M.</h3>
-                        <h3 className="font-semibold text-sm text-gray-800 -mt-1">NIP. 199411162020121001</h3>
-                        <p className="text-gray-500">Jabatan : Analis Perencanaan, Evaluasi dan Pelaporan</p>
-                        <p className="text-gray-500">Pangkat/Gol : Penata Muda/IIIa</p>
-                        <p className="text-gray-500">Pendidikan Terahir : S-1 Akuntansi</p>
-                      </div>
-                    </div>
-                    <p className="py-4 font-extrabold">DASAR HUKUM :</p>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima sequi facere iure ipsam velit voluptate impedit quos tempora voluptatem ut provident repellendus, ullam officia dolore iste fugiat est quasi, temporibus maxime hic natus ab! Rerum, exercitationem nesciunt, suscipit vel ullam voluptates ducimus quibusdam esse, quas sequi temporibus. Quibusdam recusandae natus adipisci doloribus animi vero reiciendis, autem aut asperiores at rem obcaecati minima nulla iure dolorum consequatur molestias laborum eaque dolores, a eum dignissimos. Necessitatibus dignissimos odit consequatur quos ut debitis provident tempora eveniet ipsam ab minus error maxime magnam, delectus repudiandae nobis reprehenderit, corrupti quo quasi vero suscipit eligendi eum! Dignissimos, eligendi ducimus? Explicabo, soluta perspiciatis! Magnam aspernatur incidunt ut vitae fugit similique vero repellendus nam sed, corrupti eos quia id. Rerum quam quaerat soluta aliquid officiis recusandae, ipsa, eum sed adipisci dignissimos consequuntur fugit distinctio enim doloremque obcaecati dolorem! Laudantium ratione illo blanditiis nobis quibusdam animi placeat saepe nisi?
-                    </p>
-                    <p className="py-4 font-extrabold">TUGAS :</p>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ratione dolores excepturi est fuga non dolore tempore voluptatibus asperiores architecto, labore minima obcaecati cum eveniet laudantium beatae placeat eos voluptates suscipit. Consequatur, rerum voluptate accusamus ad dolorem error assumenda eos quaerat debitis provident illum qui fugiat numquam ab exercitationem id ducimus atque? Aut earum hic nihil reprehenderit. Cupiditate aperiam modi architecto aut? Sequi amet mollitia magnam est, accusamus nesciunt praesentium pariatur aperiam expedita nihil doloremque doloribus, sapiente a. Molestias architecto, eos corrupti sapiente debitis impedit? Blanditiis ratione tenetur odio ipsa sequi nemo neque dolor, odit quo harum ullam est temporibus maiores voluptatibus repellendus debitis doloremque repellat quidem. Totam molestias reiciendis obcaecati fuga sunt ipsum nobis esse odit et itaque amet tempora aliquid nesciunt qui quisquam quaerat cupiditate, aspernatur, maxime recusandae consequuntur, voluptates sapiente culpa tenetur! Eaque dolores laboriosam ipsum eveniet delectus accusantium totam saepe, provident quaerat deleniti beatae nostrum omnis.
-                    </p>
-                    <p className="py-4 font-extrabold">FUNGSI :</p>
-                    <div className="px-6">
-                      <div className="flex items-start">
-                        <span className="font-semibold">1.</span>
-                        <p className="text-justify leading-relaxed ml-6">
-                          Meningkatkan kesejahteraan rakyat melalui peningkatan pendapatan per kapita.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">2.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Mewujudkan kesejahteraan yang mendukung peningkatan kualitas pelayanan dasar sektor publik dari pendidikan dan kesehatan.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">3.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Mengurangi dampak negatif pembangunan ekonomi seperti kemiskinan, pengangguran, ketimpangan distribusi pendapatan antar golongan dan antar daerah serta masalah pencemaran lingkungan.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">4.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Menciptakan aparatur pemerintah jujur, bersih, berwibawa dan berkualitas melalui dukungan fasilitas yang memadai dan penegakan supremasi hukum.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">5.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Menegakkan hukum yang tidak diskriminatif dan tanpa membedakan kedudukan pelaku guna menekan tindakan kejahatan dan aksi illegal.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">6.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Menjalin kerjasama yang baik antar dinas, antar pemerintah daerah dan antar pemerintah, dewan dan masyarakat guna mencapai masyarakat yang adil, makmur, aman dan damai.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">7.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Mengembangkan sektor perdagangan dan jasa melalui pembangunan sistem informasi dan ketersediaan data yang berkualitas terutama di dalam menghadapi era globalisasi.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">8.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Meningkatkan peran para pengusaha melalui peningkatan jiwa kewirausahaan, kesetaraan gender, dan dukungan terhadap wanita pengusaha dalam meningkatkan pertumbuhan dan pemerataan pembangunan ekonomi.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">9.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Menciptakan masyarakat dengan gaya hidup yang religius dan memiliki jiwa serta tubuh yang sehat.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">10.</span>
-                        <p className="text-justify leading-relaxed ml-3">
-                          Menciptakan keharmonisan hidup melalui masyarakat taat hukum yang memiliki komitmen dan integritas tinggi terhadap pembangunan.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </CollapsibleContent>
-              </Collapsible>
-            </div>
 
-            <div className="mt-2 border rounded-lg shadow-sm">
-              <Collapsible className="group">
-                <CollapsibleTrigger asChild>
-                  <div className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-100">
-                    <span className="font-medium">Kepala Bidang Perbendaharaan</span>
-                    <div className="ml-auto">
-                      <Plus className="group-data-[state=open]:hidden" />
-                      <Minus className="hidden group-data-[state=open]:block" />
-                    </div>
-                  </div>
-                </CollapsibleTrigger>
-                <CollapsibleContent className="p-4 border-t">
-                  <div className="grid grid-cols-1 text-xs md:text-sm text-justify">
-                    {/* Example Pejabat Item */}
                     <div className="flex flex-col md:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
                       <Image
-                        src={kaban}
+                        src={sekban}
                         alt="Pejabat"
                         width={1000}
                         height={1000}
@@ -260,39 +140,38 @@ export default function PageTugasFungsi() {
                         className="w-64 h-72 rounded-lg object-cover mr-4"
                       />
                       <div className="text-left">
-                        <h3 className="font-semibold text-lg text-gray-800">Muhammad Yasin, S.E., M.M.</h3>
+                        <h3 className="font-semibold text-lg text-gray-800">SYAMSUL BACHRI, S.E., M.Ec.Dev.</h3>
                         <h3 className="font-semibold text-sm text-gray-800 -mt-1">NIP. 199411162020121001</h3>
-                        <p className="text-gray-500">Jabatan : Analis Perencanaan, Evaluasi dan Pelaporan</p>
-                        <p className="text-gray-500">Pangkat/Gol : Penata Muda/IIIa</p>
-                        <p className="text-gray-500">Pendidikan Terahir : S-1 Akuntansi</p>
+                        <p className="text-gray-500">Jabatan : Sekretaris Badan Keuangan Daerah</p>
+                        <p className="text-gray-500">Pangkat/Gol : Pembina / IV.A</p>
                       </div>
                     </div>
                     <p className="py-4 font-extrabold">DASAR HUKUM :</p>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima sequi facere iure ipsam velit voluptate impedit quos tempora voluptatem ut provident repellendus, ullam officia dolore iste fugiat est quasi, temporibus maxime hic natus ab! Rerum, exercitationem nesciunt, suscipit vel ullam voluptates ducimus quibusdam esse, quas sequi temporibus. Quibusdam recusandae natus adipisci doloribus animi vero reiciendis, autem aut asperiores at rem obcaecati minima nulla iure dolorum consequatur molestias laborum eaque dolores, a eum dignissimos. Necessitatibus dignissimos odit consequatur quos ut debitis provident tempora eveniet ipsam ab minus error maxime magnam, delectus repudiandae nobis reprehenderit, corrupti quo quasi vero suscipit eligendi eum! Dignissimos, eligendi ducimus? Explicabo, soluta perspiciatis! Magnam aspernatur incidunt ut vitae fugit similique vero repellendus nam sed, corrupti eos quia id. Rerum quam quaerat soluta aliquid officiis recusandae, ipsa, eum sed adipisci dignissimos consequuntur fugit distinctio enim doloremque obcaecati dolorem! Laudantium ratione illo blanditiis nobis quibusdam animi placeat saepe nisi?
+                      Peraturan Wali Kota Pangkal Pinang Nomor 48 Tahun 2023 Tentang Kedudukan, Susunan Organisasi, Tugas Dan Fungsi Serta Tata Kerja Unsur Penunjang Perangkat Daerah Kota Pangkal Pinang.
                     </p>
                     <p className="py-4 font-extrabold">TUGAS :</p>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ratione dolores excepturi est fuga non dolore tempore voluptatibus asperiores architecto, labore minima obcaecati cum eveniet laudantium beatae placeat eos voluptates suscipit. Consequatur, rerum voluptate accusamus ad dolorem error assumenda eos quaerat debitis provident illum qui fugiat numquam ab exercitationem id ducimus atque? Aut earum hic nihil reprehenderit. Cupiditate aperiam modi architecto aut? Sequi amet mollitia magnam est, accusamus nesciunt praesentium pariatur aperiam expedita nihil doloremque doloribus, sapiente a. Molestias architecto, eos corrupti sapiente debitis impedit? Blanditiis ratione tenetur odio ipsa sequi nemo neque dolor, odit quo harum ullam est temporibus maiores voluptatibus repellendus debitis doloremque repellat quidem. Totam molestias reiciendis obcaecati fuga sunt ipsum nobis esse odit et itaque amet tempora aliquid nesciunt qui quisquam quaerat cupiditate, aspernatur, maxime recusandae consequuntur, voluptates sapiente culpa tenetur! Eaque dolores laboriosam ipsum eveniet delectus accusantium totam saepe, provident quaerat deleniti beatae nostrum omnis.
+                      Melaksanakan koordinasi pelaksanaan tugas dan pemberian pelayanan administratif dan fungsional kepada seluruh unit organisasi di lingkungan Badan Keuangan Daerah.
                     </p>
                     <p className="py-4 font-extrabold">FUNGSI :</p>
                     <div className="px-6">
                       <div className="flex items-start">
                         <span className="font-semibold">1.</span>
                         <p className="text-justify leading-relaxed ml-6">
-                          Meningkatkan kesejahteraan rakyat melalui peningkatan pendapatan per kapita.
+                          Pelaksanaan koordinasi kegiatan Badan keuangan Daerah;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">2.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Mewujudkan kesejahteraan yang mendukung peningkatan kualitas pelayanan dasar sektor publik dari pendidikan dan kesehatan.
+                          Penyusunan rencana program dan anggaran Badan Keuangan Daerah;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">3.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Mengurangi dampak negatif pembangunan ekonomi seperti kemiskinan, pengangguran, ketimpangan distribusi pendapatan antar golongan dan antar daerah serta masalah pencemaran lingkungan.
+                          Penyelenggaraan urusan ketatausahaan rumah tangga, kepegawaian, hukum dan organisasi serta hubungan masyarakat Badan Keuangan Daerah;
                         </p>
                       </div>
                       <div className="flex items-start">
@@ -304,37 +183,13 @@ export default function PageTugasFungsi() {
                       <div className="flex items-start">
                         <span className="font-semibold">5.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Menegakkan hukum yang tidak diskriminatif dan tanpa membedakan kedudukan pelaku guna menekan tindakan kejahatan dan aksi illegal.
+                          Penyelenggaraan urusan keuangan, perbendaharaan, akuntansi, verifikasi, tindak lanjut Laporan Hasil Pemeriksaan dan pengelolaan sarana Badan Keuangan Daerah; dan
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">6.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Menjalin kerjasama yang baik antar dinas, antar pemerintah daerah dan antar pemerintah, dewan dan masyarakat guna mencapai masyarakat yang adil, makmur, aman dan damai.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">7.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Mengembangkan sektor perdagangan dan jasa melalui pembangunan sistem informasi dan ketersediaan data yang berkualitas terutama di dalam menghadapi era globalisasi.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">8.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Meningkatkan peran para pengusaha melalui peningkatan jiwa kewirausahaan, kesetaraan gender, dan dukungan terhadap wanita pengusaha dalam meningkatkan pertumbuhan dan pemerataan pembangunan ekonomi.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">9.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Menciptakan masyarakat dengan gaya hidup yang religius dan memiliki jiwa serta tubuh yang sehat.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">10.</span>
-                        <p className="text-justify leading-relaxed ml-3">
-                          Menciptakan keharmonisan hidup melalui masyarakat taat hukum yang memiliki komitmen dan integritas tinggi terhadap pembangunan.
+                          Pelaksanaan tugas pemerintahan umum lainnya yang diberikan Kepala Badan sesuai tugas dan fungsinya.
                         </p>
                       </div>
                     </div>
@@ -356,10 +211,10 @@ export default function PageTugasFungsi() {
                 </CollapsibleTrigger>
                 <CollapsibleContent className="p-4 border-t">
                   <div className="grid grid-cols-1 text-xs md:text-sm text-justify">
-                    {/* Example Pejabat Item */}
+
                     <div className="flex flex-col md:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
                       <Image
-                        src={kaban}
+                        src={kanggaran}
                         alt="Pejabat"
                         width={1000}
                         height={1000}
@@ -367,81 +222,439 @@ export default function PageTugasFungsi() {
                         className="w-64 h-72 rounded-lg object-cover mr-4"
                       />
                       <div className="text-left">
-                        <h3 className="font-semibold text-lg text-gray-800">Muhammad Yasin, S.E., M.M.</h3>
-                        <h3 className="font-semibold text-sm text-gray-800 -mt-1">NIP. 199411162020121001</h3>
-                        <p className="text-gray-500">Jabatan : Analis Perencanaan, Evaluasi dan Pelaporan</p>
-                        <p className="text-gray-500">Pangkat/Gol : Penata Muda/IIIa</p>
-                        <p className="text-gray-500">Pendidikan Terahir : S-1 Akuntansi</p>
+                        <h3 className="font-semibold text-lg text-gray-800">FIRMAN RAHMADONI, S.E., M.Acc.</h3>
+                        <h3 className="font-semibold text-sm text-gray-800 -mt-1">NIP. 198202022008011006</h3>
+                        <p className="text-gray-500">Jabatan : Kepala Bidang Anggaran</p>
+                        <p className="text-gray-500">Pangkat/Gol : Penata Tk.I / III</p>
                       </div>
                     </div>
                     <p className="py-4 font-extrabold">DASAR HUKUM :</p>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima sequi facere iure ipsam velit voluptate impedit quos tempora voluptatem ut provident repellendus, ullam officia dolore iste fugiat est quasi, temporibus maxime hic natus ab! Rerum, exercitationem nesciunt, suscipit vel ullam voluptates ducimus quibusdam esse, quas sequi temporibus. Quibusdam recusandae natus adipisci doloribus animi vero reiciendis, autem aut asperiores at rem obcaecati minima nulla iure dolorum consequatur molestias laborum eaque dolores, a eum dignissimos. Necessitatibus dignissimos odit consequatur quos ut debitis provident tempora eveniet ipsam ab minus error maxime magnam, delectus repudiandae nobis reprehenderit, corrupti quo quasi vero suscipit eligendi eum! Dignissimos, eligendi ducimus? Explicabo, soluta perspiciatis! Magnam aspernatur incidunt ut vitae fugit similique vero repellendus nam sed, corrupti eos quia id. Rerum quam quaerat soluta aliquid officiis recusandae, ipsa, eum sed adipisci dignissimos consequuntur fugit distinctio enim doloremque obcaecati dolorem! Laudantium ratione illo blanditiis nobis quibusdam animi placeat saepe nisi?
+                      Peraturan Wali Kota Pangkal Pinang Nomor 48 Tahun 2023 Tentang Kedudukan, Susunan Organisasi, Tugas Dan Fungsi Serta Tata Kerja Unsur Penunjang Perangkat Daerah Kota Pangkal Pinang.
                     </p>
                     <p className="py-4 font-extrabold">TUGAS :</p>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ratione dolores excepturi est fuga non dolore tempore voluptatibus asperiores architecto, labore minima obcaecati cum eveniet laudantium beatae placeat eos voluptates suscipit. Consequatur, rerum voluptate accusamus ad dolorem error assumenda eos quaerat debitis provident illum qui fugiat numquam ab exercitationem id ducimus atque? Aut earum hic nihil reprehenderit. Cupiditate aperiam modi architecto aut? Sequi amet mollitia magnam est, accusamus nesciunt praesentium pariatur aperiam expedita nihil doloremque doloribus, sapiente a. Molestias architecto, eos corrupti sapiente debitis impedit? Blanditiis ratione tenetur odio ipsa sequi nemo neque dolor, odit quo harum ullam est temporibus maiores voluptatibus repellendus debitis doloremque repellat quidem. Totam molestias reiciendis obcaecati fuga sunt ipsum nobis esse odit et itaque amet tempora aliquid nesciunt qui quisquam quaerat cupiditate, aspernatur, maxime recusandae consequuntur, voluptates sapiente culpa tenetur! Eaque dolores laboriosam ipsum eveniet delectus accusantium totam saepe, provident quaerat deleniti beatae nostrum omnis.
+                      Melaksanakan koordinasi pelaksanaan tugas, pembinaan dan pemberian dukungan administrasi bidang anggaran kepada seluruh unit organisasi di Lingkungan Pemerintah Kota.
                     </p>
                     <p className="py-4 font-extrabold">FUNGSI :</p>
                     <div className="px-6">
                       <div className="flex items-start">
                         <span className="font-semibold">1.</span>
                         <p className="text-justify leading-relaxed ml-6">
-                          Meningkatkan kesejahteraan rakyat melalui peningkatan pendapatan per kapita.
+                          Penyusunan rencana program dan kegiatan lingkup Penganggaran;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">2.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Mewujudkan kesejahteraan yang mendukung peningkatan kualitas pelayanan dasar sektor publik dari pendidikan dan kesehatan.
+                          Penyusunan petunjuk teknis lingkup Penganggaran;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">3.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Mengurangi dampak negatif pembangunan ekonomi seperti kemiskinan, pengangguran, ketimpangan distribusi pendapatan antar golongan dan antar daerah serta masalah pencemaran lingkungan.
+                          Penyelenggaraan urusan pemerintahan dan pelayanan umum bidang Penganggaran lingkup Perumusan Anggaran, Penyusunan Anggaran dan Sistem Informasi Anggaran;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">4.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Menciptakan aparatur pemerintah jujur, bersih, berwibawa dan berkualitas melalui dukungan fasilitas yang memadai dan penegakan supremasi hukum.
+                          Pemberdayaan dan peningkatan kualitas sumber daya manusia lingkup Penganggaran;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">5.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Menegakkan hukum yang tidak diskriminatif dan tanpa membedakan kedudukan pelaku guna menekan tindakan kejahatan dan aksi illegal.
+                          Pelaksaan monitoring, evaluasi dan pelaporan lingkup Penganggaran; dan
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">6.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Menjalin kerjasama yang baik antar dinas, antar pemerintah daerah dan antar pemerintah, dewan dan masyarakat guna mencapai masyarakat yang adil, makmur, aman dan damai.
+                          Pelaksanaan tugas lainnya yang diberikan Kepala Badan Keuangan Daerah sesuai dengan tugas dan fungsinya.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+            </div>
+
+            <div className="mt-2 border rounded-lg shadow-sm">
+              <Collapsible className="group">
+                <CollapsibleTrigger asChild>
+                  <div className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-100">
+                    <span className="font-medium">Kepala Bidang Perbendaharaan</span>
+                    <div className="ml-auto">
+                      <Plus className="group-data-[state=open]:hidden" />
+                      <Minus className="hidden group-data-[state=open]:block" />
+                    </div>
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="p-4 border-t">
+                  <div className="grid grid-cols-1 text-xs md:text-sm text-justify">
+
+                    <div className="flex flex-col md:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
+                      <Image
+                        src={kperben}
+                        alt="Pejabat"
+                        width={1000}
+                        height={1000}
+                        quality={100}
+                        className="w-64 h-72 rounded-lg object-cover mr-4"
+                      />
+                      <div className="text-left">
+                        <h3 className="font-semibold text-lg text-gray-800">NATALIAWATI, S.AP.</h3>
+                        <h3 className="font-semibold text-sm text-gray-800 -mt-1">NIP. 196912251990032004</h3>
+                        <p className="text-gray-500">Jabatan : Kepala Bidang Perbendaharaan</p>
+                        <p className="text-gray-500">Pangkat/Gol : Pembina / IV.A</p>
+                      </div>
+                    </div>
+                    <p className="py-4 font-extrabold">DASAR HUKUM :</p>
+                    <p>
+                      Peraturan Wali Kota Pangkal Pinang Nomor 48 Tahun 2023 Tentang Kedudukan, Susunan Organisasi, Tugas Dan Fungsi Serta Tata Kerja Unsur Penunjang Perangkat Daerah Kota Pangkal Pinang.
+                    </p>
+                    <p className="py-4 font-extrabold">TUGAS :</p>
+                    <p>
+                      Melaksanakan koordinasi pelaksaan tugas, pembinaan dan pemberian dukungan administrasi bidang perbendaharaan kepada seluruh unit organisasi dilingkungan Pemerintah Kota.
+                    </p>
+                    <p className="py-4 font-extrabold">FUNGSI :</p>
+                    <div className="px-6">
+                      <div className="flex items-start">
+                        <span className="font-semibold">1.</span>
+                        <p className="text-justify leading-relaxed ml-6">
+                          Penyusunan rencana program dan kegiatan lingkup Perbendaharaan;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">2.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Penyusunan petunjuk teknis lingkup Perbendaharaan;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">3.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Penyelenggaraan urusan pemerintahan dan pelayanan umum bidang Perbendaharaan lingkup Penatausahaan Pengeluaran, Penatausahaan Kas Daerah dan Pengendalian Belanja;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">4.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pemberdayaan dan peningkatan kualitas sumber daya manusia lingkup Perbendaharaan;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">5.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pelaksanaan monitoring, evaluasi dan pelaporan lingkup Perbendaharaan; dan
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">6.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pelaksanaan tugas pemerintah umum lainnya yang diberikan Kepala Badan Kenagan Daerah sesuai dengan tugas dan fungsinya.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+            </div>
+
+            <div className="mt-2 border rounded-lg shadow-sm">
+              <Collapsible className="group">
+                <CollapsibleTrigger asChild>
+                  <div className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-100">
+                    <span className="font-medium">Kepala Bidang Akuntansi dan Pelaporan </span>
+                    <div className="ml-auto">
+                      <Plus className="group-data-[state=open]:hidden" />
+                      <Minus className="hidden group-data-[state=open]:block" />
+                    </div>
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="p-4 border-t">
+                  <div className="grid grid-cols-1 text-xs md:text-sm text-justify">
+
+                    <div className="flex flex-col md:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
+                      <Image
+                        src={kakuntansi}
+                        alt="Pejabat"
+                        width={1000}
+                        height={1000}
+                        quality={100}
+                        className="w-64 h-72 rounded-lg object-cover mr-4"
+                      />
+                      <div className="text-left">
+                        <h3 className="font-semibold text-lg text-gray-800">SUMARSONO, S.E.</h3>
+                        <h3 className="font-semibold text-sm text-gray-800 -mt-1">NIP. 197307232005011007</h3>
+                        <p className="text-gray-500">Jabatan : Kepala Bidang Akuntansi dan Pelaporan</p>
+                        <p className="text-gray-500">Pangkat/Gol : Pembina / IV.A</p>
+                      </div>
+                    </div>
+
+                    <p className="py-4 font-extrabold">DASAR HUKUM :</p>
+                    <p>
+                      Peraturan Wali Kota Pangkal Pinang Nomor 48 Tahun 2023 Tentang Kedudukan, Susunan Organisasi, Tugas Dan Fungsi Serta Tata Kerja Unsur Penunjang Perangkat Daerah Kota Pangkal Pinang.
+                    </p>
+                    <p className="py-4 font-extrabold">TUGAS :</p>
+                    <p>
+                      Melaksanakan koordinasi pelaksaan tugas, pembinaan dan pemberian dukungan administrasi bidang Akuntansi dan Pelaporan kepada seluruh unit organisasi di lingkungan Pemerintah Kota.
+                    </p>
+                    <p className="py-4 font-extrabold">FUNGSI :</p>
+                    <div className="px-6">
+                      <div className="flex items-start">
+                        <span className="font-semibold">1.</span>
+                        <p className="text-justify leading-relaxed ml-6">
+                          Penyusunan rencana program dan kegiatan lingkup Akuntansi dan Pelaporan;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">2.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Penyusunan petunjuk teknis lingkup Akuntansi dan Pelaporan;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">3.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Penyelenggaraan urusan pemerintahan dan pelayanan umum bidang Akuntansi dan Pelaporan lingkup Akuntansi Penerimaan, Akuntansi Pengeluaran dan Pelporan Keuangan Daerah;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">4.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pemberdayaan dan peningkatan kualitas sumber daya manusia lingkup Akuntansi dan Pelaporan;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">5.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pelaksanaan monitoring, evaluasi dan pelaporan lingkup Akuntansi dan Pelaporan; dan
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">6.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pelaksanaan tugas pemerintahan umum lainnya yang diberikan Kepala Badan Keuangan Daerah sesuai dengan tugas dan fungsinya.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+            </div>
+
+            <div className="mt-2 border rounded-lg shadow-sm">
+              <Collapsible className="group">
+                <CollapsibleTrigger asChild>
+                  <div className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-100">
+                    <span className="font-medium">Kepala Bidang Pendaftaran dan Penetapan Pajak Daerah</span>
+                    <div className="ml-auto">
+                      <Plus className="group-data-[state=open]:hidden" />
+                      <Minus className="hidden group-data-[state=open]:block" />
+                    </div>
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="p-4 border-t">
+                  <div className="grid grid-cols-1 text-xs md:text-sm text-justify">
+
+                    <div className="flex flex-col md:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
+                      <Image
+                        src={kpenagihan}
+                        alt="Pejabat"
+                        width={1000}
+                        height={1000}
+                        quality={100}
+                        className="w-64 h-72 rounded-lg object-cover mr-4"
+                      />
+                      <div className="text-left">
+                        <h3 className="font-semibold text-lg text-gray-800">HARRY, S.Kom.</h3>
+                        <h3 className="font-semibold text-sm text-gray-800 -mt-1">NIP. 198405082010011011</h3>
+                        <p className="text-gray-500">Jabatan : Kepala Bidang Pendaftaran dan Penetapan Pajak Daerah</p>
+                        <p className="text-gray-500">Pangkat/Gol : Pembina / IV.A</p>
+                      </div>
+                    </div>
+                    <p className="py-4 font-extrabold">DASAR HUKUM :</p>
+                    <p>
+                      Peraturan Wali Kota Pangkal Pinang Nomor 48 Tahun 2023 Tentang Kedudukan, Susunan Organisasi, Tugas Dan Fungsi Serta Tata Kerja Unsur Penunjang Perangkat Daerah Kota Pangkal Pinang.
+                    </p>
+                    <p className="py-4 font-extrabold">TUGAS :</p>
+                    <p>
+                      Membantu Kepala Badan dalam melaksanakan perumusan kebijakan teknis dan dukungan teknis, mengoordinasikan, melaksanakan dan mengendalikan serta membina pelaksanaan tugas Bidang Pendaftaran, Penetapan Pajak dan Retribusi Daerah.
+                    </p>
+                    <p className="py-4 font-extrabold">FUNGSI :</p>
+                    <div className="px-6">
+                      <div className="flex items-start">
+                        <span className="font-semibold">1.</span>
+                        <p className="text-justify leading-relaxed ml-6">
+                          Penyusunan program kerja dan rencana kegiatan Bidang untuk kelancaran tugas Bidang Pendaftaran dan Penetapan Pajak Daerah;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">2.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Perumusan kebijakan teknis perencanaan dan pengembangan ekstensifikasi dan intensifikasi pendapatan daerah;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">3.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Penyusunan kebijakan teknis, operasional dan petunjuk pelaksanaan sistem administrasi pendapatan daerah;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">4.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Perumusan kebijakan strategi penyuluhan dan penyebarluasan informasi serta pelayanan pajak daerah dan retribusi daerah kepada masyarakat yang berbasis teknologi informasi;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">5.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Penyusunan laporan hasil pelaksanaan kegiatan bidang sebagai bahan pertanggungjawaban pelaksanaan tugas;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">6.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pemberian saran dan pertimbangan kepada Kepala Badan tentang Langkah-langkah dan tindakan yang perlu diambil dalam bidang tugasnya; dan
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">7.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Mengembangkan sektor perdagangan dan jasa melalui pembangunan sistem informasi dan ketersediaan data yang berkualitas terutama di dalam menghadapi era globalisasi.
+                          Pelaksanaan tugas fungsi lain yang diberikan oleh Kepala Badan terkait dengan tugas dan fungsinya.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+            </div>
+
+            <div className="mt-2 border rounded-lg shadow-sm">
+              <Collapsible className="group">
+                <CollapsibleTrigger asChild>
+                  <div className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-100">
+                    <span className="font-medium">Kepala Bidang Penagihan dan Pengendalian Pajak Daerah</span>
+                    <div className="ml-auto">
+                      <Plus className="group-data-[state=open]:hidden" />
+                      <Minus className="hidden group-data-[state=open]:block" />
+                    </div>
+                  </div>
+                </CollapsibleTrigger>
+                <CollapsibleContent className="p-4 border-t">
+                  <div className="grid grid-cols-1 text-xs md:text-sm text-justify">
+
+                    <div className="flex flex-col md:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
+                      <Image
+                        src={kpendaftaran}
+                        alt="Pejabat"
+                        width={1000}
+                        height={1000}
+                        quality={100}
+                        className="w-64 h-72 rounded-lg object-cover mr-4"
+                      />
+                      <div className="text-left">
+                        <h3 className="font-semibold text-lg text-gray-800">ZULPIAN, S.E.</h3>
+                        <h3 className="font-semibold text-sm text-gray-800 -mt-1">NIP. 198309162008041002</h3>
+                        <p className="text-gray-500">Jabatan : Kepala Bidang Penagihan dan Pengendalian Pajak Daerah</p>
+                        <p className="text-gray-500">Pangkat/Gol : Penata / III.C</p>
+                      </div>
+                    </div>
+                    <p className="py-4 font-extrabold">DASAR HUKUM :</p>
+                    <p>
+                      Peraturan Wali Kota Pangkal Pinang Nomor 48 Tahun 2023 Tentang Kedudukan, Susunan Organisasi, Tugas Dan Fungsi Serta Tata Kerja Unsur Penunjang Perangkat Daerah Kota Pangkal Pinang.
+                    </p>
+                    <p className="py-4 font-extrabold">TUGAS :</p>
+                    <p>
+                      Membantu Kepala Badan dalam melaksakan perumusan kebijakan teknis dan dukungan teknis bidang Penagihan dan Pengendalian Pajak Daerah yang meliputi operasional, mengoordinasikan, melaksanakan dan mengendalikan serta membina pelaksanaan tugas bidang Penagihan dan Pengendalian Pajak Daerah, pemrosesan keringanan/keberatan pajak daerah serta pengendalian operasional, pemeriksaan dan penindakan pajak daerah dan pengendalian retribusi daerah.
+                    </p>
+                    <p className="py-4 font-extrabold">FUNGSI :</p>
+                    <div className="px-6">
+                      <div className="flex items-start">
+                        <span className="font-semibold">1.</span>
+                        <p className="text-justify leading-relaxed ml-6">
+                          Penyusunan program kerja dan rencana kegiatan Bidang untuk kelancaran tugas Bidang Penagihan dan Pengendalian Pajak Daerah;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">2.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Penyusunan kebijakan petunjuk teknis dan petunjuk pelaksanaan sistem dan prosedur Penagihan dan Pengendalian Pajak Daerah;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">3.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Penyelenggaraan dan pengoordinasian penagihan pajak daerah dan pengelolaan piutang pajak daerah;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">4.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pemrosesam permohonan kringanan/keberatan pajak daerah;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">5.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pelaksanaan pemeriksaan pajak daerah dan keberatan;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">6.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pengendalian operasional, pemeriksaan dan penindakan pajak daerah dan pengendalian retribusi daerah;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">7.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pelaksanaan tindak lanjut surat pengurangan/keringanan, keberatan dan banding, pengendalian operasional, pemeriksaan dan penindakan di bidang pajak daerah;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">8.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Meningkatkan peran para pengusaha melalui peningkatan jiwa kewirausahaan, kesetaraan gender, dan dukungan terhadap wanita pengusaha dalam meningkatkan pertumbuhan dan pemerataan pembangunan ekonomi.
+                          Pelaksanaan evaluasi tunggakan pajak daerah, penghapusan piutang, penundaan pembayaran, angsuran tunggakan, pengurangan/keringanan, keberatan dan banding pengendalian operasional, pemeriksaan dan penindakan di bidang pajak daerah;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">9.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Menciptakan masyarakat dengan gaya hidup yang religius dan memiliki jiwa serta tubuh yang sehat.
+                          Pengoordinasian pelaksanaan, pemberdayaan, pengawasan dan pengendalian retribusi daerah;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">10.</span>
-                        <p className="text-justify leading-relaxed ml-3">
-                          Menciptakan keharmonisan hidup melalui masyarakat taat hukum yang memiliki komitmen dan integritas tinggi terhadap pembangunan.
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pembahasan pelaporan pelaksaan program kerja bidang pajak daerah maupun retribusi daerah;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">11.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pengevaluasian pelaksaan tugas dan menginventarisir permasalahan dilingkup Bidang baik pajak daerah maupun retribusi daerah serta mencari alternatif pemecahannya;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">12.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pengoordinasian pelaksanaan kegiatan intensifikasi dan ekstensifikasi pendapatan Bidang Penagihan dan Pengendalian Pajak Daerah;
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">13.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Memberikan saran dan pertimbangan Kepala Badan tentang langkah-langkah dan tindakan yang perlu diambil dalam bidang tugasnya; dan
+                        </p>
+                      </div>
+                      <div className="flex items-start">
+                        <span className="font-semibold">14.</span>
+                        <p className="text-justify leading-relaxed ml-5">
+                          Pelaksaan fungsi lain yang diberikan oleh Kepala Badan terkait dengan tugas dan fungsinya.
                         </p>
                       </div>
                     </div>
@@ -463,10 +676,10 @@ export default function PageTugasFungsi() {
                 </CollapsibleTrigger>
                 <CollapsibleContent className="p-4 border-t">
                   <div className="grid grid-cols-1 text-xs md:text-sm text-justify">
-                    {/* Example Pejabat Item */}
+
                     <div className="flex flex-col md:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
                       <Image
-                        src={kaban}
+                        src={kaset}
                         alt="Pejabat"
                         width={1000}
                         height={1000}
@@ -474,138 +687,60 @@ export default function PageTugasFungsi() {
                         className="w-64 h-72 rounded-lg object-cover mr-4"
                       />
                       <div className="text-left">
-                        <h3 className="font-semibold text-lg text-gray-800">Muhammad Yasin, S.E., M.M.</h3>
-                        <h3 className="font-semibold text-sm text-gray-800 -mt-1">NIP. 199411162020121001</h3>
-                        <p className="text-gray-500">Jabatan : Analis Perencanaan, Evaluasi dan Pelaporan</p>
-                        <p className="text-gray-500">Pangkat/Gol : Penata Muda/IIIa</p>
-                        <p className="text-gray-500">Pendidikan Terahir : S-1 Akuntansi</p>
+                        <h3 className="font-semibold text-lg text-gray-800">LENAWATI, S.E., M.M.</h3>
+                        <h3 className="font-semibold text-sm text-gray-800 -mt-1">NIP. 198005262000032001</h3>
+                        <p className="text-gray-500">Jabatan : Kepala Bidang Aset</p>
+                        <p className="text-gray-500">Pangkat/Gol : Pembina / IV.A</p>
                       </div>
                     </div>
                     <p className="py-4 font-extrabold">DASAR HUKUM :</p>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima sequi facere iure ipsam velit voluptate impedit quos tempora voluptatem ut provident repellendus, ullam officia dolore iste fugiat est quasi, temporibus maxime hic natus ab! Rerum, exercitationem nesciunt, suscipit vel ullam voluptates ducimus quibusdam esse, quas sequi temporibus. Quibusdam recusandae natus adipisci doloribus animi vero reiciendis, autem aut asperiores at rem obcaecati minima nulla iure dolorum consequatur molestias laborum eaque dolores, a eum dignissimos. Necessitatibus dignissimos odit consequatur quos ut debitis provident tempora eveniet ipsam ab minus error maxime magnam, delectus repudiandae nobis reprehenderit, corrupti quo quasi vero suscipit eligendi eum! Dignissimos, eligendi ducimus? Explicabo, soluta perspiciatis! Magnam aspernatur incidunt ut vitae fugit similique vero repellendus nam sed, corrupti eos quia id. Rerum quam quaerat soluta aliquid officiis recusandae, ipsa, eum sed adipisci dignissimos consequuntur fugit distinctio enim doloremque obcaecati dolorem! Laudantium ratione illo blanditiis nobis quibusdam animi placeat saepe nisi?
+                      Peraturan Wali Kota Pangkal Pinang Nomor 48 Tahun 2023 Tentang Kedudukan, Susunan Organisasi, Tugas Dan Fungsi Serta Tata Kerja Unsur Penunjang Perangkat Daerah Kota Pangkal Pinang.
                     </p>
                     <p className="py-4 font-extrabold">TUGAS :</p>
                     <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque ratione dolores excepturi est fuga non dolore tempore voluptatibus asperiores architecto, labore minima obcaecati cum eveniet laudantium beatae placeat eos voluptates suscipit. Consequatur, rerum voluptate accusamus ad dolorem error assumenda eos quaerat debitis provident illum qui fugiat numquam ab exercitationem id ducimus atque? Aut earum hic nihil reprehenderit. Cupiditate aperiam modi architecto aut? Sequi amet mollitia magnam est, accusamus nesciunt praesentium pariatur aperiam expedita nihil doloremque doloribus, sapiente a. Molestias architecto, eos corrupti sapiente debitis impedit? Blanditiis ratione tenetur odio ipsa sequi nemo neque dolor, odit quo harum ullam est temporibus maiores voluptatibus repellendus debitis doloremque repellat quidem. Totam molestias reiciendis obcaecati fuga sunt ipsum nobis esse odit et itaque amet tempora aliquid nesciunt qui quisquam quaerat cupiditate, aspernatur, maxime recusandae consequuntur, voluptates sapiente culpa tenetur! Eaque dolores laboriosam ipsum eveniet delectus accusantium totam saepe, provident quaerat deleniti beatae nostrum omnis.
+                      Koordinasi pelaksaan tugas, pembinaan dan pemberian dukungan administrasi bidang Aset kepada seluruh unit organisasi di lingkungan Pemerintah Kota.
                     </p>
                     <p className="py-4 font-extrabold">FUNGSI :</p>
                     <div className="px-6">
                       <div className="flex items-start">
                         <span className="font-semibold">1.</span>
                         <p className="text-justify leading-relaxed ml-6">
-                          Meningkatkan kesejahteraan rakyat melalui peningkatan pendapatan per kapita.
+                          Penyusunan rencana program dan kegiatan lingkup Aset;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">2.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Mewujudkan kesejahteraan yang mendukung peningkatan kualitas pelayanan dasar sektor publik dari pendidikan dan kesehatan.
+                          Penyusunan petunjuk teknis lingkup Aset;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">3.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Mengurangi dampak negatif pembangunan ekonomi seperti kemiskinan, pengangguran, ketimpangan distribusi pendapatan antar golongan dan antar daerah serta masalah pencemaran lingkungan.
+                          Penyelenggaraan urusan pemerintahan dan pelayanan umum bidang Aset lingkup penatausahaan Aset, Penilaian dan Penghapusan Aset, Pengamanan dan Pemanfaatan Aset;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">4.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Menciptakan aparatur pemerintah jujur, bersih, berwibawa dan berkualitas melalui dukungan fasilitas yang memadai dan penegakan supremasi hukum.
+                          Pemberdayaan dan peningkatan kualitas sumber daya manusia lingkup Aset;
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">5.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Menegakkan hukum yang tidak diskriminatif dan tanpa membedakan kedudukan pelaku guna menekan tindakan kejahatan dan aksi illegal.
+                          Pelaksanaan monitoring, evaluasi dan pelaporan lingkup Aset; dan
                         </p>
                       </div>
                       <div className="flex items-start">
                         <span className="font-semibold">6.</span>
                         <p className="text-justify leading-relaxed ml-5">
-                          Menjalin kerjasama yang baik antar dinas, antar pemerintah daerah dan antar pemerintah, dewan dan masyarakat guna mencapai masyarakat yang adil, makmur, aman dan damai.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">7.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Mengembangkan sektor perdagangan dan jasa melalui pembangunan sistem informasi dan ketersediaan data yang berkualitas terutama di dalam menghadapi era globalisasi.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">8.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Meningkatkan peran para pengusaha melalui peningkatan jiwa kewirausahaan, kesetaraan gender, dan dukungan terhadap wanita pengusaha dalam meningkatkan pertumbuhan dan pemerataan pembangunan ekonomi.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">9.</span>
-                        <p className="text-justify leading-relaxed ml-5">
-                          Menciptakan masyarakat dengan gaya hidup yang religius dan memiliki jiwa serta tubuh yang sehat.
-                        </p>
-                      </div>
-                      <div className="flex items-start">
-                        <span className="font-semibold">10.</span>
-                        <p className="text-justify leading-relaxed ml-3">
-                          Menciptakan keharmonisan hidup melalui masyarakat taat hukum yang memiliki komitmen dan integritas tinggi terhadap pembangunan.
+                          Pelaksanaan tugas pemerintahan umum lainnya yang diberikan Kepala Badan Keuangan Daerah sesuai dengan tugas dan fungsinya.
                         </p>
                       </div>
                     </div>
                   </div>
-                </CollapsibleContent>
-              </Collapsible>
-            </div>
-
-            <div className="mt-2 border rounded-lg shadow-sm">
-              <Collapsible className="group">
-                <CollapsibleTrigger asChild>
-                  <div className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-100">
-                    <span className="font-medium">Kepala Bidang Akuntansi dan Pelaporan</span>
-                    <div className="ml-auto">
-                      <Plus className="group-data-[state=open]:hidden" />
-                      <Minus className="hidden group-data-[state=open]:block" />
-                    </div>
-                  </div>
-                </CollapsibleTrigger>
-                <CollapsibleContent className="p-4 border-t">
-                  Yes. Free to use for personal and commercial projects. No attribution required.
-                </CollapsibleContent>
-              </Collapsible>
-            </div>
-
-
-
-            <div className="mt-2 border rounded-lg shadow-sm">
-              <Collapsible className="group">
-                <CollapsibleTrigger asChild>
-                  <div className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-100">
-                    <span className="font-medium">Kepala Bidang Pedaftaran dan Penetapan Pajak Daerah</span>
-                    <div className="ml-auto">
-                      <Plus className="group-data-[state=open]:hidden" />
-                      <Minus className="hidden group-data-[state=open]:block" />
-                    </div>
-                  </div>
-                </CollapsibleTrigger>
-                <CollapsibleContent className="p-4 border-t">
-                  Yes. Free to use for personal and commercial projects. No attribution required.
-                </CollapsibleContent>
-              </Collapsible>
-            </div>
-
-            <div className="mt-2 border rounded-lg shadow-sm">
-              <Collapsible className="group">
-                <CollapsibleTrigger asChild>
-                  <div className="flex justify-between items-center p-4 cursor-pointer hover:bg-gray-100">
-                    <span className="font-medium">Kepala Bidang Penagihan dan Pengendalian Pajak Daerah</span>
-                    <div className="ml-auto">
-                      <Plus className="group-data-[state=open]:hidden" />
-                      <Minus className="hidden group-data-[state=open]:block" />
-                    </div>
-                  </div>
-                </CollapsibleTrigger>
-                <CollapsibleContent className="p-4 border-t">
-                  Yes. Free to use for personal and commercial projects. No attribution required.
                 </CollapsibleContent>
               </Collapsible>
             </div>

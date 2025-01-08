@@ -57,3 +57,12 @@ export { default as seputarinformasi } from "../photos/berita/seputarinformasi.p
 
 // foto struktur organisasi
 export { default as strukturorganisasi } from "../photos/struktur-organisasi/struktur-organisasi.png";
+
+// foto pegawai
+export { default as sekban } from "../photos/pegawai/sekban.jpg";
+export { default as kperben } from "../photos/pegawai/kperben.jpg";
+export { default as kanggaran } from "../photos/pegawai/kanggaran.jpg";
+export { default as kaset } from "../photos/pegawai/kaset.jpg";
+export { default as kakuntansi } from "../photos/pegawai/kakuntansi.jpg";
+export { default as kpendaftaran } from "../photos/pegawai/kpendaftaran.jpg";
+export { default as kpenagihan } from "../photos/pegawai/kpenagihan.jpg";
