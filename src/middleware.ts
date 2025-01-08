@@ -2,6 +2,12 @@ import { NextResponse, NextRequest } from "next/server";
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(req: NextRequest) {
+  const ip = req.ip ?? req.headers.get("x-forwarded-for") ?? "unknown";
+  const method = req.method;
+  const path = req.nextUrl.pathname;
+
+  console.log(`Request Info: IP=${ip}, Method=${method}, Path=${path}`);
+
   const token = req.cookies.get("X_ACCESS_TOKEN")?.value ?? "";
   const currentPath = req.nextUrl.pathname;
 
