@@ -36,7 +36,7 @@ const addAccountSchema = z.object({
     nip: z.string().min(1, { message: 'NIP is required' }),
     golongan: z.string().min(1, { message: 'Golongan is required' }),
     jabatan: z.string().min(1, { message: 'Jabatan is required' }),
-    pendidikan_terahir: z.string().min(3, { message: 'Pendidikan terahir is required' }),
+    pendidikan_terahir: z.string().min(1, { message: 'Pendidikan terahir is required' }),
     email: z.string().min(1, { message: 'Email is required' }),
     bidang: z.string().min(1, { message: 'Bidang is required' }),
     status: z.string().min(3, { message: 'Status is required' }),
