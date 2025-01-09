@@ -333,7 +333,7 @@ export default function PageHeader() {
                     </a>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <a href="/visi-dan-misi" className="">
+                    <a href="/struktur-organisasi-bakeuda-pangkalpinang" className="">
                       Struktur Organisasi Bakeuda Pangkal Pinang
                     </a>
                   </DropdownMenuItem>
