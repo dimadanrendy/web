@@ -15,6 +15,7 @@ export const getDokumenBySlug = async (
 
     return response.data;
   } catch (error: any) {
+    console.log(error);
     return error?.response?.data?.message;
   }
 };
