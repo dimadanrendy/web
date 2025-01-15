@@ -23,7 +23,7 @@ import { deleteDocuments } from "@/features/management/dokumen/useDeleteDocument
 import { toast } from 'sonner';
 
 const useGetDokuments = async () => {
-    const res = await getDocuments();
+    const res = await getDocuments("surat-keputusan");
     if (res.status_code !== 200) {
         throw new Error(res);
     }
@@ -38,7 +38,7 @@ export default function SuratKeputusanPage() {
     const [errorFetch, setError] = useState < string | null > (null);
 
     const { data, isLoading, error } = useQuery({
-        queryKey: ["users"],
+        queryKey: ["dokumen-sk"],
         queryFn: useGetDokuments,
     });
 
@@ -67,7 +67,7 @@ export default function SuratKeputusanPage() {
                         position: "top-right",
                         description: response.message
                     })
-                    queryClient.invalidateQueries({ queryKey: ["users"] });
+                    queryClient.invalidateQueries({ queryKey: ["dokumen-sk"] });
                 } else {
                     toast.error("Error deleting user", {
                         position: "top-right",

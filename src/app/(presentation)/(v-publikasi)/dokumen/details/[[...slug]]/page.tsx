@@ -1,10 +1,16 @@
 "use client";
+import PageLanding from "@/components/loading-ui/landing-page";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
+import { getDokumenBySlug } from "@/features/presentesion/dokumen/useGetManagementDokumen";
+import { formatDate } from "@/lib/date";
+import { useQuery } from "@tanstack/react-query";
+import { Calendar } from "lucide-react";
 import Link from "next/link"
 import { useEffect, useState } from "react";
+import { saveAs } from 'file-saver';
 
 export default function DetailsPerwako({ params }: {
     params: { slug: string[] }
@@ -12,6 +18,20 @@ export default function DetailsPerwako({ params }: {
     const { slug } = params;
 
     const [title, setTitle] = useState < string > ("");
+    const [documentData, setDocumentData] = useState < any > (null);
+
+
+    const { data, isLoading, error } = useQuery({
+        queryKey: [slug[0]],
+        queryFn: async () => {
+            return await getDokumenBySlug(slug[0], slug[1]);
+        },
+    });
+
+    const handlePratinjau = (fileUrl: string) => {
+        // Membuka file PDF di tab baru
+        window.open(fileUrl, "_blank"); // Membuka file PDF di tab baru
+    };
 
     useEffect(() => {
         if (slug && slug.length > 0) {
@@ -26,13 +46,21 @@ export default function DetailsPerwako({ params }: {
                 setTitle(`Peraturan Daerah`);
             } else if (jenisDokumen === "sk") {
                 setTitle(`Surat Keputusan`);
-            } else if (jenisDokumen === "dokumenlainnya") {
+            } else if (jenisDokumen === "lainnya") {
                 setTitle(`Dokumen Lainnya`);
             } else {
                 setTitle("Dokumen Tidak Ditemukan");
             }
         }
     }, [slug])
+
+    useEffect(() => {
+        if (data?.data && slug?.length === 3) {
+            // Cari dokumen berdasarkan id_documents yang ada di slug[2]
+            const document = data.data.find((item: any) => item.id_documents === Number(slug[2]));
+            setDocumentData(document); // Set data ke state
+        }
+    }, [data, slug]);
 
     if (slug?.length === 2) {
         return (
@@ -61,104 +89,108 @@ export default function DetailsPerwako({ params }: {
                     </AlertDialog>
                 </div>
 
-                <Link href={`${slug[1]}/24`} >
-                    <div className="flex flex-col gap-4 pb-4 hover:scale-105">
-                        <div className="w-full h-48 bg-primary rounded-lg">
-                            <div className="grid grid-cols-6 gap-4 h-40 items-center text-slate-100">
-                                <div className="col-start-1 col-end-7 p-2">
-                                    <div>
-                                        <div className="space-y-1">
-                                            <h4 className="text-sm font-medium leading-none">{title}</h4>
-                                            <p className="text-sm text-muted-foreground">
-                                                Nomor:
-                                            </p>
+                {isLoading ? (
+                    <div className="text-center text-gray-500">Loading dokumen...</div>
+                ) : data?.data?.length ? (
+                    data.data.map((item: any) => (
+                        <Link key={item.id_documents} href={`${slug[1]}/${item.id_documents}`}>
+                            <div className="flex flex-col gap-4 pb-4 hover:scale-105">
+                                <div className="w-full h-32 bg-primary rounded-lg">
+                                    <div className="grid grid-cols-6 gap-1 items-center text-slate-100">
+                                        <div className="col-start-1 col-end-7 p-2">
+                                            <div>
+                                                <div className="space-y-1">
+                                                    <h4 className="text-sm font-medium leading-none">
+                                                        {item.dokumen}
+                                                    </h4>
+                                                    <p className="text-sm text-muted-foreground">
+                                                        Nomor: {item.nomor}
+                                                    </p>
+                                                </div>
+                                                <Separator className="my-4" />
+                                                <div className="flex h-2 items-center space-x-4 text-sm">
+                                                    <Calendar className="mr-2 h-4 w-4" /> {formatDate(item.createdAt)}
+                                                </div>
+                                            </div>
                                         </div>
-                                        <Separator className="my-4" />
-                                        <div className="flex h-5 items-center space-x-4 text-sm">
-                                            <div>Uplouded : </div>
-                                            <div>Kamis</div>
-                                            <Separator orientation="vertical" />
-                                            <div>09</div>
-                                            <Separator orientation="vertical" />
-                                            <div>Desember</div>
-                                            <Separator orientation="vertical" />
-                                            <div>2024</div>
+                                        <div className="col-start-1 col-end-7 px-2 line-clamp-3 uppercase">
+                                            {item.judul}
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-start-1 col-end-7 px-2 line-clamp-3">
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae sequi in error deserunt ipsa incidunt perferendis quod neque recusandae eius!
-                                </div>
                             </div>
-                        </div>
+                        </Link>
+                    ))
+                ) : (
+                    <div className="text-center text-gray-500">
+                        Tidak ada dokumen tersedia.
                     </div>
-                </Link>
+                )}
+
+
+
             </div>
         )
     }
 
-    if (slug?.length === 3) {
+    if (slug?.length === 3 && documentData) {
         return (
             <div className="max-w-7xl mx-auto p-4 divide-y divide-slate-200">
                 <div className="pt-2">
                     <h1 className="font-bold">Nomor</h1>
-                    <span className="text-slate-500" >1 Tahun {slug[1]}</span>
+                    <span className="text-slate-500" >{documentData?.nomor}</span>
                 </div>
                 <div className="my-4 pt-2">
                     <h1 className="font-bold">Judul</h1>
-                    <span className="text-slate-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, maxime!</span>
+                    <span className="text-slate-500">{documentData?.judul}</span>
                 </div>
                 <div className="my-4 pt-2">
                     <h1 className="font-bold">Tipe Dokumen</h1>
-                    <span className="text-slate-500">Peraturan Wali Kota</span>
+                    <span className="text-slate-500">{documentData?.tipe_dokumen}</span>
                 </div>
                 <div className="my-4 pt-2">
                     <h1 className="font-bold">Subjek</h1>
-                    <span className="text-slate-500">Anggaran</span>
-                </div>
-                <div className="my-4 pt-2">
-                    <h1 className="font-bold">Jenis / Bentuk Peraturan</h1>
-                    <span className="text-slate-500">Surat Edaran</span>
+                    <span className="text-slate-500">{documentData?.bidang}</span>
                 </div>
                 <div className="my-4 pt-2">
                     <h1 className="font-bold">Singkatan Jenis / Bentuk Peraturan</h1>
-                    <span className="text-slate-500">SE</span>
+                    <span className="text-slate-500">{documentData?.singkatan}</span>
                 </div>
                 <div className="my-4 pt-2">
                     <h1 className="font-bold">Tahun</h1>
-                    <span className="text-slate-500">{slug[1]}</span>
+                    <span className="text-slate-500">{documentData?.tahun}</span>
                 </div>
                 <div className="my-4 pt-2">
                     <h1 className="font-bold">Bahasa</h1>
-                    <span className="text-slate-500">Indonesia</span>
+                    <span className="text-slate-500">{documentData?.bahasa}</span>
                 </div>
                 <div className="my-4 pt-2">
                     <h1 className="font-bold">Tempat Penetapan</h1>
-                    <span className="text-slate-500">Pangkal Pinang</span>
-                </div>
-                <div className="my-4 pt-2">
-                    <h1 className="font-bold">Tanggal Penetapan</h1>
-                    <span className="text-slate-500">17 Agustus 2024</span>
+                    <span className="text-slate-500">{documentData?.tempat_penetapan}</span>
                 </div>
                 <div className="my-4 pt-2">
                     <h1 className="font-bold">Sumber</h1>
-                    <span className="text-slate-500">-</span>
+                    <span className="text-slate-500">{documentData?.sumber}</span>
                 </div>
                 <div className="my-4 pt-2">
                     <h1 className="font-bold">Lokasi</h1>
-                    <span className="text-slate-500">Badan Keuangan Daerah</span>
+                    <span className="text-slate-500">{documentData?.lokasi}</span>
                 </div>
                 <div className="my-4 pt-2 space-x-3">
-                    <Button variant="outline" className="">Unduh</Button>
-                    <Button variant="outline" className="">Pratinjau</Button>
-                    <Button variant="outline" className="">Evaluasi</Button>
+                    <Button variant="outline" onClick={() => saveAs(documentData?.documentUrl, documentData?.file)} className="">Unduh</Button>
+                    <Button variant="outline" onClick={() => handlePratinjau(documentData?.documentUrl)} className="">Pratinjau</Button>
+
                 </div>
                 <div className="my-4 pt-2">
-                    <span className="text-slate-500 text-sm">Berlaku</span>
+                    <span className="text-slate-500 text-sm">{documentData?.published ? "Published" : "Unpublished"}</span>
                 </div>
 
             </div>
         )
+
+        if (isLoading) {
+            return <PageLanding />;
+        }
 
     }
     return (

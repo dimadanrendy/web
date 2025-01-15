@@ -32,14 +32,14 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/components/ui/textarea';
 
 const addDocumentSchema = z.object({
-    nomor: z.string().min(3, { message: 'Nomor is required' }),
+    nomor: z.string().min(1, { message: 'Nomor is required' }),
     judul: z.string().min(3, { message: 'Judul is required' }),
     tipe_dokumen: z.string().min(3, { message: 'Tipe Dokumen is required' }),
     dokumen: z.string().min(3, { message: 'Dokumen is required' }),
     singkatan: z.string().min(1, { message: 'Singkatan is required' }),
     tahun: z.string().min(3, { message: 'Tahun is required' }),
     bahasa: z.string().min(3, { message: 'Bahasa is required' }),
-    bidang: z.string().min(3, { message: 'Bidang is required' }),
+    bidang: z.string().min(1, { message: 'Bidang is required' }),
     tempat_penetapan: z.string().min(3, { message: 'Tempat Penetapan is required' }),
     sumber: z.string().min(1, { message: 'Sumber Penetapan is required' }),
     lokasi: z.string().min(3, { message: 'Lokasi Penetapan is required' }),
@@ -60,9 +60,9 @@ export default function AddDocument({ params }: { params: { slug: any } }) {
     const [isLoading, setIsLoading] = useState(false);
     const [title, setTitle] = useState < string > ("Dokumen");
 
-    const years = [2021, 2022, 2023, 2024];
+    const years = [2021, 2022, 2023, 2024, 2025];
     const tipe_dokumen = ["perwako", "perda", "surat-keputusan", "lainnya"];
-    const bidang = ["Sekretariat", "Perbendaharaan", "Aset", "Akuntansi", "Anggaran", "Pendaftaran", "Penagihan"]
+    const bidang = ["-", "Sekretariat", "Perbendaharaan", "Aset", "Akuntansi", "Anggaran", "Pendaftaran", "Penagihan"]
 
     const form = useForm < addDocumentSchema > ({
         resolver: zodResolver(addDocumentSchema),

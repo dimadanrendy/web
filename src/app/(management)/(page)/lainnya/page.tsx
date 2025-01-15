@@ -23,7 +23,7 @@ import { deleteDocuments } from "@/features/management/dokumen/useDeleteDocument
 import { toast } from 'sonner';
 
 const useGetDokuments = async () => {
-    const res = await getDocuments();
+    const res = await getDocuments("lainnya");
     if (res.status_code !== 200) {
         throw new Error(res);
     }
@@ -38,7 +38,7 @@ export default function LainnyaPage() {
     const [errorFetch, setError] = useState < string | null > (null);
 
     const { data, isLoading, error } = useQuery({
-        queryKey: ["users"],
+        queryKey: ["dokumen-lainnya"],
         queryFn: useGetDokuments,
     });
 
@@ -67,7 +67,7 @@ export default function LainnyaPage() {
                         position: "top-right",
                         description: response.message
                     })
-                    queryClient.invalidateQueries({ queryKey: ["users"] });
+                    queryClient.invalidateQueries({ queryKey: ["dokumen-lainnya"] });
                 } else {
                     toast.error("Error deleting user", {
                         position: "top-right",
@@ -159,7 +159,7 @@ export default function LainnyaPage() {
     return (
         <div className="p-4">
             <div className="flex flex-col gap-1 ">
-                <h1 className="text-lg font-semibold md:text-2xl">Dokumen Peraturan Wali Kota</h1>
+                <h1 className="text-lg font-semibold md:text-2xl">Dokumen Lainnya</h1>
                 <p className="text-sm text-muted-foreground">
                     Management Dokumen
                 </p>

@@ -23,7 +23,7 @@ import { deleteDocuments } from "@/features/management/dokumen/useDeleteDocument
 import { toast } from 'sonner';
 
 const useGetDokuments = async () => {
-    const res = await getDocuments();
+    const res = await getDocuments("perda");
     if (res.status_code !== 200) {
         throw new Error(res);
     }
@@ -38,7 +38,7 @@ export default function PerdaPage() {
     const [errorFetch, setError] = useState < string | null > (null);
 
     const { data, isLoading, error } = useQuery({
-        queryKey: ["users"],
+        queryKey: ["dokumen-perda"],
         queryFn: useGetDokuments,
     });
 
@@ -67,7 +67,7 @@ export default function PerdaPage() {
                         position: "top-right",
                         description: response.message
                     })
-                    queryClient.invalidateQueries({ queryKey: ["users"] });
+                    queryClient.invalidateQueries({ queryKey: ["dokumen-perda"] });
                 } else {
                     toast.error("Error deleting user", {
                         position: "top-right",
