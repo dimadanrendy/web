@@ -95,13 +95,13 @@ export default function DetailsPerwako({ params }: {
                     data.data.map((item: any) => (
                         <Link key={item.id_documents} href={`${slug[1]}/${item.id_documents}`}>
                             <div className="flex flex-col gap-4 pb-4 hover:scale-105">
-                                <div className="w-full h-32 bg-primary rounded-lg">
+                                <div className="w-full h-24 bg-primary rounded-lg">
                                     <div className="grid grid-cols-6 gap-1 items-center text-slate-100">
                                         <div className="col-start-1 col-end-7 p-2">
                                             <div>
                                                 <div className="space-y-1">
                                                     <h4 className="text-sm font-medium leading-none">
-                                                        {item.dokumen}
+                                                        {item.judul}
                                                     </h4>
                                                     <p className="text-sm text-muted-foreground">
                                                         Nomor: {item.nomor}
@@ -112,9 +112,6 @@ export default function DetailsPerwako({ params }: {
                                                     <Calendar className="mr-2 h-4 w-4" /> {formatDate(item.createdAt)}
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div className="col-start-1 col-end-7 px-2 line-clamp-3 uppercase">
-                                            {item.judul}
                                         </div>
                                     </div>
                                 </div>

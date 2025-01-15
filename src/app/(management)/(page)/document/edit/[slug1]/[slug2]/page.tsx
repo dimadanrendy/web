@@ -107,7 +107,7 @@ export default function EditDocument({ params }: { params: { slug1: String; slug
                     position: "top-right",
                     description: response.message
                 });
-                router.push('/peraturan-daerah');
+                router.push(`/${params.slug1}`);
             } else {
                 toast.error("Failed to update document", {
                     position: "top-right",
