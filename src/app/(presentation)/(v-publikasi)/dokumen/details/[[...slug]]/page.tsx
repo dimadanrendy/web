@@ -138,7 +138,7 @@ export default function DetailsPerwako({ params }: {
             <div className="max-w-7xl mx-auto p-4 divide-y divide-slate-200">
                 <div className="pt-2">
                     <h1 className="font-bold">Di Publikasikan</h1>
-                    <span className="text-slate-500" >{formatDate(documentData?.nomor)}</span>
+                    <span className="text-slate-500" >{formatDate(documentData?.createdAt)}</span>
 
                 </div>
                 <div className="pt-2">
