@@ -12,10 +12,9 @@ export const getDocuments = async (slug: string) => {
     const response = await axiosInstance.get(`/documents/by/${slug}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
-    console.log(response);
+
     return response.data;
   } catch (error: any) {
-    console.log(error);
     return error?.response?.data?.message;
   }
 };

@@ -159,7 +159,7 @@ export default function PerdaPage() {
     return (
         <div className="p-4">
             <div className="flex flex-col gap-1 ">
-                <h1 className="text-lg font-semibold md:text-2xl">Dokumen Surat Keputusan</h1>
+                <h1 className="text-lg font-semibold md:text-2xl">Dokumen Peaturan Daerah</h1>
                 <p className="text-sm text-muted-foreground">
                     Management Dokumen
                 </p>
