@@ -12,7 +12,7 @@ export const getDokumenBySlug = async (
     if (slug3) url += `/${slug3}`;
 
     const response = await axiosInstance.get(url);
-
+    console.log(response);
     return response.data;
   } catch (error: any) {
     console.log(error);
