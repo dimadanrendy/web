@@ -45,7 +45,7 @@ const addDocumentSchema = z.object({
     lokasi: z.string().min(3, { message: 'Lokasi Penetapan is required' }),
     file: z
         .instanceof(File)
-        .refine((file) => file.size <= 2 * 1024 * 1024, { message: 'Ukuran file maksimal adalah 2MB' })
+        .refine((file) => file.size <= 20 * 1024 * 1024, { message: 'Ukuran file maksimal adalah 20MB' })
         .refine((file) => ["application/pdf"].includes(file.type), { message: 'Hanya file PDF yang diperbolehkan' })
     // password: z.string().min(1, { message: 'Password is required' }),
     // confirmPassword: z.string().min(1, { message: 'Confirm Password is required' }),
