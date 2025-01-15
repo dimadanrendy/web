@@ -33,22 +33,22 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 
 const editDocumentSchema = z.object({
     id: z.string().min(1, { message: 'ID is required' }),
-    nomor: z.string().min(3, { message: 'Nomor is required' }),
+    nomor: z.string().min(1, { message: 'Nomor is required' }),
     judul: z.string().min(3, { message: 'Judul is required' }),
     tipe_dokumen: z.string().min(3, { message: 'Tipe Dokumen is required' }),
     dokumen: z.string().min(3, { message: 'Dokumen is required' }),
     singkatan: z.string().min(1, { message: 'Singkatan is required' }),
     tahun: z.string().min(3, { message: 'Tahun is required' }),
-    bahasa: z.string().min(3, { message: 'Bahasa is required' }),
-    bidang: z.string().min(3, { message: 'Bidang is required' }),
+    bahasa: z.string().min(1, { message: 'Bahasa is required' }),
+    bidang: z.string().min(1, { message: 'Bidang is required' }),
     tempat_penetapan: z.string().min(3, { message: 'Tempat Penetapan is required' }),
     sumber: z.string().min(1, { message: 'Sumber Penetapan is required' }),
     lokasi: z.string().min(3, { message: 'Lokasi Penetapan is required' }),
     published: z.boolean().optional(),
     file: z
         .union([z.instanceof(File), z.null(), z.undefined()])
-        .refine((file) => !file || file.size <= 10 * 1024 * 1024, {
-            message: 'Ukuran file maksimal adalah 10MB',
+        .refine((file) => !file || file.size <= 20 * 1024 * 1024, {
+            message: 'Ukuran file maksimal adalah 20MB',
         }),
 });
 
@@ -63,7 +63,7 @@ export default function EditDocument({ params }: { params: { slug1: String; slug
 
     const years = [2021, 2022, 2023, 2024];
     const tipe_dokumen = ["perwako", "perda", "surat-keputusan", "lainnya"];
-    const bidang = ["Sekretariat", "Perbendaharaan", "Aset", "Akuntansi", "Anggaran", "Pendaftaran", "Penagihan"]
+    const bidang = ["-", "Sekretariat", "Perbendaharaan", "Aset", "Akuntansi", "Anggaran", "Pendaftaran", "Penagihan"]
 
     const form = useForm < editDocumentSchema > ({
         resolver: zodResolver(editDocumentSchema),
