@@ -15,8 +15,8 @@ export { default as perda21 } from "../photos/dokumen/perda/perda-2021.jpg";
 export { default as perda20 } from "../photos/dokumen/perda/perda-2020.jpg";
 
 // Pemimpin Images
-export { default as pj } from "../photos/pemimpin/pj.png";
-export { default as pjwalikota } from "../photos/pemimpin/pjwalikota.png";
+export { default as pj } from "../photos/pemimpin/pjwalikota.jpg";
+export { default as pjwalikota } from "../photos/pemimpin/pjwalikota.jpg";
 export { default as kaban } from "../photos/pemimpin/kaban1.png";
 export { default as sekda1 } from "../photos/pemimpin/sekda1.png";
 
