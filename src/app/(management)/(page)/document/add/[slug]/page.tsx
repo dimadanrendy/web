@@ -90,7 +90,7 @@ export default function AddDocument({ params }: { params: { slug: any } }) {
                 case "surat-keputusan":
                     DokumenTentang = "surat-keputusan";
                     break;
-                case "dokumen-lainnya":
+                case "lainnya":
                     DokumenTentang = "lainnya";
                     break;
                 default:
@@ -103,8 +103,8 @@ export default function AddDocument({ params }: { params: { slug: any } }) {
             // Append semua field ke FormData
             formData.append("nomor", data.nomor);
             formData.append("judul", data.judul);
-            formData.append("tipe_dokumen", params.slug);
-            formData.append("dokumen", DokumenTentang);
+            formData.append("tipe_dokumen", DokumenTentang);
+            formData.append("dokumen", data.dokumen);
             formData.append("singkatan", data.singkatan);
             formData.append("tahun", data.tahun);
             formData.append("bahasa", data.bahasa);
