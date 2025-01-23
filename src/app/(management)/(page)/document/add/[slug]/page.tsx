@@ -77,6 +77,25 @@ export default function AddDocument({ params }: { params: { slug: any } }) {
     const onSubmit = async (data: addDocumentSchema) => {
         setIsLoading(true);
         try {
+            let DokumenTentang = "";
+
+            // Gunakan switch-case untuk memetakan slug ke dokumen
+            switch (params.slug) {
+                case "peraturan-daerah":
+                    DokumenTentang = "perda";
+                    break;
+                case "peraturan-walikota":
+                    DokumenTentang = "perwako";
+                    break;
+                case "surat-keputusan":
+                    DokumenTentang = "surat-keputusan";
+                    break;
+                case "dokumen-lainnya":
+                    DokumenTentang = "lainnya";
+                    break;
+                default:
+                    DokumenTentang = ""; // Default jika slug tidak sesuai
+            }
 
             // Membuat instance FormData
             const formData = new FormData();
@@ -85,7 +104,7 @@ export default function AddDocument({ params }: { params: { slug: any } }) {
             formData.append("nomor", data.nomor);
             formData.append("judul", data.judul);
             formData.append("tipe_dokumen", params.slug);
-            formData.append("dokumen", data.dokumen);
+            formData.append("dokumen", DokumenTentang);
             formData.append("singkatan", data.singkatan);
             formData.append("tahun", data.tahun);
             formData.append("bahasa", data.bahasa);
