@@ -12,10 +12,12 @@ import { logout, verifyToken } from '@/features/management/auth';
 import Link from 'next/link';
 import PageLanding from '@/components/loading-ui/landing-page';
 import { getFile } from '@/features/management/file/useGetFile';
+import { saveAs } from 'file-saver';
 
 interface DataDocumentType {
     nomor?: string;
     judul?: string;
+    documentUrl?: string;
     tipe_dokumen?: string;
     bidang?: string;
     lokasi?: string;
@@ -35,7 +37,6 @@ export default function DetailDocument({ params }: { params: { slug1: String; sl
     const [error, setError] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [DataDocument, setDocument] = useState < DataDocumentType > ({});
-    const [file, setFile] = useState < string > ("");
 
     useEffect(() => {
         const checkToken = async () => {
@@ -56,8 +57,6 @@ export default function DetailDocument({ params }: { params: { slug1: String; sl
                 });
                 setError(response.message);
             } else {
-                const fileResponse = await getFile(response.data.file);
-                setFile(fileResponse);
                 setDocument(response.data);
             }
             setIsLoading(false);
@@ -184,7 +183,21 @@ export default function DetailDocument({ params }: { params: { slug1: String; sl
                     </div>
                     <div className="col-span-2">
                         <div className="h-[1000px]">
-                            <iframe src={file} width="100%" height="100%" />
+                            {DataDocument.documentUrl ? (
+                                DataDocument.fileType === "pdf" ? (
+                                    <iframe src={DataDocument.documentUrl} width="100%" height="100%" />
+                                ) : (
+                                    <Button
+                                        onClick={() => saveAs(DataDocument.documentUrl, "document-file")}
+                                        className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out"
+                                    >
+                                        Download Document
+                                    </Button>
+                                )
+                            ) : (
+                                <h1>Document not available</h1>
+                            )}
+
                         </div>
                     </div>
                 </CardContent>

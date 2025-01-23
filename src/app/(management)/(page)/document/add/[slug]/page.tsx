@@ -34,7 +34,6 @@ import { Textarea } from '@/components/ui/textarea';
 const addDocumentSchema = z.object({
     nomor: z.string().min(1, { message: 'Nomor is required' }),
     judul: z.string().min(3, { message: 'Judul is required' }),
-    tipe_dokumen: z.string().min(3, { message: 'Tipe Dokumen is required' }),
     dokumen: z.string().min(3, { message: 'Dokumen is required' }),
     singkatan: z.string().min(1, { message: 'Singkatan is required' }),
     tahun: z.string().min(3, { message: 'Tahun is required' }),
@@ -46,7 +45,15 @@ const addDocumentSchema = z.object({
     file: z
         .instanceof(File)
         .refine((file) => file.size <= 20 * 1024 * 1024, { message: 'Ukuran file maksimal adalah 20MB' })
-        .refine((file) => ["application/pdf", "application/vnd.rar"].includes(file.type), { message: 'Hanya file PDF atau RAR yang diperbolehkan' })
+        .refine(
+            (file) => {
+                const allowedExtensions = ['pdf', 'rar', 'zip'];
+                const fileExtension = file.name.split('.').pop()?.toLowerCase();
+                return fileExtension && allowedExtensions.includes(fileExtension);
+            },
+            { message: 'Hanya file PDF, RAR, atau ZIP yang diperbolehkan' }
+        )
+
     // password: z.string().min(1, { message: 'Password is required' }),
     // confirmPassword: z.string().min(1, { message: 'Confirm Password is required' }),
     // status: z.boolean(),
@@ -61,7 +68,6 @@ export default function AddDocument({ params }: { params: { slug: any } }) {
     const [title, setTitle] = useState < string > ("Dokumen");
 
     const years = [2021, 2022, 2023, 2024, 2025];
-    const tipe_dokumen = ["perwako", "perda", "surat-keputusan", "lainnya"];
     const bidang = ["-", "Sekretariat", "Perbendaharaan", "Aset", "Akuntansi", "Anggaran", "Pendaftaran", "Penagihan"]
 
     const form = useForm < addDocumentSchema > ({
@@ -69,14 +75,16 @@ export default function AddDocument({ params }: { params: { slug: any } }) {
     });
 
     const onSubmit = async (data: addDocumentSchema) => {
+        setIsLoading(true);
         try {
+
             // Membuat instance FormData
             const formData = new FormData();
 
             // Append semua field ke FormData
             formData.append("nomor", data.nomor);
             formData.append("judul", data.judul);
-            formData.append("tipe_dokumen", data.tipe_dokumen);
+            formData.append("tipe_dokumen", params.slug);
             formData.append("dokumen", data.dokumen);
             formData.append("singkatan", data.singkatan);
             formData.append("tahun", data.tahun);
@@ -93,8 +101,6 @@ export default function AddDocument({ params }: { params: { slug: any } }) {
             const response = await postDocuments(formData);
 
             if (response.status === true) {
-                setIsLoading(false);
-
                 toast.success("Document added successfully", {
                     position: "top-right",
                     description: response.message
@@ -196,38 +202,6 @@ export default function AddDocument({ params }: { params: { slug: any } }) {
                                         </FormControl>
                                         <FormDescription>
                                             Judul dokumen harap diisi
-                                        </FormDescription>
-                                        <FormMessage />
-                                    </FormItem>
-                                )}
-                            />
-
-                            <FormField
-                                control={form.control}
-                                name="tipe_dokumen"
-                                defaultValue=""
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <FormLabel>Tipe Dokumen</FormLabel>
-                                        <FormControl>
-                                            <Select
-                                                onValueChange={(value) => field.onChange(value)}
-                                                defaultValue={field.value}
-                                            >
-                                                <SelectTrigger className="w-full">
-                                                    <SelectValue placeholder="Pilih tipe dokumen" />
-                                                </SelectTrigger>
-                                                <SelectContent>
-                                                    {tipe_dokumen.map((tipe) => (
-                                                        <SelectItem key={tipe} value={String(tipe)}>
-                                                            {tipe}
-                                                        </SelectItem>
-                                                    ))}
-                                                </SelectContent>
-                                            </Select>
-                                        </FormControl>
-                                        <FormDescription>
-                                            Tipe harap diisi sesuai dokumen
                                         </FormDescription>
                                         <FormMessage />
                                     </FormItem>
