@@ -18,6 +18,7 @@ interface DataDocumentType {
     nomor?: string;
     judul?: string;
     documentUrl?: string;
+    fileType?: string;
     tipe_dokumen?: string;
     bidang?: string;
     lokasi?: string;
