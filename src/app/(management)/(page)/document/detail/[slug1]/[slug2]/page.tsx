@@ -184,12 +184,12 @@ export default function DetailDocument({ params }: { params: { slug1: String; sl
                     </div>
                     <div className="col-span-2">
                         <div className="h-[1000px]">
-                            {DataDocument.documentUrl ? (
+                            {DataDocument?.documentUrl ? (
                                 DataDocument.fileType === "pdf" ? (
-                                    <iframe src={DataDocument?.documentUrl} width="100%" height="100%" />
+                                    <iframe src={DataDocument.documentUrl} width="100%" height="100%" />
                                 ) : (
                                     <Button
-                                        onClick={() => saveAs(DataDocument?.documentUrl, "document-file")}
+                                        onClick={() => saveAs(DataDocument.documentUrl, "document-file")}
                                         className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 ease-in-out"
                                     >
                                         Download Document
