@@ -147,13 +147,14 @@ export default function DetailsPerwako({ params }: {
                     <span className="text-slate-500">{documentData?.judul}</span>
                 </div>
                 <div className="my-4 pt-2">
-                    <h1 className="font-bold">Tipe Dokumen</h1>
-                    <span className="text-slate-500">{documentData?.tipe_dokumen}</span>
+                    <h1 className="font-bold">Dokumen</h1>
+                    <span className="text-slate-500">{documentData?.dokumen}</span>
                 </div>
                 <div className="my-4 pt-2">
                     <h1 className="font-bold">Tipe Dokumen</h1>
-                    <span className="text-slate-500">{documentData?.dokumen}</span>
+                    <span className="text-slate-500">{documentData?.tipe_dokumen}</span>
                 </div>
+
                 <div className="my-4 pt-2">
                     <h1 className="font-bold">Subjek</h1>
                     <span className="text-slate-500">{documentData?.bidang}</span>
