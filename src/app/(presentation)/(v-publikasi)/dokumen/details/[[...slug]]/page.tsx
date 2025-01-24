@@ -183,7 +183,7 @@ export default function DetailsPerwako({ params }: {
                     <h1 className="font-bold">Lokasi</h1>
                     <span className="text-slate-500">{documentData?.lokasi}</span>
                 </div>
-                <div className="my-4 pt-2 space-x-3">
+                <div className="my-4 pt-2 space-x-3 flex gap-2">
                     <Button variant="outline" onClick={() => saveAs(documentData?.documentUrl, documentData?.file)} className="">Unduh</Button>
 
                     {documentData?.fileType === 'pdf' ? (
