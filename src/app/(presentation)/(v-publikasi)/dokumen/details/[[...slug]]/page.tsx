@@ -151,6 +151,10 @@ export default function DetailsPerwako({ params }: {
                     <span className="text-slate-500">{documentData?.tipe_dokumen}</span>
                 </div>
                 <div className="my-4 pt-2">
+                    <h1 className="font-bold">Tipe Dokumen</h1>
+                    <span className="text-slate-500">{documentData?.dokumen}</span>
+                </div>
+                <div className="my-4 pt-2">
                     <h1 className="font-bold">Subjek</h1>
                     <span className="text-slate-500">{documentData?.bidang}</span>
                 </div>
@@ -180,7 +184,16 @@ export default function DetailsPerwako({ params }: {
                 </div>
                 <div className="my-4 pt-2 space-x-3">
                     <Button variant="outline" onClick={() => saveAs(documentData?.documentUrl, documentData?.file)} className="">Unduh</Button>
-                    <Button variant="outline" onClick={() => handlePratinjau(documentData?.documentUrl)} className="">Pratinjau</Button>
+
+                    {documentData?.fileType === 'pdf' ? (
+                        <Button variant="outline" onClick={() => handlePratinjau(documentData?.documentUrl)} className="">
+                            Pratinjau
+                        </Button>
+                    ) : documentData?.fileType === 'rar' || documentData?.fileType === 'zip' ? (
+                        <div className="text-warning">
+                            File berbentuk {documentData?.fileType}. Silakan unduh untuk membuka.
+                        </div>
+                    ) : null}
 
                 </div>
                 <div className="my-4 pt-2">

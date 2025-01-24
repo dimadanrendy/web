@@ -16,6 +16,7 @@ import {
     CircleChevronDown,
     Files,
     Newspaper,
+    Earth,
 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import Link from 'next/link'
@@ -141,6 +142,13 @@ export default function Side() {
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
+                        <Link
+                            href="/home"
+                            className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                        >
+                            <Earth className="h-4 w-4" />
+                            Cek website
+                        </Link>
                     </nav>
                 </div>
                 <div className="mt-auto p-4">
