@@ -93,24 +93,21 @@ export default function DetailsPerwako({ params }: {
                     <div className="text-center text-gray-500">Loading dokumen...</div>
                 ) : data?.data?.length ? (
                     data.data.map((item: any) => (
-                        <Link key={item.id_documents} href={`${slug[1]}/${item.id_documents}`}>
-                            <div className="flex flex-col gap-4 pb-4 hover:scale-105">
-                                <div className="w-full h-24 bg-primary rounded-lg">
-                                    <div className="grid grid-cols-6 gap-1 items-center text-slate-100">
-                                        <div className="col-start-1 col-end-7 p-2">
-                                            <div>
-                                                <div className="space-y-1">
-                                                    <h4 className="text-sm font-medium leading-none">
-                                                        {item.judul}
-                                                    </h4>
-                                                    <p className="text-sm text-muted-foreground">
-                                                        Nomor: {item.nomor}
-                                                    </p>
-                                                </div>
-                                                <Separator className="my-4" />
-                                                <div className="flex h-2 items-center space-x-4 text-sm">
-                                                    <Calendar className="mr-2 h-4 w-4" /> {formatDate(item.createdAt)}
-                                                </div>
+                        <Link
+                            key={item.id_documents}
+                            href={`${slug[1]}/${item.id_documents}`}
+                        >
+                            <div className="flex flex-col gap-2 pb-2 transition-transform hover:scale-105">
+                                <div className="w-full h-20 bg-primary rounded-lg shadow-md">
+                                    <div className="grid grid-cols-6 items-center text-slate-100 h-full p-2">
+                                        <div className="col-span-full">
+                                            <h4 className="text-xs font-semibold truncate">
+                                                {item.judul}
+                                            </h4>
+                                            <hr className="my-2 border-slate-300/50" />
+                                            <div className="flex items-center space-x-2 text-xs">
+                                                <Calendar className="h-3 w-3" />
+                                                <span>{formatDate(item.createdAt)}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -183,7 +180,7 @@ export default function DetailsPerwako({ params }: {
                     <h1 className="font-bold">Lokasi</h1>
                     <span className="text-slate-500">{documentData?.lokasi}</span>
                 </div>
-                <div className="my-4 pt-2 space-x-3 flex gap-2">
+                <div className="my-4 pt-2 space-x-3 flex gap-2 items-center">
                     <Button variant="outline" onClick={() => saveAs(documentData?.documentUrl, documentData?.file)} className="">Unduh</Button>
 
                     {documentData?.fileType === 'pdf' ? (
