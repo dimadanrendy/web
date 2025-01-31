@@ -65,6 +65,7 @@ export default function LoginForm() {
                 setError(response);
             }
         } catch (err) {
+            console.log(err);
             setError("Login failed. Please check your credentials.");
 
         } finally {
