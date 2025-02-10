@@ -135,6 +135,7 @@ export default function LoginForm() {
                 }
             }
         } catch (error) {
+            console.log(error);
             setError("NOP tidak ditemukan atau SPPT belum cetak masal");
         } finally {
             setIsLoading(false);
