@@ -250,16 +250,16 @@ export default function PageHeader() {
               <NavigationMenuContent>
                 <ul className="grid gap-3 p-6 md:w-[800px] lg:w-[900px] md:grid-cols-3 ">
                   <ListItem
-                    href="/sejarah-bakeuda-pangkalpinang"
+                    href={"https://cekpbb.pangkalpinangkota.go.id"}
                     title="Cek PBB">
                     Yuk Cek PBB kalian di Kota Pangkal Pinang secara Online
                   </ListItem>
                   <ListItem
-                    href="/tugas-fungsi-bakeuda-pangkalpinang"
+                    href="/sppt"
                     title="Cek SPPT">
                     Yuk Cek SPPT kalian di Kota Pangkal Pinang secara Online
                   </ListItem>
-                  <ListItem href="/visi-dan-misi" title="Pajak Online">
+                  <ListItem href={"https://pajakonline.pangkalpinangkota.go.id"} title="Pajak Online">
                     Realisasi Pajak Daerah Kota Pangkal Pinang
                   </ListItem>
                   <ListItem
