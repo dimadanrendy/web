@@ -12,6 +12,7 @@ import { Skeleton } from "@/components/ui/skleton";
 import PageCarouselSekilasInfo from "@/components/components-hero-ui/carouselSekilasInfo";
 import PageCarouselSeputarInformasiOne from "@/components/components-hero-ui/carouselSeputarInformasiOne";
 import PageCarouselSeputarInformasiTwo from "@/components/components-hero-ui/carouselSeputarInformasiTwo";
+import FormPengaduan from "@/components/components-ui/form-pengaduan";
 
 
 type Berita = {
@@ -600,6 +601,8 @@ export default function HomePage() {
           <div className="h-15 bg-rose-500 aspect-video lg:max-w-[300px] rounded-md"></div>
         </div>
       </section>
+
+      <FormPengaduan />
 
     </>
   );

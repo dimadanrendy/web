@@ -267,6 +267,11 @@ export default function PageHeader() {
                     title="Loket Pelayanan Pajak Daerah">
                     Yuk Cari Tau Tentang Pelayanan Pajak Daerah
                   </ListItem>
+                  <ListItem
+                    href="/form-pengaduan"
+                    title="Layanan Pengaduan">
+                    Form Pelaporan Pengaduan
+                  </ListItem>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -405,6 +410,11 @@ export default function PageHeader() {
                   <DropdownMenuItem>
                     <a href="/informasi-pelayanan" className="py-4">
                       Yuk Cari Tau Tentang Pelayanan Pajak Daerah
+                    </a>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <a href="/form-pengaduan" className="py-4">
+                      Form Laporan Pengaduan
                     </a>
                   </DropdownMenuItem>
 

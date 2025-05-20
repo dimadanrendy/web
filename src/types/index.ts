@@ -89,6 +89,22 @@ export interface Person {
   updatedAt: string;
 }
 
+export interface Pengaduan {
+  id_pengaduan: string;
+  email: string;
+  lingkupPengaduan: string;
+  areapengaduan: string;
+  namaterlapor: string;
+  lokasikejadian: string;
+  tanggalkejadian: string;
+  waktukejadian: string;
+  uraianpengaduan: string;
+  lampiran: any;
+  pernyataan: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface IDocuments {
   id_documents: string;
   nomor: String;

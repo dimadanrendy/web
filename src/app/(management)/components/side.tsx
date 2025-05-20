@@ -142,8 +142,18 @@ export default function Side() {
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
+                        {user?.role === "admin" || user?.role === "superadmin" && (
+                            <Link
+                                href="/management-pengaduan"
+                                className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+                            >
+                                <Users className="h-4 w-4" />
+                                Admin Pengaduan
+                            </Link>
+                        )}
                         <Link
                             href="/home"
+                            target="_blank"
                             className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
                         >
                             <Earth className="h-4 w-4" />
