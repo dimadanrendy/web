@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useRef, useState } from "react";
-import Captcha from "./caphca"; // pastikan ini valid
+import Captcha, { CaptchaRef } from "./caphca"; // pastikan ini valid
 import { toast } from "sonner";
 import { postPengaduan, statusPengaduan } from "@/features/presentesion/pengaduan/useManagementPengaduan";
 
